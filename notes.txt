@@ -1,0 +1,35 @@
+npm install --save :
+- redux react-redux
+- react-navigation
+- react-navigation-stack 
+- react-navigation-tabs 
+- react-navigation-drawer
+- react-navigation-header-buttons
+- @react-native-community/masked-view
+- react-native-safe-area-context
+- react-native-screens
+- redux-thunk
+- expo-font
+
+expo install :
+- react-native-gesture-handler 
+- react-native-reanimated
+
+stack :
+- So pages and screens are basically managed on a stack of pages.
+- And whenever you go to a new screen it will be pushed on top of that stack at the topmost screen on a stack is always the screen which is visible.
+- And when you then click the back button is popped off this screen you were on is popped off.
+- And since you always see on the app the topmost screen you will see the screen below that which is thescreen you came from.
+
+navigation syntaxes :
+props.navigation.navigate({routeName: 'SomeIdentifier'});
+props.navigation.navigate('SomeIdentifier');
+
+push, pop, replace :
+
+why push ?
+- let's say you're building an app like Dropbox where you have folders between which your users can navigate
+- if you're in a folder, you want to go to another folder.
+- Now each folder is the same folder screen technically, just with different content loaded into it. 
+- In such a case, you might want to go from folder A to B which uses the same component, the same screen in the end but with different content
+- you could use push to still be able to push that new screen which is the same screen onto the stack and load the same screen with different content.
