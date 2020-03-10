@@ -6,6 +6,9 @@ import {PASSWORDFOLDER} from '../dummy_data/dummy.js';
 //components import
 import CategoryGridTile from '../components/CategoryGridTile.js';
 
+//constants import 
+import Colors from '../constants/Colors.js';
+
 const VaultScreen = props =>
 {
 
@@ -16,7 +19,7 @@ const VaultScreen = props =>
       <CategoryGridTile 
         title = {itemData.item.title}
         onSelect={() => (props.navigation.navigate('UserPassword'))}
-        color = {"#4a148c"}
+        color = {Colors.accent}
       />
 
     );
@@ -35,6 +38,18 @@ const VaultScreen = props =>
   );
 
 };
+
+VaultScreen.navigationOptions = {
+
+  headerTitle : "Vault",
+  
+  headerStyle :
+  {
+    backgroundColor : Colors.primary
+  },
+
+  headerTintColor : Colors.accent
+}
 
 const styles = StyleSheet.create({
 
