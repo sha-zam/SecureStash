@@ -12,7 +12,7 @@ import HeaderButton from '../components/HeaderButton.js';
 //constants import 
 import Colors from '../constants/Colors.js';
 
-const VaultScreen = props =>
+const BankAccScreen = props =>
 {
 
   const renderGridItem = (itemData) =>
@@ -52,17 +52,18 @@ const VaultScreen = props =>
 
 };
 
-VaultScreen.navigationOptions = navData => {
-  return {
-    headerTitle : "Password",
-    headerLeft : () =>
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-            <Item title='menu' iconName='ios-menu' onPress={() => {
-                navData.navigation.toggleDrawer();
-            }}
-        />
-        </HeaderButtons>
-  }
+BankAccScreen.navigationOptions = navData => {
+
+    return {
+        headerTitle : "Bank Accounts",
+        headerLeft : () =>
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                <Item title='menu' iconName='ios-menu' onPress={() => {
+                    navData.navigation.toggleDrawer();
+                }}
+            />
+            </HeaderButtons>
+    }
   
 }
 
@@ -77,4 +78,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default VaultScreen;
+export default BankAccScreen;

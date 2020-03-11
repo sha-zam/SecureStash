@@ -3,18 +3,23 @@ npm install --save :
 - react-navigation
 - react-navigation-stack 
 - react-navigation-tabs 
+- react-navigation-material-bottom-tabs 
 - react-navigation-drawer
 - react-navigation-header-buttons
+- react-native-paper
 - @react-native-community/masked-view
 - react-native-safe-area-context
 - react-native-screens
 - redux-thunk
 - expo-font
 - expo-linear-gradient
+- @expo/vector-icons
 
 expo install :
 - react-native-gesture-handler 
 - react-native-reanimated
+
+always remember to import React when using jsx!!
 
 navigation :
     stack :
@@ -24,7 +29,7 @@ navigation :
     - And since you always see on the app the topmost screen you will see the screen below that which is thescreen you came from.
 
     navigation syntaxes :
-        props.navigation.navigate({routeName: 'SomeIdentifier'});
+        props.navigation.navigate({routeName: 'SomeIdentifier', params : {key:value}});
         props.navigation.navigate('SomeIdentifier');
 
     push, pop, replace :
@@ -35,3 +40,5 @@ navigation :
     - Now each folder is the same folder screen technically, just with different content loaded into it. 
     - In such a case, you might want to go from folder A to B which uses the same component, the same screen in the end but with different content
     - you could use push to still be able to push that new screen which is the same screen onto the stack and load the same screen with different content.
+
+    - navigationOptions in the config (2nd argument) of a navigator only matter if that navigator is used inside of another navigator.

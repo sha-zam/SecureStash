@@ -12,7 +12,7 @@ import HeaderButton from '../components/HeaderButton.js';
 //constants import 
 import Colors from '../constants/Colors.js';
 
-const VaultScreen = props =>
+const CreditCardScreen = props =>
 {
 
   const renderGridItem = (itemData) =>
@@ -52,18 +52,19 @@ const VaultScreen = props =>
 
 };
 
-VaultScreen.navigationOptions = navData => {
-  return {
-    headerTitle : "Password",
-    headerLeft : () =>
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-            <Item title='menu' iconName='ios-menu' onPress={() => {
-                navData.navigation.toggleDrawer();
-            }}
-        />
-        </HeaderButtons>
-  }
-  
+CreditCardScreen.navigationOptions = navData => {
+
+    return {
+        headerTitle : "Payment Cards",
+        headerLeft : () =>
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                <Item title='menu' iconName='ios-menu' onPress={() => {
+                    navData.navigation.toggleDrawer();
+                }}
+            />
+            </HeaderButtons>
+    }
+
 }
 
 const styles = StyleSheet.create({
@@ -77,4 +78,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default VaultScreen;
+export default CreditCardScreen;

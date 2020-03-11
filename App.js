@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+//unlock some optimize screens for both iOS and Android
+import { enableScreens } from 'react-native-screens';
+
 //load font
 import * as Font from 'expo-font';
 
@@ -9,7 +12,9 @@ import * as Font from 'expo-font';
 import {AppLoading} from 'expo';
 
 //navigator import
-import MainNavigator from './navigation/MainNavigator.js';
+import VaultNavigator from './navigation/VaultNavigator.js';
+
+enableScreens();
 
 const fetchFonts = () =>
 {
@@ -35,14 +40,9 @@ export default function App() {
   }
 
   return (
-    <MainNavigator/>
+    <VaultNavigator/>
   );
 
-  // return (
-  //   <View style={styles.container}>
-  //       <Text>a</Text>
-  //   </View>
-  // );
 }
 
 const styles = StyleSheet.create({
