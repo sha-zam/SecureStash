@@ -166,7 +166,9 @@ const TabNavigator = Platform.OS  === 'android' ?
     
 createMaterialBottomTabNavigator( tabScreenConfig,
 {
-    activeColor : Colors.primary,
+    activeColor : Colors.accent,
+    inactiveColor: Colors.accent,
+    barStyle : {backgroundColor: Colors.primary},
     shifting : true
 }) 
 
@@ -193,7 +195,7 @@ const FavStackNavigator = createStackNavigator({
 
 const allDrawerOptions = {
     Vault : 
-    {
+    { 
         screen : TabNavigator, 
         navigationOptions: () => 
         ({
