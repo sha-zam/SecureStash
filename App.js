@@ -1,4 +1,9 @@
 import React, {useState} from 'react';
+
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+
 import { StyleSheet, Text, View } from 'react-native';
 
 //unlock some optimize screens for both iOS and Android
@@ -16,6 +21,16 @@ import VaultNavigator from './navigation/VaultNavigator.js';
 
 enableScreens();
 
+//reducers
+import authReducer from './store/reducers/auth.js';
+
+const rootReducer = combineReducers({
+  auth : authReducer
+});
+
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
+
+//fonts
 const fetchFonts = () =>
 {
   return Font.loadAsync({
@@ -40,16 +55,9 @@ export default function App() {
   }
 
   return (
-    <VaultNavigator/>
+    <Provider store={store}>
+      <VaultNavigator/>
+    </Provider>
   );
 
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center', 
-  },
-});

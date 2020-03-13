@@ -1,10 +1,12 @@
 import React from 'react';
 import { Platform } from 'react-native';
 
+//navigator imports
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import { Ionicons, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
@@ -17,6 +19,7 @@ import NotesScreen from '../screens/NotesScreen.js';
 import UserPasswordScreen from '../screens/UserPasswordScreen.js';
 import FavoritesScreen from '../screens/FavoritesScreen.js';
 import SettingsScreen from '../screens/SettingsScreen.js';
+import AuthScreen from '../screens/AuthScreen.js';
 
 //components import 
 import HeaderButton from '../components/HeaderButton.js';
@@ -99,6 +102,69 @@ const SettingsNavigator = createStackNavigator({
 //tabInfo -> tabBarOptions
 //materialbottomtab is for android only
 
+const PasswordtabScreenConfig = 
+{
+    Vault : 
+    {
+        screen : VaultNavigator,
+        navigationOptions : 
+        {
+            title : "Passwords",
+            tabBarIcon : (tabInfo) => {
+                return <MaterialCommunityIcons name='textbox-password' size={25} color={tabInfo.tintColor}/>;
+            }
+        }
+    },
+
+    // PaymentCards : 
+    // {
+    //     screen : CreditCardNavigator,
+    //     navigationOptions : 
+    //     {
+    //         title : 'Payment Cards',
+    //         tabBarIcon : (tabInfo) => {
+    //             return <MaterialCommunityIcons name='credit-card' size={25} color={tabInfo.tintColor}/>;
+    //         }
+    //     }
+    // },
+
+    // BankAcc : 
+    // {
+    //     screen : BankAccNavigator,
+    //     navigationOptions : 
+    //     {
+    //         title : 'Bank Accounts',
+    //         tabBarIcon : (tabInfo) => {
+    //             return <MaterialCommunityIcons name='bank' size={25} color={tabInfo.tintColor}/>;
+    //         }
+    //     }
+    // },
+
+    
+    // Notes : 
+    // {
+    //     screen : NotesNavigator,
+    //     navigationOptions : 
+    //     {
+    //         title : 'Secure Notes',
+    //         tabBarIcon : (tabInfo) => {
+    //             return <SimpleLineIcons name='note' size={25} color={tabInfo.tintColor}/>;
+    //         }
+    //     }
+    // },
+
+    Settings : 
+    {
+        screen : SettingsScreen,
+        navigationOptions : 
+        {
+            tabBarIcon : (tabInfo) => {
+                return <Ionicons name='ios-settings' size={25} color={tabInfo.tintColor}/>;
+            }
+        }
+    }
+};
+
 const tabScreenConfig = 
 {
     Vault : 
@@ -169,7 +235,8 @@ createMaterialBottomTabNavigator( tabScreenConfig,
     activeColor : Colors.accent,
     inactiveColor: Colors.accent,
     barStyle : {backgroundColor: Colors.primary},
-    shifting : true
+    shifting : true,
+    backBehavior : 'history'
 }) 
 
 :
@@ -179,7 +246,8 @@ createBottomTabNavigator( tabScreenConfig,
     tabBarOptions :
     {
         activeTintColor : Colors.primary,
-    }
+    },
+    backBehavior : 'history',
 });
 
 
@@ -214,7 +282,7 @@ const allDrawerOptions = {
 
     // PaymentCards : 
     // {
-    //     screen : TabNavigator, 
+    //     screen : CreditCardNavigator, 
     //     navigationOptions: () => 
     //     ({
     //         title: 'Payment Cards'
@@ -240,7 +308,7 @@ const allDrawerOptions = {
     // }, 
 };
 
-const MainNavigator = createDrawerNavigator(allDrawerOptions,{
+const DrawerNavigator = createDrawerNavigator(allDrawerOptions,{
 
     
     initialRouteName: 'Vault'
@@ -249,6 +317,18 @@ const MainNavigator = createDrawerNavigator(allDrawerOptions,{
     // BankAcc : BankAccNavigator,
     // SecureNotes : NotesNavigator
 
+});
+
+const AuthNavigator = createStackNavigator({
+    Auth : AuthScreen
+},
+{
+    defaultNavigationOptions : defaultStackNavOpt
+});
+
+const MainNavigator = createSwitchNavigator({
+    Auth : AuthNavigator,
+    Drawer : DrawerNavigator
 });
 
 export default createAppContainer(MainNavigator);
