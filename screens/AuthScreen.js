@@ -18,61 +18,86 @@ import * as authActions from '../store/actions/auth';
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 
-const formReducer = (state, action) => {
-  if (action.type === FORM_INPUT_UPDATE) {
+const formReducer = (state, action) => 
+{
+
+  if (action.type === FORM_INPUT_UPDATE) 
+  {
     const updatedValues = {
       ...state.inputValues,
       [action.input]: action.value
-    };
+    }; 
+
     const updatedValidities = {
       ...state.inputValidities,
       [action.input]: action.isValid
     };
+
     let updatedFormIsValid = true;
-    for (const key in updatedValidities) {
+
+    for (const key in updatedValidities) 
+    {
       updatedFormIsValid = updatedFormIsValid && updatedValidities[key];
     }
+
     return {
       formIsValid: updatedFormIsValid,
       inputValidities: updatedValidities,
       inputValues: updatedValues
     };
+
   }
+
   return state;
+
 };
 
 const AuthScreen = props => {
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
   const [isSignup, setIsSignup] = useState(false);
   const dispatch = useDispatch();
 
   const [formState, dispatchFormState] = useReducer(formReducer, {
-    inputValues: {
+    inputValues: 
+    {
       email: '',
       password: ''
     },
-    inputValidities: {
+
+    inputValidities: 
+    {
       email: false,
       password: false
     },
+
     formIsValid: false
+
   });
 
   useEffect(() => {
-    if (error) {
+
+    if (error) 
+    {
       Alert.alert('An Error Occurred!', error, [{ text: 'Okay' }]);
     }
+
   }, [error]);
 
   const authHandler = async () => {
+
     let action;
-    if (isSignup) {
+
+    if (isSignup) 
+    {
       action = authActions.signup(
         formState.inputValues.email,
         formState.inputValues.password
       );
-    } else {
+    } 
+    else 
+    {
       action = authActions.login(
         formState.inputValues.email,
         formState.inputValues.password
@@ -104,6 +129,7 @@ const AuthScreen = props => {
   };
 
   const inputChangeHandler = useCallback(
+
     (inputIdentifier, inputValue, inputValidity) => {
       dispatchFormState({
         type: FORM_INPUT_UPDATE,
@@ -116,12 +142,13 @@ const AuthScreen = props => {
   );
 
   return (
+
     <KeyboardAvoidingView
       behavior="padding"
       keyboardVerticalOffset={50}
       style={styles.screen}
     >
-      <LinearGradient colors={['#ffedff', '#ffe3ff']} style={styles.gradient}>
+      <LinearGradient colors={[Colors.primary, Colors.accent]} style={styles.gradient}>
         <Card style={styles.authContainer}>
           <ScrollView>
             <Input
@@ -160,8 +187,8 @@ const AuthScreen = props => {
             </View>
             <View style={styles.buttonContainer}>
               <Button
-                title={`Switch to ${isSignup ? 'Login' : 'Sign Up'}`}
-                color={Colors.accent}
+                title= {isSignup ? 'Login' : 'Sign Up'}
+                color={Colors.primary}
                 onPress={() => {
                   setIsSignup(prevState => !prevState);
                 }}
@@ -171,11 +198,12 @@ const AuthScreen = props => {
         </Card>
       </LinearGradient>
     </KeyboardAvoidingView>
+
   );
 };
 
 AuthScreen.navigationOptions = {
-  headerTitle: 'Authenticate'
+  headerTitle: 'SecureStash'
 };
 
 const styles = StyleSheet.create({
