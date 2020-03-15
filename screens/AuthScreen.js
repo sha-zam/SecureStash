@@ -113,7 +113,7 @@ const AuthScreen = props => {
 
     //   if(isSignup)
     //   {
-        props.navigation.navigate('Drawer');
+        props.navigation.navigate('Tab');
     //   }
     //   else
     //   {
@@ -168,7 +168,7 @@ const AuthScreen = props => {
               keyboardType="default"
               secureTextEntry
               required
-              minLength={5}
+              minLength={8}
               autoCapitalize="none"
               errorText="Please enter a valid password."
               onInputChange={inputChangeHandler}

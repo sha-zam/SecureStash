@@ -22,14 +22,19 @@ const CreditCardScreen = props =>
       <CategoryGridTile 
         title = {itemData.item.title}
 
-        onSelect={() => {
+        onSelect = {() => 
+        {
+
           props.navigation.navigate({
+
             routeName : 'UserPassword', 
             params : 
             {
               folderID : itemData.item.id
             }
+            
           });
+
         }}
 
         color = {Colors.accent}
@@ -69,12 +74,6 @@ CreditCardScreen.navigationOptions = navData => {
 
 const styles = StyleSheet.create({
 
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 
 });
 

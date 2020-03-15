@@ -4,6 +4,7 @@ import { StyleSheet, FlatList, Text, View } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import {PASSWORDFOLDER} from '../dummy_data/dummy.js';
+import { OPTIONS } from '../dummy_data/options_data.js';
 
 //components import
 import CategoryGridTile from '../components/CategoryGridTile.js';
@@ -21,6 +22,7 @@ const VaultScreen = props =>
 
       <CategoryGridTile 
         title = {itemData.item.title}
+        icon = {itemData.item.icon}
 
         onSelect={() => {
           props.navigation.navigate({
@@ -43,7 +45,7 @@ const VaultScreen = props =>
 
     <FlatList
       numColumns={2}
-      data={PASSWORDFOLDER}
+      data={OPTIONS}
       renderItem={renderGridItem}
       keyExtractor={(item, index) => item.id}
     />
@@ -53,15 +55,16 @@ const VaultScreen = props =>
 };
 
 VaultScreen.navigationOptions = navData => {
+
   return {
-    headerTitle : "Password",
-    headerLeft : () =>
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-            <Item title='menu' iconName='ios-menu' onPress={() => {
-                navData.navigation.toggleDrawer();
-            }}
-        />
-        </HeaderButtons>
+    headerTitle : "Vault",
+    // headerLeft : () =>
+    //     <HeaderButtons HeaderButtonComponent={HeaderButton}>
+    //         <Item title='menu' iconName='ios-menu' onPress={() => {
+    //             navData.navigation.toggleDrawer();
+    //         }}
+    //     />
+    //     </HeaderButtons>
   }
   
 }

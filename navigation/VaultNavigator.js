@@ -98,20 +98,17 @@ const SettingsNavigator = createStackNavigator({
     defaultNavigationOptions : defaultStackNavOpt
 });
 
-//Favorites navigator
-//tabInfo -> tabBarOptions
-//materialbottomtab is for android only
-
-const PasswordtabScreenConfig = 
+//bottom tab 
+const tabScreenConfig = 
 {
     Vault : 
     {
         screen : VaultNavigator,
         navigationOptions : 
         {
-            title : "Passwords",
+            title : "Vault",
             tabBarIcon : (tabInfo) => {
-                return <MaterialCommunityIcons name='textbox-password' size={25} color={tabInfo.tintColor}/>;
+                return <MaterialCommunityIcons name='safe' size={25} color={tabInfo.tintColor}/>;
             }
         }
     },
@@ -165,69 +162,6 @@ const PasswordtabScreenConfig =
     }
 };
 
-const tabScreenConfig = 
-{
-    Vault : 
-    {
-        screen : VaultNavigator,
-        navigationOptions : 
-        {
-            title : "Passwords",
-            tabBarIcon : (tabInfo) => {
-                return <MaterialCommunityIcons name='textbox-password' size={25} color={tabInfo.tintColor}/>;
-            }
-        }
-    },
-
-    PaymentCards : 
-    {
-        screen : CreditCardNavigator,
-        navigationOptions : 
-        {
-            title : 'Payment Cards',
-            tabBarIcon : (tabInfo) => {
-                return <MaterialCommunityIcons name='credit-card' size={25} color={tabInfo.tintColor}/>;
-            }
-        }
-    },
-
-    BankAcc : 
-    {
-        screen : BankAccNavigator,
-        navigationOptions : 
-        {
-            title : 'Bank Accounts',
-            tabBarIcon : (tabInfo) => {
-                return <MaterialCommunityIcons name='bank' size={25} color={tabInfo.tintColor}/>;
-            }
-        }
-    },
-
-    
-    Notes : 
-    {
-        screen : NotesNavigator,
-        navigationOptions : 
-        {
-            title : 'Secure Notes',
-            tabBarIcon : (tabInfo) => {
-                return <SimpleLineIcons name='note' size={25} color={tabInfo.tintColor}/>;
-            }
-        }
-    },
-
-    // Settings : 
-    // {
-    //     screen : SettingsScreen,
-    //     navigationOptions : 
-    //     {
-    //         tabBarIcon : (tabInfo) => {
-    //             return <Ionicons name='ios-settings' size={25} color={tabInfo.tintColor}/>;
-    //         }
-    //     }
-    // }
-};
-
 const TabNavigator = Platform.OS  === 'android' ? 
     
 createMaterialBottomTabNavigator( tabScreenConfig,
@@ -250,6 +184,9 @@ createBottomTabNavigator( tabScreenConfig,
     backBehavior : 'history',
 });
 
+//Favorites navigator
+//tabInfo -> tabBarOptions
+//materialbottomtab is for android only
 
 //stack navigator for favorites tab
 const FavStackNavigator = createStackNavigator({
@@ -261,63 +198,63 @@ const FavStackNavigator = createStackNavigator({
     defaultNavigationOptions : defaultStackNavOpt
 });
 
-const allDrawerOptions = {
-    Vault : 
-    { 
-        screen : TabNavigator, 
-        navigationOptions: () => 
-        ({
-            title: 'Vault'
-        })
-    }, 
+// const allDrawerOptions = {
+//     Vault : 
+//     { 
+//         screen : TabNavigator, 
+//         navigationOptions: () => 
+//         ({
+//             title: 'Vault'
+//         })
+//     }, 
 
-    Settings : 
-    {
-        screen : SettingsNavigator, 
-        navigationOptions: () => 
-        ({
-            title: 'Settings'
-        })
-    }, 
+//     Settings : 
+//     {
+//         screen : SettingsNavigator, 
+//         navigationOptions: () => 
+//         ({
+//             title: 'Settings'
+//         })
+//     }, 
 
-    // PaymentCards : 
-    // {
-    //     screen : CreditCardNavigator, 
-    //     navigationOptions: () => 
-    //     ({
-    //         title: 'Payment Cards'
-    //     })
-    // }, 
+//     // PaymentCards : 
+//     // {
+//     //     screen : CreditCardNavigator, 
+//     //     navigationOptions: () => 
+//     //     ({
+//     //         title: 'Payment Cards'
+//     //     })
+//     // }, 
 
-    // BankAcc : 
-    // {
-    //     screen : BankAccNavigator, 
-    //     navigationOptions: () => 
-    //     ({
-    //         title: 'Bank Accounts'
-    //     })
-    // }, 
+//     // BankAcc : 
+//     // {
+//     //     screen : BankAccNavigator, 
+//     //     navigationOptions: () => 
+//     //     ({
+//     //         title: 'Bank Accounts'
+//     //     })
+//     // }, 
 
-    // SecureNotes : 
-    // {
-    //     screen : NotesNavigator, 
-    //     navigationOptions: () => 
-    //     ({
-    //         title: 'Secure Notes'
-    //     })
-    // }, 
-};
+//     // SecureNotes : 
+//     // {
+//     //     screen : NotesNavigator, 
+//     //     navigationOptions: () => 
+//     //     ({
+//     //         title: 'Secure Notes'
+//     //     })
+//     // }, 
+// };
 
-const DrawerNavigator = createDrawerNavigator(allDrawerOptions,{
+// const DrawerNavigator = createDrawerNavigator(allDrawerOptions,{
 
     
-    initialRouteName: 'Vault'
-    // Passwords : FavTabNavigator,
-    // PaymentCards : CreditCardNavigator,
-    // BankAcc : BankAccNavigator,
-    // SecureNotes : NotesNavigator
+//     initialRouteName: 'Vault'
+//     // Passwords : FavTabNavigator,
+//     // PaymentCards : CreditCardNavigator,
+//     // BankAcc : BankAccNavigator,
+//     // SecureNotes : NotesNavigator
 
-});
+// });
 
 const AuthNavigator = createStackNavigator({
     Auth : AuthScreen
@@ -328,7 +265,7 @@ const AuthNavigator = createStackNavigator({
 
 const MainNavigator = createSwitchNavigator({
     Auth : AuthNavigator,
-    Drawer : DrawerNavigator
+    Tab : TabNavigator
 });
 
 export default createAppContainer(MainNavigator);

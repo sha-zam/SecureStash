@@ -1,6 +1,8 @@
 import React from 'react';
 import {TouchableOpacity, StyleSheet, View, Text, Platform, TouchableNativeFeedback} from 'react-native';
 
+import { Ionicons, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons';
+
 const CategoryGridTile = props => 
 {
     let TouchableCmp = TouchableOpacity;
@@ -17,6 +19,7 @@ const CategoryGridTile = props =>
                 onPress={props.onSelect}
             >
                 <View style={{...styles.container, ...{backgroundColor : props.color}}}>
+                    <MaterialCommunityIcons name={props.icon} size={50} color='black'/>
                     <Text style={styles.title} numberOfLines={2}>{props.title}</Text>
                 </View>
             </TouchableCmp>
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
     title : 
     {
         fontFamily : 'open-sans-bold',
-        fontSize : 20,
+        fontSize : 16,
         textAlign : 'right',
     }
 

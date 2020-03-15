@@ -1,9 +1,4 @@
 import React, {useState} from 'react';
-
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import ReduxThunk from 'redux-thunk';
-
 import { StyleSheet, Text, View } from 'react-native';
 
 //unlock some optimize screens for both iOS and Android
@@ -16,13 +11,19 @@ import * as Font from 'expo-font';
 //until fonts are loaded 
 import {AppLoading} from 'expo';
 
+//state management
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+
 //navigator import
 import VaultNavigator from './navigation/VaultNavigator.js';
 
-enableScreens();
-
 //reducers
 import authReducer from './store/reducers/auth.js';
+import accountReducer from './store/reducers/account.js';
+
+enableScreens();
 
 const rootReducer = combineReducers({
   auth : authReducer
