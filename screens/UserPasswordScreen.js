@@ -39,10 +39,10 @@ UserPasswordScreen.navigationOptions = navigationData => {
   //headerTitle
   return {
 
-    headerTitle : selectedFolder.title,
+    headerTitle : 'Passwords',
     headerRight : () =>
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item title='favorite' iconName='ios-star' onPress={() => {}}/>
+        <Item title='add' iconName='ios-add' onPress={() => {}}/>
       </HeaderButtons>
 
   };

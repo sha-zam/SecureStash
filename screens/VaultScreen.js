@@ -25,13 +25,36 @@ const VaultScreen = props =>
         icon = {itemData.item.icon}
 
         onSelect={() => {
+          
+          let route;
+
+          if(itemData.item.title === 'Passwords')
+          {
+            route = 'UserPassword';
+          }
+          else if (itemData.item.title === 'Payment Cards')
+          {
+            route = 'PaymentCards';
+          }
+          else if (itemData.item.title === 'Bank Accounts')
+          {
+            route = 'BankAcc';
+          }
+          else 
+          {
+            route = 'SecureNotes';
+          }
+
           props.navigation.navigate({
-            routeName : 'UserPassword', 
+
+            
+            routeName : route, 
             params : 
             {
               folderID : itemData.item.id
             }
           });
+          
         }}
 
         color = {Colors.accent}

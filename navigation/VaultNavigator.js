@@ -53,7 +53,19 @@ const VaultNavigator = createStackNavigator({
     //long way -> can set up additional config, e.g. defalt options etc.
     UserPassword : {
         screen : UserPasswordScreen
-    }
+    },
+
+    PaymentCards : {
+        screen : CreditCardScreen
+    },
+
+    BankAcc : {
+        screen : BankAccScreen
+    },
+
+    SecureNotes : {
+        screen : NotesScreen
+    },
 
 },
 {
