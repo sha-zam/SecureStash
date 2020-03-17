@@ -26,7 +26,8 @@ import accountReducer from './store/reducers/account.js';
 enableScreens();
 
 const rootReducer = combineReducers({
-  auth : authReducer
+  auth : authReducer,
+  storedAccounts : accountReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));

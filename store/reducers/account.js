@@ -1,26 +1,36 @@
-import { CREATE_ACCOUNT, DELETE_ACCOUNT, UPDATE_ACCOUNT} from '../actions/account.js';
+import { 
+    CREATE_ACCOUNT, 
+    DELETE_ACCOUNT, 
+    UPDATE_ACCOUNT,
+    SET_ACCOUNT
+} from '../actions/account.js';
 
 //models import
 import Account from '../../models/account.js';
 
 const initialState = {
-
     userAccounts : []
-
 };
 
 export default (state = initialState, action) => {
 
     switch(action.type)
     {
+        //fetch accounts 
+        case SET_ACCOUNT :
+            return {
+                userAccounts : action.userAccounts
+            }
+
+        //create accounts
         case CREATE_ACCOUNT :
             const newAccount = new Account(
-                new Date().toString(), 
-                'u1', 
-                action.productData.title, 
-                action.productData.URL, 
-                action.productData.username, 
-                action.productData.password
+                action.accountData.id, 
+                action.accountData.userID, 
+                action.accountData.title, 
+                action.accountData.URL, 
+                action.accountData.username, 
+                action.accountData.password
             );
 
             return {
@@ -32,8 +42,10 @@ export default (state = initialState, action) => {
                 userAccounts : state.userAccounts.concat(newAccount)
             };
 
+        //delete accounts
         case DELETE_ACCOUNT :
-
+        
+        //update accounts
         case UPDATE_ACCOUNT :
     }
 

@@ -42,3 +42,7 @@ navigation :
     - you could use push to still be able to push that new screen which is the same screen onto the stack and load the same screen with different content.
 
     - navigationOptions in the config (2nd argument) of a navigator only matter if that navigator is used inside of another navigator.
+
+Redux :
+    - useSelector ->    takes a function which automatically receives the state, the Redux state as an input 
+                        then returns whatever data you want to get from there

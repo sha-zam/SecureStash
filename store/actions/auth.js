@@ -52,7 +52,7 @@ export const login = (email, password) => {
     );
 
     if (!response.ok) {
-      const errorResData = await response.json();
+      const errorResData = await response;
       const errorId = errorResData.error.message;
       let message = 'Something went wrong!';
       if (errorId === 'EMAIL_NOT_FOUND') {

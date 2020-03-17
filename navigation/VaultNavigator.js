@@ -20,6 +20,7 @@ import UserPasswordScreen from '../screens/UserPasswordScreen.js';
 import FavoritesScreen from '../screens/FavoritesScreen.js';
 import SettingsScreen from '../screens/SettingsScreen.js';
 import AuthScreen from '../screens/AuthScreen.js';
+import EditPasswordDetailScreen from '../screens/EditPasswordDetailScreen';
 
 //components import 
 import HeaderButton from '../components/HeaderButton.js';
@@ -45,6 +46,16 @@ const defaultStackNavOpt =
 
 };
 
+const UserPasswordNavigator = createStackNavigator({
+
+    UserPassword : UserPasswordScreen,
+    EditPassword : EditPasswordDetailScreen
+},
+{
+    defaultNavigationOptions : defaultStackNavOpt, 
+
+})
+
 const VaultNavigator = createStackNavigator({
 
     //shortcut
@@ -52,7 +63,8 @@ const VaultNavigator = createStackNavigator({
 
     //long way -> can set up additional config, e.g. defalt options etc.
     UserPassword : {
-        screen : UserPasswordScreen
+        //change later
+        screen : UserPasswordNavigator
     },
 
     PaymentCards : {

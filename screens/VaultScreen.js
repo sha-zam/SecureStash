@@ -10,11 +10,31 @@ import { OPTIONS } from '../dummy_data/options_data.js';
 import CategoryGridTile from '../components/CategoryGridTile.js';
 import HeaderButton from '../components/HeaderButton.js';
 
+import * as accountsActions from '../store/actions/account.js';
+
+import { useSelector, useDispatch } from 'react-redux';
+
 //constants import 
 import Colors from '../constants/Colors.js';
 
 const VaultScreen = props =>
 {
+  const [error, setError] = useState();
+  const dispatch = useDispatch();
+
+  const test = async() =>
+  {
+    try 
+    {
+      await dispatch(accountsActions.fetchAccounts());
+          
+    }
+    catch (err)
+    {
+      setError(err.message);
+    }
+  }
+
 
   const renderGridItem = (itemData) =>
   {
@@ -24,9 +44,8 @@ const VaultScreen = props =>
         title = {itemData.item.title}
         icon = {itemData.item.icon}
 
-        onSelect={() => {
-          
-          let route;
+        onSelect={() =>{
+          let route = 'UserPassword';
 
           if(itemData.item.title === 'Passwords')
           {
@@ -54,7 +73,7 @@ const VaultScreen = props =>
               folderID : itemData.item.id
             }
           });
-          
+        
         }}
 
         color = {Colors.accent}
