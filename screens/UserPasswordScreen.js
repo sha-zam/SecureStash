@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState, useCallback} from 'react';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -12,12 +12,26 @@ import Colors from '../constants/Colors.js';
 
 //actions
 import * as accountsActions from '../store/actions/account.js';
-import { FlatList } from 'react-native-gesture-handler';
+
 
 const UserPasswordScreen = props => 
 {
   
   const dispatch = useDispatch();
+
+  const test = useCallback(async () =>{
+    try
+    {
+      await dispatch(accountsActions.fetchAccounts());
+    }
+    catch(err)
+    {
+  
+    }
+  
+  }, [dispatch]);
+
+  test();
   
   //useSelector to view stored passwords
   const userAccounts = useSelector(state => state.storedAccounts.userAccounts);
@@ -70,7 +84,7 @@ const UserPasswordScreen = props =>
         <FlatList
           data = {userAccounts}
           keyExtractor = {(item,index) => item.id}
-          renderItem = {itemData => <View style={{flex : 1, justifyContent : 'center', alignItems : 'Center'}}><Text>{itemData.item.title}</Text></View>}
+          renderItem = {renderGridItem}
         />
   
     );
@@ -83,10 +97,9 @@ const UserPasswordScreen = props =>
 //dynamic navigation
 UserPasswordScreen.navigationOptions = navigationData => {
 
-  //headerTitle
   return {
 
-    //headerTitle : 'Passwords',
+    headerTitle : "Passwords",
     headerRight : () =>
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item title='add' iconName='ios-add' onPress={() => {navigationData.navigation.navigate('EditPassword')}}/>

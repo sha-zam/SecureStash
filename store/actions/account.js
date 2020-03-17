@@ -27,7 +27,7 @@ export const fetchAccounts = () =>
             
             //get response
             const resData = await response.json();
-            console.log(resData);
+            //console.log(resData);
             const loadedAccounts = [];
             
             //console.log('check1')

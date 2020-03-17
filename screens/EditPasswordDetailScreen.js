@@ -21,6 +21,7 @@ import Colors from '../constants/Colors.js';
 //actions import
 import * as accountActions from '../store/actions/account.js';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { ActivityIndicator } from 'react-native-paper';
 
 const FORM_INPUT_UPDATE = "FORM_INPUT_UPDATE";
 
@@ -182,6 +183,18 @@ const EditPasswordDetailScreen = props =>
 
   }, [dispatchFormState]);
 
+  //check if is loading, display loading icon
+  if(isLoading)
+  {
+    return (
+
+      <View>
+        <ActivityIndicator size="large" color={Colors.primary}/>
+      </View>
+      
+    );
+  }
+
   return (
       <KeyboardAvoidingView
         style={{flex : 1}}
@@ -246,8 +259,8 @@ EditPasswordDetailScreen.navigationOptions = navData => {
   return {
 
     //check whether to display edit or add text
-    headerTitle : navData.navigation.getParam('accountID') ? 'Edit' : 'Add',
-    headerRight : (
+    headerTitle : navData.navigation.getParam('accountID') ? "Edit" : "Add",
+    headerRight : () =>
 
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
@@ -257,7 +270,6 @@ EditPasswordDetailScreen.navigationOptions = navData => {
         />
       </HeaderButtons>
 
-    )
 
   };
 
