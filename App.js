@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 //unlock some optimize screens for both iOS and Android
@@ -13,7 +13,7 @@ import {AppLoading} from 'expo';
 
 //state management
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 
 //navigator import
@@ -29,6 +29,7 @@ const rootReducer = combineReducers({
   auth : authReducer,
   storedAccounts : accountReducer
 });
+
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 

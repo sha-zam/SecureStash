@@ -5,7 +5,8 @@ import {
   View, 
   KeyboardAvoidingView, 
   ScrollView, 
-  Alert
+  Alert,
+  Button
 } from 'react-native';
 
 //redux
@@ -140,6 +141,8 @@ const EditPasswordDetailScreen = props =>
       else //add mode
       { 
 
+        console.log("dispatching");
+
         await dispatch (
           accountActions.createAccounts (
             formState.inputValues.title,
@@ -153,7 +156,7 @@ const EditPasswordDetailScreen = props =>
       }
 
       //go back
-      props.navigation.goBack();
+      props.navigation.navigate('UserPasswordScreen');
 
     }
     catch(err)
@@ -172,7 +175,7 @@ const EditPasswordDetailScreen = props =>
   }, [submitHandler]);
 
   //input change handler function
-  const inputChangeHandler = useCallback( (inputIdentifier, inputValue, inputValidity) =>{
+  const inputChangeHandler = useCallback( (inputIdentifier, inputValue, inputValidity) => {
 
     dispatchFormState({
       type : FORM_INPUT_UPDATE,
@@ -189,13 +192,14 @@ const EditPasswordDetailScreen = props =>
     return (
 
       <View>
-        <ActivityIndicator size="large" color={Colors.primary}/>
+        <ActivityIndicator style={styles.centered} size="large" color={Colors.primary}/>
       </View>
       
     );
   }
 
   return (
+
       <KeyboardAvoidingView
         style={{flex : 1}}
         behavior="padding"
@@ -213,7 +217,8 @@ const EditPasswordDetailScreen = props =>
               returnKeyType = "next"
               errorText="Please enter a valid title"
               onInputChange={inputChangeHandler}
-              initialValue=""
+              initialValue={editedAcc ? editedAcc.title : ''}
+              initiallyValid={!!editedAcc}
             />
             <Input
               id="URL"
@@ -223,7 +228,8 @@ const EditPasswordDetailScreen = props =>
               returnKeyType = "next"
               errorText="Please enter a valid URL"
               onInputChange={inputChangeHandler}
-              initialValue=""
+              initialValue={editedAcc ? editedAcc.URL : ''}
+              initiallyValid={!!editedAcc}
             />
             <Input
               id="username"
@@ -231,45 +237,52 @@ const EditPasswordDetailScreen = props =>
               keyboardType="default"
               required
               returnKeyType = "next"
-              errorText="Please enter a valid URL"
+              errorText="Please enter a valid username"
               onInputChange={inputChangeHandler}
-              initialValue=""
+              initialValue={editedAcc ? editedAcc.username : ''}
+              initiallyValid={!!editedAcc}
             />
             <Input
               id="password"
               label="Password"
               keyboardType="default"
               required
-              errorText="Please enter a valid URL"
+              errorText="Please enter a valid password"
               onInputChange={inputChangeHandler}
-              initialValue=""
+              initialValue={editedAcc ? editedAcc.password : ''}
+              initiallyValid={!!editedAcc}
+            />
+            <Button
+              color = {Colors.primary}
+              title = "Save"
+              onPress = {submitHandler}    
             />
           </View>
 
         </ScrollView>
 
       </KeyboardAvoidingView>
+
   );
 };
 
 EditPasswordDetailScreen.navigationOptions = navData => {
   
-  const submitFn = navData.navigation.getParam('submit');
+  //const submitFn = navData.navigation.getParam('submit');
 
   return {
 
     //check whether to display edit or add text
     headerTitle : navData.navigation.getParam('accountID') ? "Edit" : "Add",
-    headerRight : () =>
+    // headerRight : () =>
 
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title = "Save"
-          iconName = "ios-checkmark"
-          onPress = {submitFn}
-        />
-      </HeaderButtons>
-
+    //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+    //     <Item
+    //       title = "Save"
+    //       iconName = "ios-checkmark"
+    //       onPress = {submitFn}
+    //     />
+    //   </HeaderButtons>
 
   };
 
@@ -277,18 +290,18 @@ EditPasswordDetailScreen.navigationOptions = navData => {
 
 const styles = StyleSheet.create({
 
-    form :
-    {
-      margin : 20
-    },
+  form :
+  {
+    margin : 20
+  },
 
-    centered : 
-    {
-      flex : 1,
-      justifyContent: 'center',
-      alignItems : 'center'
-    }
+  centered : 
+  {
+    flex : 1,
+    justifyContent: 'center',
+    alignItems : 'center'
+  }
 
-  });
+});
   
 export default EditPasswordDetailScreen;

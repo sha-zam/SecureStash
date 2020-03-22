@@ -6,7 +6,7 @@ export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
 export const UPDATE_ACCOUNT = 'UPDATE_ACCOUNT';
 export const SET_ACCOUNT = 'SET_ACCOUNT';
 
-//fecth passwords
+//read
 export const fetchAccounts = () =>
 {
 
@@ -27,15 +27,11 @@ export const fetchAccounts = () =>
             
             //get response
             const resData = await response.json();
-            //console.log(resData);
+
             const loadedAccounts = [];
-            
-            //console.log('check1')
             
             for (const key in resData)
             {
-                console.log(resData[key].userID);
-
                 loadedAccounts.push(
                     new Account(
                         key, 
@@ -63,6 +59,7 @@ export const fetchAccounts = () =>
 
 };
 
+//create 
 export const createAccounts = (title, URL, username, password) => 
 {
 
@@ -70,6 +67,8 @@ export const createAccounts = (title, URL, username, password) =>
 
         const token = getState().auth.token;
         const userID = getState().auth.userId;
+
+        console.log(userID);
 
         //await response
         const response = await fetch(
@@ -109,18 +108,87 @@ export const createAccounts = (title, URL, username, password) =>
     };
 };
 
-export const updateAccount = (id, title, URL, username, password) => {
+//update
+export const updateAccounts = (id, title, URL, username, password) => 
+{
 
-    return { 
-        type : UPDATE_ACCOUNT,
-        aid : id, 
-        accountData : 
+    return async (dispatch, getState) => {
+
+      const token = getState().auth.token;
+
+      const response = await fetch(
+
+        `https://fyp-s3curest4sh.firebaseio.com/Passwords/${id}.json?auth=${token}`,
         {
-            title, 
-            URL, 
-            username, 
-            password
+            method: 'PATCH',
+
+            headers: 
+            {
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify({
+                title,
+                URL,
+                username,
+                password
+            })
         }
+
+      );
+  
+      if (!response.ok) 
+      {
+        throw new Error('Something went wrong!');
+      }
+  
+      dispatch({
+        type: UPDATE_ACCOUNT,
+        aid: id,
+
+        accountData: {
+          title,
+          URL,
+          username,
+          password
+        }
+
+      });
+
+    };
+};
+
+//delete
+export const deleteAccounts = accountID => 
+{
+
+    return async (dispatch, getState) =>
+    {
+        //get token
+        const token = getState().auth.token;
+
+        //await response
+        const response = await fetch (
+            `https://fyp-s3curest4sh.firebaseio.com/Passwords/${accountID}.json?auth=${token}`,
+            {
+                method : 'DELETE'
+            }
+        );
+
+        //check
+        if(!response.ok)
+        {
+            throw new Error('Something went wrong!');
+        }
+
+        //dispatch
+        dispatch({
+            
+            type : DELETE_ACCOUNT,
+            aid : accountID
+
+        });
+
     };
 
-}
+};

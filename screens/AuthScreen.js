@@ -14,6 +14,9 @@ import { useDispatch } from 'react-redux';
 import Input from '../components/Input';
 import Card from '../components/Card';
 import Colors from '../constants/Colors';
+
+//actions
+import * as accountsActions from '../store/actions/account.js';
 import * as authActions from '../store/actions/auth';
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
@@ -76,6 +79,21 @@ const AuthScreen = props => {
 
   });
 
+  // const fetchUserAccounts = useCallback(async () => {
+
+  //   try
+  //   {
+  //     await dispatch(accountsActions.fetchAccounts());
+  //   }
+  //   catch(err)
+  //   {
+  //     throw (err);
+  //   }
+    
+  //   setIsLoading(false);
+
+  // }, [dispatch]);
+
   useEffect(() => {
 
     if (error) 
@@ -84,6 +102,7 @@ const AuthScreen = props => {
     }
 
   }, [error]);
+
 
   const authHandler = async () => {
 
@@ -110,6 +129,7 @@ const AuthScreen = props => {
     try 
     {
       await dispatch(action);
+      //fetchUserAccounts();
 
     //   if(isSignup)
     //   {

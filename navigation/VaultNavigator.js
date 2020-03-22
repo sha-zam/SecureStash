@@ -5,7 +5,7 @@ import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator, NavigationEvents } from 'react-navigation';
 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
@@ -28,6 +28,7 @@ import HeaderButton from '../components/HeaderButton.js';
 //constants import 
 import Colors from '../constants/Colors.js';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import PasswordDetailScreen from '../screens/PasswordDetailScreen.js';
 
 //some default navigation options
 const defaultStackNavOpt = 
@@ -49,7 +50,8 @@ const defaultStackNavOpt =
 const UserPasswordNavigator = createStackNavigator({
 
     UserPassword : UserPasswordScreen,
-    EditPassword : EditPasswordDetailScreen
+    PasswordDetail : PasswordDetailScreen,
+    EditPasswordDetail : EditPasswordDetailScreen
 },
 {
     defaultNavigationOptions : defaultStackNavOpt, 
@@ -64,7 +66,21 @@ const VaultNavigator = createStackNavigator({
     //long way -> can set up additional config, e.g. defalt options etc.
     UserPassword : {
         //change later
-        screen : UserPasswordNavigator
+        screen : UserPasswordNavigator,
+        navigationOptions : 
+        {
+            // title : 'Passwords',
+            // headerRight : (navigation) =>
+            // <HeaderButtons HeaderButtonComponent={HeaderButton}>
+            //     <Item
+            //     title = "Save"
+            //     iconName = "ios-checkmark"
+            //     onPress = {() => navigation.navigate('EditPasswordDetail')}
+            //     />
+            // </HeaderButtons>
+
+            headerShown : false
+        }
     },
 
     PaymentCards : {

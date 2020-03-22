@@ -1,7 +1,9 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { HeaderBackButton } from 'react-navigation-stack';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
+import { ActivityIndicator } from 'react-native-paper';
 
 //components import
 import HeaderButton from '../components/HeaderButton.js';
@@ -16,81 +18,92 @@ import * as accountsActions from '../store/actions/account.js';
 
 const UserPasswordScreen = props => 
 {
-  
-  const dispatch = useDispatch();
+  //states 
+  const [isLoading, setIsLoading] = useState(true);
 
-  const test = useCallback(async () =>{
-    try
-    {
-      await dispatch(accountsActions.fetchAccounts());
-    }
-    catch(err)
-    {
-  
-    }
-  
-  }, [dispatch]);
-
-  test();
-  
+   //grid item function
+   const renderGridItem = (itemData) =>
+   {
+ 
+     return (
+ 
+       <CategoryGridTile 
+         title = {itemData.item.title}
+ 
+         onSelect={() => {props.navigation.navigate('PasswordDetail', {accountID : itemData.item.id})}}
+ 
+         color = {Colors.accent}
+       />
+ 
+     );
+ 
+   };
+   
   //useSelector to view stored passwords
   const userAccounts = useSelector(state => state.storedAccounts.userAccounts);
   
-  
-  //grid item function
-  const renderGridItem = (itemData) =>
+  const dispatch = useDispatch();
+
+  useEffect(() => 
   {
+    setIsLoading(true);
+
+    dispatch(accountsActions.fetchAccounts()).then(() => 
+    {
+      setIsLoading(false);
+    });
+  }, [dispatch]);
+
+  if (isLoading) 
+  {
+
     return (
-
-      <CategoryGridTile 
-        title = {itemData.item.title}
-        //icon = 'ios-star'
-
-        onSelect={() => {}}
-
-        color = {Colors.accent}
-      />
-
+      <View style={styles.centered}>
+        <ActivityIndicator size="large" color={Colors.primary} />
+      </View>
     );
 
-  };
+  }
 
-  //edit password
-  const editProductHandler = (id) =>
-  {
+  // const fetchUserAccounts = useCallback(async () => {
+
+  //   try
+  //   {
+  //     await dispatch(accountsActions.fetchAccounts());
+  //   }
+  //   catch(err)
+  //   {
+  //     throw (err);
+  //   }
     
-  };
+  //   setIsLoading(false);
 
-  //delete password
+  // }, [dispatch]);
 
   //check if there's any available passwords
   if(userAccounts.length === 0)
   {
     return (
+
       <View style={{flex : 1, justifyContent : 'center', alignItems : 'Center'}}>
         <Text>No Accounts Found</Text>
       </View>
+
     );
   }
   else
   {
-    //userAccounts.then((result)=>{ console.log(result); })
-    //console.log(userAccounts);
+
     return (
     
-      // <View style={{flex : 1, justifyContent : 'center', alignItems : 'Center'}}>
-      //   <Text>{userAccounts.title}</Text>
-      // </View>
-        <FlatList
-          data = {userAccounts}
-          keyExtractor = {(item,index) => item.id}
-          renderItem = {renderGridItem}
-        />
+      <FlatList
+        data = {userAccounts}
+        keyExtractor = {(item) => item.id}
+        renderItem = {renderGridItem}
+      />
   
     );
   }
-
-  
 
 };
 
@@ -98,15 +111,32 @@ const UserPasswordScreen = props =>
 UserPasswordScreen.navigationOptions = navigationData => {
 
   return {
+    headerTitle : 'Passwords',
 
-    headerTitle : "Passwords",
+    headerLeft: () => 
+      <HeaderBackButton title="Vault" tintColor={Colors.accent} onPress={() => navigationData.navigation.goBack(null)} />,
+
     headerRight : () =>
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item title='add' iconName='ios-add' onPress={() => {navigationData.navigation.navigate('EditPassword')}}/>
+          <Item
+          title = "Add"
+          iconName = "ios-add"
+          onPress = {() => navigationData.navigation.navigate('EditPasswordDetail')}
+          />
       </HeaderButtons>
-
   };
 
 };
+
+const styles = StyleSheet.create({
+
+  centered : 
+  {
+    flex : 1,
+    justifyContent: 'center',
+    alignItems : 'center'
+  }
+
+});
 
 export default UserPasswordScreen;
