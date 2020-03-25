@@ -79,21 +79,6 @@ const AuthScreen = props => {
 
   });
 
-  // const fetchUserAccounts = useCallback(async () => {
-
-  //   try
-  //   {
-  //     await dispatch(accountsActions.fetchAccounts());
-  //   }
-  //   catch(err)
-  //   {
-  //     throw (err);
-  //   }
-    
-  //   setIsLoading(false);
-
-  // }, [dispatch]);
-
   useEffect(() => {
 
     if (error) 

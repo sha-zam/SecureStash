@@ -192,10 +192,12 @@ const tabScreenConfig =
 
     Settings : 
     {
-        screen : SettingsScreen,
+        screen : SettingsNavigator,
         navigationOptions : 
         {
-            tabBarIcon : (tabInfo) => {
+            headerTitle : 'Settings',
+            tabBarIcon : (tabInfo) => 
+            {
                 return <Ionicons name='ios-settings' size={25} color={tabInfo.tintColor}/>;
             }
         }

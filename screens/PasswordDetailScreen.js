@@ -5,7 +5,7 @@ import {
     Text, 
     Button, 
     StyleSheet,
-    Alert
+    Alert,
 
 } from 'react-native';
 
@@ -42,34 +42,45 @@ const PasswordDetailScreen = props => {
             {
                 text: 'Yes',
                 style: 'destructive',
-                onPress: () => {
+                onPress: () => 
+                {
+                    props.navigation.goBack();
                     dispatch(accountActions.deleteAccounts(id));
+                    
                 }
             }
 
         ]);
     };
 
-    return (
-        <Card style={styles.accContainer}>
-            <Text style={styles.titleText}>{selectedAccount.title}</Text>
-            <Text style={styles.text}>URL : {selectedAccount.URL} </Text>
-            <Text style={styles.text}>Username : {selectedAccount.username}</Text>
-            <Text style={styles.text}>Password : {selectedAccount.password}</Text>  
-            <View>
-                <Button
-                    color = {Colors.primary}
-                    title = "Edit"
-                    onPress = {() => {editHandler(accID);}}    
-                />
-                <Button
-                    color = {Colors.primary}
-                    title = "Delete"
-                    onPress = {deleteHandler.bind(this, accID)}    
-                />
-            </View>
-        </Card>
-    );
+    if(selectedAccount)
+    {
+        return (
+            <Card style={styles.accContainer}>
+                <Text style={styles.titleText}>{selectedAccount.title}</Text>
+                <Text style={styles.text}>URL : {selectedAccount.URL} </Text>
+                <Text style={styles.text}>Username : {selectedAccount.username}</Text>
+                <Text style={styles.text}>Password : {selectedAccount.password}</Text>  
+                <View>
+                    <Button
+                        color = {Colors.primary}
+                        title = "Edit"
+                        onPress = {() => {editHandler(accID);}}    
+                    />
+                    <Button
+                        color = {Colors.primary}
+                        title = "Delete"
+                        onPress = {deleteHandler.bind(this, accID)}    
+                    />
+                </View>
+            </Card>
+        );
+    }
+    else
+    {
+        return(null);
+    }
+    
 
 };
 

@@ -141,8 +141,6 @@ const EditPasswordDetailScreen = props =>
       else //add mode
       { 
 
-        console.log("dispatching");
-
         await dispatch (
           accountActions.createAccounts (
             formState.inputValues.title,

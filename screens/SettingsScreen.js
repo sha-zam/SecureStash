@@ -1,81 +1,56 @@
-import React, {useState} from 'react';
-import { StyleSheet, FlatList, Text, View } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
+import { ListItem, Icon } from 'react-native-elements';
+import { useDispatch } from 'react-redux';
 
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-
-import {PASSWORDFOLDER} from '../dummy_data/dummy.js';
-
-//components import
-import CategoryGridTile from '../components/CategoryGridTile.js';
-import HeaderButton from '../components/HeaderButton.js';
-
-//constants import 
-import Colors from '../constants/Colors.js';
+//actions import 
+import * as authActions from '../store/actions/auth.js';
 
 const SettingsScreen = props =>
 {
+  const dispatch = useDispatch();
 
-  const renderGridItem = (itemData) =>
+  const logoutHandler = () =>
   {
-    return (
-
-      <CategoryGridTile 
-        title = {itemData.item.title}
-
-        onSelect={() => {
-          props.navigation.navigate({
-            routeName : 'UserPassword', 
-            params : 
-            {
-              folderID : itemData.item.id
-            }
-          });
-        }}
-
-        color = {Colors.accent}
-      />
-
-    );
-
+    dispatch(authActions.logout());
+    props.navigation.navigate('Auth');
   };
 
   return (
 
-    <FlatList
-      numColumns={2}
-      data={PASSWORDFOLDER}
-      renderItem={renderGridItem}
-      keyExtractor={(item, index) => item.id}
-    />
-
+    <View>
+      <View>
+        <ListItem
+          title='Your Account'
+          leftIcon={{name : 'person-outline'}}
+          bottomDivider
+          chevron
+        />
+        <ListItem
+          title='Security'
+          leftIcon={{name : 'lock-outline'}}
+          bottomDivider
+          chevron
+        />
+      </View>
+      <View style={{marginTop : 20}}>
+        <ListItem
+          title='Log Out'
+          // leftIcon={{name : 'lock-outline'}}
+          bottomDivider
+          chevron
+          onPress = {logoutHandler}
+        />
+      </View>
+    </View>
+    
   );
 
-};
+}; 
 
-SettingsScreen.navigationOptions = navData => {
-
-    return {
-        headerTitle : "Settings",
-        headerLeft : () =>
-            <HeaderButtons HeaderButtonComponent={HeaderButton}>
-                <Item title='menu' iconName='ios-menu' onPress={() => {
-                    navData.navigation.toggleDrawer();
-                }}
-            />
-            </HeaderButtons>
-    }
+SettingsScreen.navigationOptions = navData =>
+{
   
 }
-
-const styles = StyleSheet.create({
-
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-});
 
 export default SettingsScreen;
