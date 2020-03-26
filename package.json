@@ -11,6 +11,7 @@
     "@expo/vector-icons": "^10.0.6",
     "@react-native-community/masked-view": "^0.1.7",
     "expo": "~36.0.0",
+    "expo-crypto": "~8.0.0",
     "expo-font": "^8.0.0",
     "expo-linear-gradient": "^8.0.0",
     "react": "~16.9.0",
@@ -24,6 +25,7 @@
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.2.0",
     "react-native-simple-crypto": "^0.2.8",
+    "react-native-virgil-crypto": "^0.5.3",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.2.2",
     "react-navigation-drawer": "^2.4.2",
@@ -33,7 +35,8 @@
     "react-navigation-tabs": "^2.8.2",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "simple-crypto-js": "^2.2.0"
   },
   "devDependencies": {
     "babel-preset-expo": "~8.0.0",

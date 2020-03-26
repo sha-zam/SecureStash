@@ -15,10 +15,12 @@ npm install --save :
 - expo-linear-gradient
 - @expo/vector-icons
 - react-native-elements
+- simple-crypto-js
 
 expo install :
 - react-native-gesture-handler 
 - react-native-reanimated
+- expo-crypto
 
 always remember to import React when using jsx!!
 

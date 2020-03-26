@@ -35,6 +35,7 @@ const PasswordDetailScreen = props => {
 
     const deleteHandler = id =>
     {
+        
         Alert.alert('Are you sure?', 'Do you really want to delete this account?', 
         [
             { text: 'No', style: 'default' },
