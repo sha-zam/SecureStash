@@ -6,10 +6,13 @@ import {
   StyleSheet,
   Button,
   ActivityIndicator,
-  Alert
+  Alert,
+  Linking
 } from 'react-native';
+import qs from 'qs';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useDispatch } from 'react-redux';
+import firebase from 'firebase';
 
 import Input from '../components/Input';
 import Card from '../components/Card';
@@ -88,6 +91,52 @@ const AuthScreen = props => {
 
   }, [error]);
 
+  // const sendEmail = async (to, subject, body, options = {}) =>
+  // {
+  //   const { cc, bcc } = options;
+
+  //   let url = `mailto:${to}`;
+
+  //   // Create email link query
+  //   const query = qs.stringify ({
+
+  //       subject: subject,
+  //       body: body,
+  //       cc: cc,
+  //       bcc: bcc
+
+  //   });
+
+  //   if (query.length) 
+  //   {
+  //       url += `?${query}`;
+  //   }
+
+  //   // check if we can use this link
+  //   const canOpen = await Linking.canOpenURL(url);
+
+  //   if (!canOpen) 
+  //   {
+  //       throw new Error('Provided URL can not be handled');
+  //   }
+
+  //   return Linking.openURL(url);
+
+  // }
+
+  // const verifyEmail = () =>
+  // {
+  //     var user = firebase.auth().currentUser;
+  
+  //     user.sendEmailVerification().then(() => {
+  //       // Email sent.
+  
+  //     }).catch(function (error) {
+  //       // An error happened.
+  //     });
+  
+    
+  // }
 
   const authHandler = async () => {
 
@@ -116,14 +165,26 @@ const AuthScreen = props => {
       await dispatch(action);
       //fetchUserAccounts();
 
-    //   if(isSignup)
-    //   {
+      if(isSignup)
+      {
+
+        //await dispatch(authActions.verifyEmail());
+
+        Alert.alert('Sign up successful!', 'Please log in with your new account to continue', [{ text: 'Okay' }]);
+        
+        //verifyEmail();
+
+        // sendEmail(formState.inputValues.email, 'Confirmation Email', 'Welcome to SecureStash, Your Registration was succesful!', {})
+        // .then(() => {
+        //   console.log('Email sent successfully')
+        // });
+
+        setIsLoading(false);
+      }
+      else
+      {
         props.navigation.navigate('Tab');
-    //   }
-    //   else
-    //   {
-    //     props.navigation.navigate('Drawer');
-    //   }
+      }
      
     } catch (err) 
     {

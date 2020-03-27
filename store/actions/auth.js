@@ -10,8 +10,57 @@ export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 
+//email verification
+export const verifyEmail = () => 
+{
+  return async (getState) => {
+
+    const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyDQrqU62NsHJbA5vVcSf-UCPPwtIH6Fwr4',
+    {
+      method: 'POST',
+
+      headers :
+      {
+        'Content-Type' : 'application/json'
+      },
+
+      body : JSON.stringify({
+        
+        requestType : 'VERIFY_EMAIL',
+        idToken : getState().token
+      })
+
+    });
+
+    if (!response.ok) 
+    {
+      const errorResData = await response.json();
+      const errorId = errorResData.error.message;
+
+      let message = 'Something went wrong!';
+
+      if (errorId === 'INVALID_ID_TOKEN') 
+      {
+        message = 'Invalid Token!';
+      }
+      else
+      {
+        message = 'User Not Found!';
+      }
+
+      throw new Error(message);
+    }
+
+    const resData = await response.json();
+    console.log(resData.email);
+
+  };
+
+}
+
 //signup
-export const signup = (email, password) => {
+export const signup = (email, password) => 
+{
 
   return async dispatch => {
 
@@ -41,14 +90,18 @@ export const signup = (email, password) => {
     const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDQrqU62NsHJbA5vVcSf-UCPPwtIH6Fwr4',
     {
       method: 'POST',
-      headers: {
+
+      headers: 
+      {
         'Content-Type': 'application/json'
       },
+
       body: JSON.stringify({
         email: email,
         password: pwdDigest,
         returnSecureToken: true
       })
+
     });
 
     if (!response.ok) 
@@ -68,6 +121,9 @@ export const signup = (email, password) => {
 
     const resData = await response.json();
     //console.log(resData);
+
+    //verifyEmail(resData.idToken);
+
     dispatch({ type: SIGNUP, token: resData.idToken, userId: resData.localId });
 
   };

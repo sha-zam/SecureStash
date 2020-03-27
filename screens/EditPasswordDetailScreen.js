@@ -154,7 +154,7 @@ const EditPasswordDetailScreen = props =>
       }
 
       //go back
-      props.navigation.navigate('UserPasswordScreen');
+      props.navigation.goBack();
 
     }
     catch(err)
