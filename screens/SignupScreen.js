@@ -7,7 +7,8 @@ import {
   Button,
   ActivityIndicator,
   Alert,
-  Linking
+  Linking,
+  Text
 } from 'react-native';
 import qs from 'qs';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -58,7 +59,7 @@ const formReducer = (state, action) =>
 
 };
 
-const AuthScreen = props => {
+const SignupScreen = props => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
@@ -142,20 +143,7 @@ const AuthScreen = props => {
 
     let action;
 
-    if (isSignup) 
-    {
-      action = authActions.signup(
-        formState.inputValues.email,
-        formState.inputValues.password
-      );
-    } 
-    else 
-    {
-      action = authActions.login(
-        formState.inputValues.email,
-        formState.inputValues.password
-      );
-    }
+    action = authActions.signup(formState.inputValues.email, formState.inputValues.password);
 
     setError(null);
     setIsLoading(true);
@@ -165,12 +153,12 @@ const AuthScreen = props => {
       await dispatch(action);
       //fetchUserAccounts();
 
-      if(isSignup)
-      {
+      // if(isSignup)
+      // {
 
         //await dispatch(authActions.verifyEmail());
 
-        Alert.alert('Sign up successful!', 'Please log in with your new account to continue', [{ text: 'Okay' }]);
+      Alert.alert('Sign up successful!', 'Please log in with your new account to continue', [{ text: 'Okay' }]);
         
         //verifyEmail();
 
@@ -179,12 +167,12 @@ const AuthScreen = props => {
         //   console.log('Email sent successfully')
         // });
 
-        setIsLoading(false);
-      }
-      else
-      {
-        props.navigation.navigate('Tab');
-      }
+      setIsLoading(false);
+      // }
+      // else
+      // {
+      props.navigation.navigate('Tab');
+      //}
      
     } catch (err) 
     {
@@ -234,7 +222,7 @@ const AuthScreen = props => {
               keyboardType="default"
               secureTextEntry
               required
-              minLength={8}
+              minLength={12}
               autoCapitalize="none"
               errorText="Please enter a valid password."
               onInputChange={inputChangeHandler}
@@ -245,20 +233,22 @@ const AuthScreen = props => {
                 <ActivityIndicator size="small" color={Colors.primary} />
               ) : (
                 <Button
-                  title={isSignup ? 'Sign Up' : 'Login'}
+                  title='Sign Up'
                   color={Colors.primary}
                   onPress={authHandler}
                 />
               )}
             </View>
-            <View style={styles.buttonContainer}>
-              <Button
-                title= {isSignup ? 'Login' : 'Sign Up'}
-                color={Colors.primary}
-                onPress={() => {
-                  setIsSignup(prevState => !prevState);
-                }}
-              />
+            <View style={styles.buttonContainer2}>
+            <Text>Already have an account? </Text>
+                <Text 
+                    style={{color : Colors.primary}}
+                    onPress={() => {
+                        props.navigation.navigate('Login')
+                    }}
+                >
+                    Log In
+                </Text>
             </View>
           </ScrollView>
         </Card>
@@ -268,28 +258,46 @@ const AuthScreen = props => {
   );
 };
 
-AuthScreen.navigationOptions = {
+SignupScreen.navigationOptions = {
   headerTitle: 'SecureStash'
 };
 
 const styles = StyleSheet.create({
-  screen: {
+
+  screen: 
+  {
     flex: 1
   },
-  gradient: {
+
+  gradient: 
+  {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
-  authContainer: {
+
+  authContainer: 
+  {
     width: '80%',
     maxWidth: 400,
     maxHeight: 400,
     padding: 20
   },
-  buttonContainer: {
+
+  buttonContainer: 
+  {
     marginTop: 10
+  },
+
+  buttonContainer2 :
+  {
+    flexDirection : 'row',
+    //marginLeft : 20,
+    //marginTop : 20,
+    margin : 10,
+    justifyContent : 'center'
   }
+
 });
 
-export default AuthScreen;
+export default SignupScreen;

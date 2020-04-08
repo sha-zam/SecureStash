@@ -124,7 +124,12 @@ export const signup = (email, password) =>
 
     //verifyEmail(resData.idToken);
 
-    dispatch({ type: SIGNUP, token: resData.idToken, userId: resData.localId });
+    dispatch({ 
+      type: SIGNUP, 
+      token: resData.idToken, 
+      userId: resData.localId, 
+      email : email 
+    });
 
   };
 };
@@ -203,7 +208,12 @@ export const login = (email, password) => {
 
     const resData = await response.json();
     //console.log(resData);
-    dispatch({ type: LOGIN, token: resData.idToken, userId: resData.localId });
+    dispatch({ 
+      type: LOGIN, 
+      token: resData.idToken, 
+      userId: resData.localId,
+      email : email
+    });
 
   };
 };

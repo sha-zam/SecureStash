@@ -25,6 +25,7 @@ const SettingsScreen = props =>
           leftIcon={{name : 'person-outline'}}
           bottomDivider
           chevron
+          onPress = {() => {props.navigation.navigate('UserAccount')}}
         />
         <ListItem
           title='Security'

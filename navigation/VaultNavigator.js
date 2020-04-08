@@ -19,7 +19,8 @@ import NotesScreen from '../screens/NotesScreen.js';
 import UserPasswordScreen from '../screens/UserPasswordScreen.js';
 import FavoritesScreen from '../screens/FavoritesScreen.js';
 import SettingsScreen from '../screens/SettingsScreen.js';
-import AuthScreen from '../screens/AuthScreen.js';
+import SignupScreen from '../screens/SignupScreen.js';
+import LoginScreen from '../screens/LoginScreen.js';
 import EditPasswordDetailScreen from '../screens/EditPasswordDetailScreen';
 
 //components import 
@@ -29,6 +30,8 @@ import HeaderButton from '../components/HeaderButton.js';
 import Colors from '../constants/Colors.js';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import PasswordDetailScreen from '../screens/PasswordDetailScreen.js';
+import UserAccountScreen from '../screens/UserAccountScreen.js';
+
 
 //some default navigation options
 const defaultStackNavOpt = 
@@ -131,7 +134,8 @@ const NotesNavigator = createStackNavigator({
 
 const SettingsNavigator = createStackNavigator({
 
-    Settings : SettingsScreen
+    Settings : SettingsScreen,
+    UserAccount : UserAccountScreen
     
 },
 {
@@ -298,11 +302,9 @@ const FavStackNavigator = createStackNavigator({
 
 // });
 
-const AuthNavigator = createStackNavigator({
-    Auth : AuthScreen
-},
-{
-    defaultNavigationOptions : defaultStackNavOpt
+const AuthNavigator = createSwitchNavigator({
+    Login : LoginScreen,
+    Signup : SignupScreen
 });
 
 const MainNavigator = createSwitchNavigator({

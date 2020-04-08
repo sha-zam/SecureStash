@@ -46,6 +46,11 @@ navigation :
 
     - navigationOptions in the config (2nd argument) of a navigator only matter if that navigator is used inside of another navigator.
 
+State can be complex 
 Redux :
-    - useSelector ->    takes a function which automatically receives the state, the Redux state as an input 
+    - import createStore from Redux to create a store in App.js
+    - import combineReducers from Redux to combine reducers into 1 root reducer
+    - import Provider from react-redux -> provide the store to the application (wrap the main component with <Provider>)
+    - All about having a central store -> stores entire application state
+    - useSelector (react-redux) ->    takes a function which automatically receives the state, the Redux state, as an input 
                         then returns whatever data you want to get from there
