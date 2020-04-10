@@ -4,7 +4,7 @@ import { ListItem, Icon } from 'react-native-elements';
 import { useDispatch } from 'react-redux';
 
 //actions import 
-import * as authActions from '../store/actions/auth.js';
+import * as authActions from '../../store/actions/auth.js';
 
 const SettingsScreen = props =>
 {
@@ -32,6 +32,7 @@ const SettingsScreen = props =>
           leftIcon={{name : 'lock-outline'}}
           bottomDivider
           chevron
+          onPress = {() => {props.navigation.navigate('Security')}}
         />
       </View>
       <View style={{marginTop : 20}}>

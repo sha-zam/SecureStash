@@ -6,14 +6,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ActivityIndicator } from 'react-native-paper';
 
 //components import
-import HeaderButton from '../components/HeaderButton.js';
-import CategoryGridTile from '../components/CategoryGridTile.js';
+import HeaderButton from '../../components/HeaderButton.js';
+import CategoryGridTile from '../../components/CategoryGridTile.js';
 
 //constants import
-import Colors from '../constants/Colors.js';
+import Colors from '../../constants/Colors.js';
 
 //actions
-import * as accountsActions from '../store/actions/account.js';
+import * as accountsActions from '../../store/actions/account.js';
 
 
 const UserPasswordScreen = props => 

@@ -54,3 +54,7 @@ Redux :
     - All about having a central store -> stores entire application state
     - useSelector (react-redux) ->    takes a function which automatically receives the state, the Redux state, as an input 
                         then returns whatever data you want to get from there
+
+AsyncStorage :
+-   React Native API that uses a key value storage on the device which is
+    available both on iOS and Android where we can store data that persists across app relaunches.

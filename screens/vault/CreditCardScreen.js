@@ -3,16 +3,16 @@ import { StyleSheet, FlatList, Text, View } from 'react-native';
 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
-import {PASSWORDFOLDER} from '../dummy_data/dummy.js';
+import {PASSWORDFOLDER} from '../../dummy_data/dummy.js';
 
 //components import
-import CategoryGridTile from '../components/CategoryGridTile.js';
-import HeaderButton from '../components/HeaderButton.js';
+import CategoryGridTile from '../../components/CategoryGridTile.js';
+import HeaderButton from '../../components/HeaderButton.js';
 
 //constants import 
-import Colors from '../constants/Colors.js';
+import Colors from '../../constants/Colors.js';
 
-const BankAccScreen = props =>
+const CreditCardScreen = props =>
 {
 
   const renderGridItem = (itemData) =>
@@ -22,14 +22,19 @@ const BankAccScreen = props =>
       <CategoryGridTile 
         title = {itemData.item.title}
 
-        onSelect={() => {
+        onSelect = {() => 
+        {
+
           props.navigation.navigate({
+
             routeName : 'UserPassword', 
             params : 
             {
               folderID : itemData.item.id
             }
+            
           });
+
         }}
 
         color = {Colors.accent}
@@ -52,10 +57,10 @@ const BankAccScreen = props =>
 
 };
 
-BankAccScreen.navigationOptions = navData => {
+CreditCardScreen.navigationOptions = navData => {
 
     return {
-        headerTitle : "Bank Accounts",
+        headerTitle : "Payment Cards",
         headerLeft : () =>
             <HeaderButtons HeaderButtonComponent={HeaderButton}>
                 <Item title='menu' iconName='ios-menu' onPress={() => {
@@ -64,18 +69,12 @@ BankAccScreen.navigationOptions = navData => {
             />
             </HeaderButtons>
     }
-  
+
 }
 
 const styles = StyleSheet.create({
 
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 
 });
 
-export default BankAccScreen;
+export default CreditCardScreen;

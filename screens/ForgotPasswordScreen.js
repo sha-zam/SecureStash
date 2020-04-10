@@ -8,22 +8,19 @@ import {
   ActivityIndicator,
   Alert,
   Linking,
-  Text,
-  Platform
+  Text
 } from 'react-native';
+
 import qs from 'qs';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useDispatch } from 'react-redux';
 import firebase from 'firebase';
-import * as LocalAuthentication from 'expo-local-authentication';
 
 import Input from '../components/Input';
 import Card from '../components/Card';
 import Colors from '../constants/Colors';
 
 //actions
-import * as accountsActions from '../store/actions/account.js';
-import * as authActions from '../store/actions/auth';
 import * as userActions from '../store/actions/user.js';
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
@@ -62,15 +59,7 @@ const formReducer = (state, action) =>
 
 };
 
-const AuthOptions = 
-{
-
-  promptMessage : 'Scan Biometrics',
-  fallbackLabel : 'Please enter your passcode'
-  
-}
-
-const LoginScreen = props => {
+const ForgotPasswordScreen = props => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
@@ -102,63 +91,32 @@ const LoginScreen = props => {
 
   }, [error]);
 
-  const scanBiometrics = async () => 
-  {
-    let result = await LocalAuthentication.authenticateAsync('Biometric Scan');
-  };
 
-  const showAndroidAlert = () => 
+  const forgotPwdHandler = async () => 
   {
-    Alert.alert('Fingerprint Scan', 'Place your finger over the touch sensor.');
-    scanBiometrics();
-  };
-  
-  const authHandler = async () => 
-  {
-    //check device's biometrics capability
-    let compatible = await LocalAuthentication.hasHardwareAsync();
+    let action;
 
-    if (compatible)
+    action = userActions.sendPwdReset(formState.inputValues.email);
+
+    setError(null);
+    setIsLoading(true);
+
+    try 
     {
-        let result = await LocalAuthentication.authenticateAsync(AuthOptions);
+        await dispatch(action);
 
-        if (result.success)
-        {
-          props.navigation.navigate('Tab')
-        } 
-        else
-        {
-          Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
-        }
-    
-    }
-    else //fallback to password
+        Alert.alert('Email Sent', 
+            'Please check your email for instructions on how to reset your password', 
+            [{ text: 'Okay' }]
+        );
+
+        props.navigation.goBack();
+        
+    } 
+    catch (err) 
     {
-      let action;
-
-      action = authActions.login(
-        formState.inputValues.email,
-        formState.inputValues.password
-      );
-      
-      setError(null);
-      setIsLoading(true);
-
-      try 
-      {
-          await dispatch(action);
-          //const test = await LocalAuthentication.supportedAuthenticationTypesAsync();
-
-          //console.log(test);
-
-          props.navigation.navigate('Tab');  
-      
-      } 
-      catch (err) 
-      {
-          setError(err.message);
-          setIsLoading(false);
-      }
+        setError(err.message);
+        setIsLoading(false);
     }
 
   };
@@ -167,15 +125,15 @@ const LoginScreen = props => {
 
     (inputIdentifier, inputValue, inputValidity) => 
     {
-      dispatchFormState ({
+
+      dispatchFormState({
         type: FORM_INPUT_UPDATE,
         value: inputValue,
         isValid: inputValidity,
         input: inputIdentifier
       });
-    },
 
-    [dispatchFormState]
+    }, [dispatchFormState]
 
   );
 
@@ -191,7 +149,7 @@ const LoginScreen = props => {
           <ScrollView>
             <Input
               id="email"
-              label="E-Mail"
+              label="Please enter your registered e-mail"
               keyboardType="email-address"
               required
               email
@@ -200,53 +158,20 @@ const LoginScreen = props => {
               onInputChange={inputChangeHandler}
               initialValue=""
             />
-            <Input
-              id="password"
-              label="Password"
-              keyboardType="default"
-              secureTextEntry
-              required
-              autoCapitalize="none"
-              errorText="Please enter a valid password."
-              onInputChange={inputChangeHandler}
-              initialValue=""
-            />
             <View style={styles.buttonContainer}>
               {isLoading ? 
               (
                 <ActivityIndicator size="small" color={Colors.primary} />
-              ) : (
+              ) : 
+              (
                 <Button
-                  title='Login'
+                  title='Reset Password'
                   color={Colors.primary}
-                  onPress={authHandler}
+                  onPress={forgotPwdHandler}
                 />
               )}
             </View>
-            <View style={styles.buttonContainer2}>
-              {isLoading ? 
-              (
-                <ActivityIndicator size="small" color={Colors.primary} />
-              ) 
-              : 
-              (
-                <Text 
-                    style={{color : Colors.primary}}
-                    onPress={() => {props.navigation.navigate('ForgotPwd')}}
-                >
-                    Forgot Password?
-                </Text>
-              )}
-            </View>
-            <View style={styles.buttonContainer2}>
-                <Text>Don't have an account? </Text>
-                <Text 
-                    style={{color : Colors.primary}}
-                    onPress={() => { props.navigation.navigate('Signup')}}
-                >
-                    Sign Up
-                </Text>
-            </View>
+            
           </ScrollView>
         </Card>
       </LinearGradient>
@@ -255,8 +180,12 @@ const LoginScreen = props => {
   );
 };
 
-LoginScreen.navigationOptions = {
-  headerTitle: 'SecureStash'
+ForgotPasswordScreen.navigationOptions = 
+{
+
+  headerTitle: 'SecureStash',
+  headerBackTitle : 'Login'
+
 };
 
 const styles = StyleSheet.create({
@@ -298,4 +227,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default LoginScreen;
+export default ForgotPasswordScreen;

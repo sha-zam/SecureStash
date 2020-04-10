@@ -3,14 +3,14 @@ import { StyleSheet, FlatList, Text, View } from 'react-native';
 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
-import {PASSWORDFOLDER} from '../dummy_data/dummy.js';
+import {PASSWORDFOLDER} from '../../dummy_data/dummy.js';
 
 //components import
-import CategoryGridTile from '../components/CategoryGridTile.js';
-import HeaderButton from '../components/HeaderButton.js';
+import CategoryGridTile from '../../components/CategoryGridTile.js';
+import HeaderButton from '../../components/HeaderButton.js';
 
 //constants import 
-import Colors from '../constants/Colors.js';
+import Colors from '../../constants/Colors.js';
 
 const NotesScreen = props =>
 {

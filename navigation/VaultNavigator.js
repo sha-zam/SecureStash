@@ -13,15 +13,16 @@ import { Ionicons, MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-
 
 //screens import
 import VaultScreen from '../screens/VaultScreen.js';
-import BankAccScreen from '../screens/BankAccScreen.js';
-import CreditCardScreen from '../screens/CreditCardScreen.js';
-import NotesScreen from '../screens/NotesScreen.js';
-import UserPasswordScreen from '../screens/UserPasswordScreen.js';
-import FavoritesScreen from '../screens/FavoritesScreen.js';
-import SettingsScreen from '../screens/SettingsScreen.js';
+import BankAccScreen from '../screens/vault/BankAccScreen.js';
+import CreditCardScreen from '../screens/vault/CreditCardScreen.js';
+import NotesScreen from '../screens/vault/NotesScreen.js';
+import UserPasswordScreen from '../screens/vault/UserPasswordScreen.js';
+import FavoritesScreen from '../screens/vault/FavoritesScreen.js';
+import SettingsScreen from '../screens/user/SettingsScreen.js';
 import SignupScreen from '../screens/SignupScreen.js';
 import LoginScreen from '../screens/LoginScreen.js';
-import EditPasswordDetailScreen from '../screens/EditPasswordDetailScreen';
+import EditPasswordDetailScreen from '../screens/vault/EditPasswordDetailScreen';
+import ForgotPasswordScreen from '../screens/ForgotPasswordScreen.js';
 
 //components import 
 import HeaderButton from '../components/HeaderButton.js';
@@ -29,8 +30,9 @@ import HeaderButton from '../components/HeaderButton.js';
 //constants import 
 import Colors from '../constants/Colors.js';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import PasswordDetailScreen from '../screens/PasswordDetailScreen.js';
-import UserAccountScreen from '../screens/UserAccountScreen.js';
+import PasswordDetailScreen from '../screens/vault/PasswordDetailScreen.js';
+import UserAccountScreen from '../screens/user/UserAccountScreen.js';
+import SecuritySettingsScreen from '../screens/user/SecuritySettingsScreen.js';
 
 
 //some default navigation options
@@ -135,7 +137,8 @@ const NotesNavigator = createStackNavigator({
 const SettingsNavigator = createStackNavigator({
 
     Settings : SettingsScreen,
-    UserAccount : UserAccountScreen
+    UserAccount : UserAccountScreen,
+    Security : SecuritySettingsScreen
     
 },
 {
@@ -244,67 +247,21 @@ const FavStackNavigator = createStackNavigator({
     defaultNavigationOptions : defaultStackNavOpt
 });
 
-// const allDrawerOptions = {
-//     Vault : 
-//     { 
-//         screen : TabNavigator, 
-//         navigationOptions: () => 
-//         ({
-//             title: 'Vault'
-//         })
-//     }, 
+const LoginNavigator = createStackNavigator({
 
-//     Settings : 
-//     {
-//         screen : SettingsNavigator, 
-//         navigationOptions: () => 
-//         ({
-//             title: 'Settings'
-//         })
-//     }, 
+    Login : LoginScreen,
+    ForgotPwd : ForgotPasswordScreen
 
-//     // PaymentCards : 
-//     // {
-//     //     screen : CreditCardNavigator, 
-//     //     navigationOptions: () => 
-//     //     ({
-//     //         title: 'Payment Cards'
-//     //     })
-//     // }, 
-
-//     // BankAcc : 
-//     // {
-//     //     screen : BankAccNavigator, 
-//     //     navigationOptions: () => 
-//     //     ({
-//     //         title: 'Bank Accounts'
-//     //     })
-//     // }, 
-
-//     // SecureNotes : 
-//     // {
-//     //     screen : NotesNavigator, 
-//     //     navigationOptions: () => 
-//     //     ({
-//     //         title: 'Secure Notes'
-//     //     })
-//     // }, 
-// };
-
-// const DrawerNavigator = createDrawerNavigator(allDrawerOptions,{
-
-    
-//     initialRouteName: 'Vault'
-//     // Passwords : FavTabNavigator,
-//     // PaymentCards : CreditCardNavigator,
-//     // BankAcc : BankAccNavigator,
-//     // SecureNotes : NotesNavigator
-
-// });
+},
+{
+    defaultNavigationOptions : defaultStackNavOpt
+});
 
 const AuthNavigator = createSwitchNavigator({
-    Login : LoginScreen,
-    Signup : SignupScreen
+
+    Login : LoginNavigator,
+    Signup : SignupScreen,
+    
 });
 
 const MainNavigator = createSwitchNavigator({

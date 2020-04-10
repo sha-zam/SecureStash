@@ -13,14 +13,14 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 
 //components import 
-import Input from '../components/Input.js';
-import HeaderButton from '../components/HeaderButton.js';
+import Input from '../../components/Input.js';
+import HeaderButton from '../../components/HeaderButton.js';
 
 //constants import
-import Colors from '../constants/Colors.js';
+import Colors from '../../constants/Colors.js';
 
 //actions import
-import * as accountActions from '../store/actions/account.js';
+import * as accountActions from '../../store/actions/account.js';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { ActivityIndicator } from 'react-native-paper';
 

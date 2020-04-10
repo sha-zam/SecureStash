@@ -10,13 +10,13 @@ import {
 } from 'react-native';
 
 //components import 
-import Card from '../components/Card.js';
+import Card from '../../components/Card.js';
 
 import { useSelector, useDispatch } from 'react-redux';
-import Colors from '../constants/Colors.js';
+import Colors from '../../constants/Colors.js';
 
 //actions import
-import * as accountActions from '../store/actions/account.js';
+import * as accountActions from '../../store/actions/account.js';
 
 const PasswordDetailScreen = props => {
 

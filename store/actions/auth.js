@@ -1,3 +1,6 @@
+//storage
+import { AsyncStorage } from 'react-native' 
+
 //cryptography
 import { RNSimpleCrypto } from 'react-native-simple-crypto';
 import { RSA } from 'react-native-rsa-native';
@@ -10,52 +13,15 @@ export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 
-//email verification
-export const verifyEmail = () => 
+const saveDatatoStorage = (userId, token) => 
 {
-  return async (getState) => {
-
-    const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyDQrqU62NsHJbA5vVcSf-UCPPwtIH6Fwr4',
-    {
-      method: 'POST',
-
-      headers :
-      {
-        'Content-Type' : 'application/json'
-      },
-
-      body : JSON.stringify({
-        
-        requestType : 'VERIFY_EMAIL',
-        idToken : getState().token
-      })
-
-    });
-
-    if (!response.ok) 
-    {
-      const errorResData = await response.json();
-      const errorId = errorResData.error.message;
-
-      let message = 'Something went wrong!';
-
-      if (errorId === 'INVALID_ID_TOKEN') 
-      {
-        message = 'Invalid Token!';
-      }
-      else
-      {
-        message = 'User Not Found!';
-      }
-
-      throw new Error(message);
-    }
-
-    const resData = await response.json();
-    console.log(resData.email);
-
-  };
-
+  AsyncStorage.setItem(
+    'userData',
+    JSON.stringify({
+      userId : userId,
+      token : token
+    })
+  );
 }
 
 //signup
@@ -63,24 +29,6 @@ export const signup = (email, password) =>
 {
 
   return async dispatch => {
-
-    //encrypt password 
-    //use email digest as secret key
-    // var secretKey = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, email);
-    // var crypto = new SimpleCrypto(secretKey);
-
-    // console.log("sk : " + secretKey);
-
-    // var pwdCipher = crypto.encrypt(password);
-    // console.log("pwd cipher : " + pwdCipher);
-
-    //const encryptionKeypair = virgilCrypto.generateKeys();
-
-    // encrypt the message
-    //const encryptedData = virgilCrypto.encrypt(password, encryptionKeypair.publicKey);
-    
-    // encryptedData is a NodeJS Buffer polyfill
-    //console.log(encryptedData.toString('base64'));
 
     //hash the encryption
     var pwdDigest = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, password);
@@ -120,9 +68,6 @@ export const signup = (email, password) =>
     }
 
     const resData = await response.json();
-    //console.log(resData);
-
-    //verifyEmail(resData.idToken);
 
     dispatch({ 
       type: SIGNUP, 
@@ -135,37 +80,10 @@ export const signup = (email, password) =>
 };
 
 //login
-export const login = (email, password) => {
-
-  // const test = async() =>
-  // {
-  //   const digest = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, password);
-
-  //   console.log(digest);
-  // }
-
-  // test();
+export const login = (email, password) => 
+{
 
   return async dispatch => {
-
-
-    //encrypt password 
-    //use email digest as secret key
-    // var secretKey = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, email);
-    // var crypto = new SimpleCrypto(secretKey);
-
-    // console.log("sk : " + secretKey);
-
-    // var pwdCipher = crypto.encrypt(password);
-    // console.log("pwd cipher : " + pwdCipher);
-
-    //const encryptionKeypair = virgilCrypto.generateKeys();
-
-    // encrypt the message
-    //const encryptedData = virgilCrypto.encrypt(password, encryptionKeypair.publicKey);
-    
-    // encryptedData is a NodeJS Buffer polyfill
-    //console.log(encryptedData.toString('base64'));
 
     //hash the encryption
     var pwdDigest = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, password);
@@ -227,3 +145,5 @@ export const logout = () =>
   };
   
 };
+
+
