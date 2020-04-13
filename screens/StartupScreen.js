@@ -3,21 +3,138 @@ import {
 
     View,
     ActivityIndicator,
-    Text,
     StyleSheet,
-    AsyncStorage
+    Alert
 
 } from 'react-native';
+
+import { useDispatch } from 'react-redux';
+import * as LocalAuthentication from 'expo-local-authentication';
 
 //constants import
 import Colors from '../constants/Colors.js';
 
-const StartupScreen = props =>
+import * as authActions from '../store/actions/auth.js';
+import * as Keychain from 'react-native-keychain';
+
+const AuthOptions = 
 {
 
+    promptMessage : 'Scan Biometrics',
+    fallbackLabel : 'Please enter your passcode'
+
+}
+
+const StartupScreen = props =>
+{
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+
+        const checkCredentials = async () =>
+        {
+            try 
+            {
+                // Retrieve the credentials
+                let credentials = await Keychain.getGenericPassword();
+                return credentials;
+            } 
+            catch (error) 
+            {
+                console.log("Keychain couldn't be accessed!", error);
+            }
+        }
+
+
+        const biometricLogin = async () =>
+        {
+            const compatible = await LocalAuthentication.hasHardwareAsync();
+
+            if (compatible)
+            {
+                let result = await LocalAuthentication.authenticateAsync(AuthOptions);
+
+                return result;
+            
+            }
+        }
+        
+        const tryLogin = async () =>
+        {   
+            try
+            {
+                // Retrieve the credentials
+                let credentials = await Keychain.getGenericPassword();
+                
+                if (credentials) 
+                {
+
+                    console.log(
+                        'Credentials successfully loaded for user ' + credentials.username
+                    );
+
+                    const compatible = await LocalAuthentication.hasHardwareAsync();
+
+                    if (compatible)
+                    {
+                        let result = await LocalAuthentication.authenticateAsync(AuthOptions);
+
+                        if (result.success)
+                        {
+                            dispatch(credentials.email, credentials.password)
+                            props.navigation.navigate('Tab')
+                        } 
+                        else
+                        {
+                            console.log("biometric fail")
+                            props.navigation.navigate('Auth');
+                            return;
+                        }
+                    
+                    }
+                    else
+                    {
+                        props.navigation.navigate('Auth');
+                        return;
+                    }
+
+                } 
+                else 
+                {
+                    console.log('No credentials stored');
+                    props.navigation.navigate('Auth');
+                    return;
+                }
+            }
+            catch(err)
+            {
+                console.log(err)
+            }
+            
+        }
+        
+        tryLogin();
+
+    }, []);
+
+    return (
+
+        <View style={styles.screen}>
+            <ActivityIndicator size='large' color={Colors.primary} />
+        </View>
+
+    );
+    
 };
 
 const styles = StyleSheet.create({
+
+    screen :
+    {
+        flex : 1,
+        justifyContent : 'center',
+        alignContent : 'center'
+    }
 
 });
 

@@ -33,6 +33,7 @@ import { createMaterialBottomTabNavigator } from 'react-navigation-material-bott
 import PasswordDetailScreen from '../screens/vault/PasswordDetailScreen.js';
 import UserAccountScreen from '../screens/user/UserAccountScreen.js';
 import SecuritySettingsScreen from '../screens/user/SecuritySettingsScreen.js';
+import StartupScreen from '../screens/StartupScreen.js';
 
 
 //some default navigation options
@@ -43,10 +44,10 @@ const defaultStackNavOpt =
         backgroundColor : Colors.primary
     },
 
-    headerTitleStyle :
-    {
-        fontFamily : 'open-sans-bold',
-    },
+    // headerTitleStyle :
+    // {
+    //     fontFamily : 'open-sans-bold',
+    // },
 
     headerTintColor : Colors.accent,
 
@@ -265,6 +266,7 @@ const AuthNavigator = createSwitchNavigator({
 });
 
 const MainNavigator = createSwitchNavigator({
+    Startup : StartupScreen,
     Auth : AuthNavigator,
     Tab : TabNavigator
 });

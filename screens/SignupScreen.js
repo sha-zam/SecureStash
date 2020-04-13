@@ -7,7 +7,6 @@ import {
   Button,
   ActivityIndicator,
   Alert,
-  Linking,
   Text
 } from 'react-native';
 import qs from 'qs';

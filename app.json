@@ -28,6 +28,9 @@
       "infoPlist": {
         "NSFaceIDUsageDescription": "This app will optionally use Face ID or Touch ID to save login"
       }
-    }
-  }
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
+  },
+  "displayName": "Secure Stash",
+  "name": "securestash"
 }

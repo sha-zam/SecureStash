@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer, useCallback } from 'react';
 import {
+
   ScrollView,
   View,
   KeyboardAvoidingView,
@@ -7,15 +8,16 @@ import {
   Button,
   ActivityIndicator,
   Alert,
-  Linking,
   Text,
   Platform
+
 } from 'react-native';
-import qs from 'qs';
+
 import { LinearGradient } from 'expo-linear-gradient';
 import { useDispatch } from 'react-redux';
-import firebase from 'firebase';
+
 import * as LocalAuthentication from 'expo-local-authentication';
+import * as Keychain from 'react-native-keychain';
 
 import Input from '../components/Input';
 import Card from '../components/Card';
@@ -116,24 +118,46 @@ const LoginScreen = props => {
   const authHandler = async () => 
   {
     //check device's biometrics capability
-    let compatible = await LocalAuthentication.hasHardwareAsync();
+    //let compatible = await LocalAuthentication.hasHardwareAsync();
 
-    if (compatible)
-    {
-        let result = await LocalAuthentication.authenticateAsync(AuthOptions);
-
-        if (result.success)
-        {
-          props.navigation.navigate('Tab')
-        } 
-        else
-        {
-          Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
-        }
+    // try {
+    //   // Retrieve the credentials
+    //   const credentials = await Keychain.getGenericPassword();
+    //   if (credentials) {
+    //     console.log(
+    //       'Credentials successfully loaded for user ' + credentials.username
+    //     );
+    //   } else {
+    //     console.log('No credentials stored');
+    //   }
+    // } catch (error) {
+    //   console.log("Keychain couldn't be accessed!", error);
+    // }
     
-    }
-    else //fallback to password
-    {
+    // const credentials = await Keychain.getGenericPassword();
+
+    // if (credentials)
+    // {
+    //   console.log(
+    //           'Credentials successfully loaded for user ' + credentials.username
+    //         );
+    //   if (compatible)
+    //   {
+    //       let result = await LocalAuthentication.authenticateAsync(AuthOptions);
+
+    //       if (result.success)
+    //       {
+    //         props.navigation.navigate('Tab')
+    //       } 
+    //       else
+    //       {
+    //         Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
+    //       }
+      
+    //   }
+    // }
+    // else //fallback to password
+    // {
       let action;
 
       action = authActions.login(
@@ -159,7 +183,7 @@ const LoginScreen = props => {
           setError(err.message);
           setIsLoading(false);
       }
-    }
+    //}
 
   };
 

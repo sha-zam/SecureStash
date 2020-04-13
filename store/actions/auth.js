@@ -2,27 +2,15 @@
 import { AsyncStorage } from 'react-native' 
 
 //cryptography
-import { RNSimpleCrypto } from 'react-native-simple-crypto';
-import { RSA } from 'react-native-rsa-native';
 import * as Crypto from 'expo-crypto'; //SHA256
-import SimpleCrypto from "simple-crypto-js"; //AES CBC
+import * as Keychain from 'react-native-keychain';
+
 //import { virgilCrypto } from 'react-native-virgil-crypto';
 //import RNSimpleCrypto from 'react-native-simple-crypto';
 
 export const SIGNUP = 'SIGNUP';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
-
-const saveDatatoStorage = (userId, token) => 
-{
-  AsyncStorage.setItem(
-    'userData',
-    JSON.stringify({
-      userId : userId,
-      token : token
-    })
-  );
-}
 
 //signup
 export const signup = (email, password) => 
@@ -85,6 +73,7 @@ export const login = (email, password) =>
 
   return async dispatch => {
 
+    console.log("password = " + password)
     //hash the encryption
     var pwdDigest = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, password);
     console.log("pwd digest : " + pwdDigest);
@@ -125,7 +114,18 @@ export const login = (email, password) =>
     }
 
     const resData = await response.json();
-    //console.log(resData);
+
+    const user = email;
+
+    // Store the credentials
+    await Keychain.setGenericPassword(email, password);
+    
+    let credentials = await Keychain.getGenericPassword();
+
+    console.log(email);
+
+    console.log(credentials.username + " " + credentials.password);
+
     dispatch({ 
       type: LOGIN, 
       token: resData.idToken, 

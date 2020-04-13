@@ -1,0 +1,6 @@
+module Pods_securestash {
+  umbrella header "Pods-securestash-umbrella.h"
+
+  export *
+  module * { export * }
+}

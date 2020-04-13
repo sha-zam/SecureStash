@@ -6,6 +6,7 @@ import {
     Button, 
     StyleSheet,
     Alert,
+    Clipboard
 
 } from 'react-native';
 
@@ -28,6 +29,12 @@ const PasswordDetailScreen = props => {
     //the use useSelector to retrieve account`                                                                                                                                                                  
     const selectedAccount = useSelector(state => state.storedAccounts.userAccounts.find(acc => acc.id === accID));
     
+    const copyHandler = async (value) => 
+    {
+        await Clipboard.setString(value);
+        // Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
+    };
+
     const editHandler = id =>
     {
         props.navigation.navigate('EditPasswordDetail', {accountID : id})
@@ -59,10 +66,17 @@ const PasswordDetailScreen = props => {
         return (
             <Card style={styles.accContainer}>
                 <Text style={styles.titleText}>{selectedAccount.title}</Text>
-                <Text style={styles.text}>URL : {selectedAccount.URL} </Text>
-                <Text style={styles.text}>Username : {selectedAccount.username}</Text>
-                <Text style={styles.text}>Password : {selectedAccount.password}</Text>  
                 <View>
+                    <Button
+                        color = {Colors.primary}
+                        title = "Copy Username"
+                        onPress = {() => {copyHandler(selectedAccount.username);}}    
+                    />
+                    <Button
+                        color = {Colors.primary}
+                        title = "Copy Password"
+                        onPress = {() => {copyHandler(selectedAccount.password);}}    
+                    />
                     <Button
                         color = {Colors.primary}
                         title = "Edit"
@@ -93,12 +107,10 @@ const styles = StyleSheet.create({
         color: '#888',
         textAlign: 'center',
         marginVertical: 20,
-        fontFamily: 'open-sans-bold'
     },
 
     text : 
     {
-        fontFamily: 'open-sans',
         fontSize: 14,
         textAlign: 'center',
         marginHorizontal: 20

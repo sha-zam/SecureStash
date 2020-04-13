@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, AsyncStorage } from 'react-native';
 import { ListItem, Icon } from 'react-native-elements';
 import { useDispatch } from 'react-redux';
 
@@ -15,6 +15,36 @@ const SettingsScreen = props =>
     dispatch(authActions.logout());
     props.navigation.navigate('Auth');
   };
+
+  const securityHandler = async() =>
+  {
+    const bioData = await AsyncStorage.getItem('biometrics');
+
+    if(bioData)
+    {
+      const parseData = JSON.parse(bioData);
+      const { biometrics } = parseData;
+
+      console.log("passing : " + biometrics);
+
+      props.navigation.navigate({
+        routeName: 'Security',
+        params: {
+          bioState : biometrics
+        }
+      });
+    }
+    else
+    {
+      props.navigation.navigate({
+        routeName: 'Security',
+        params: {
+          bioState : false
+        }
+      });
+    }
+
+  }
 
   return (
 
@@ -32,7 +62,7 @@ const SettingsScreen = props =>
           leftIcon={{name : 'lock-outline'}}
           bottomDivider
           chevron
-          onPress = {() => {props.navigation.navigate('Security')}}
+          onPress = {securityHandler}
         />
       </View>
       <View style={{marginTop : 20}}>

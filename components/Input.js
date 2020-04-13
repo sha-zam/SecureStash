@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
 
   label: 
   {
-    fontFamily: 'open-sans-bold',
+    //fontFamily: 'open-sans-bold',
     marginVertical: 8
   },
 
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
 
   errorText: 
   {
-    fontFamily: 'open-sans',
+    //fontFamily: 'open-sans',
     color: 'red',
     fontSize: 13
   }

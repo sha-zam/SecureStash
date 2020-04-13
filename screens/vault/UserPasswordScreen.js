@@ -26,15 +26,16 @@ const UserPasswordScreen = props =>
    {
  
      return (
- 
-       <CategoryGridTile 
+
+        <CategoryGridTile 
          title = {itemData.item.title}
  
          onSelect={() => {props.navigation.navigate('PasswordDetail', {accountID : itemData.item.id})}}
  
          color = {Colors.accent}
-       />
- 
+        />
+  
+       //props.navigation.navigate('PasswordDetail', {accountID : itemData.item.id})
      );
  
    };
@@ -65,27 +66,12 @@ const UserPasswordScreen = props =>
 
   }
 
-  // const fetchUserAccounts = useCallback(async () => {
-
-  //   try
-  //   {
-  //     await dispatch(accountsActions.fetchAccounts());
-  //   }
-  //   catch(err)
-  //   {
-  //     throw (err);
-  //   }
-    
-  //   setIsLoading(false);
-
-  // }, [dispatch]);
-
   //check if there's any available passwords
   if(userAccounts.length === 0)
   {
     return (
-
-      <View style={{flex : 1, justifyContent : 'center', alignItems : 'Center'}}>
+      
+      <View style={{flex : 1, justifyContent : 'center', alignItems : 'center'}}>
         <Text>No Accounts Found</Text>
       </View>
 
@@ -95,13 +81,13 @@ const UserPasswordScreen = props =>
   {
 
     return (
-    
+
       <FlatList
         data = {userAccounts}
         keyExtractor = {(item) => item.id}
         renderItem = {renderGridItem}
       />
-  
+
     );
   }
 
