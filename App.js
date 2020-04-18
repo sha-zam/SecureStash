@@ -18,6 +18,7 @@ import ReduxThunk from 'redux-thunk';
 
 //navigator import
 import VaultNavigator from './navigation/VaultNavigator.js';
+import NavigationContainer from './navigation/NavigationContainer.js';
 
 //reducers
 import authReducer from './store/reducers/auth.js';
@@ -60,7 +61,7 @@ export default function App() {
   return (
     
     <Provider store={store}>
-      <VaultNavigator/>
+      <NavigationContainer/>
     </Provider>
   );
 

@@ -4,6 +4,10 @@ import android.app.Application;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.pedrouid.crypto.RCTCryptoPackage;
+import com.chirag.RNMail.RNMail;
+import com.reactlibrary.RNSmtpMailerPackage;
+import com.RNRSA.RNRSAPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.oblador.keychain.KeychainPackage;
 import com.facebook.react.ReactNativeHost;

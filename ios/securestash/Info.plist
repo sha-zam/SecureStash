@@ -66,7 +66,7 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Allow Secure Stash to access your microphone</string>
 	<key>NSMotionUsageDescription</key>
-	<string>Allow Secure Stash to access your device's accelerometer</string>
+	<string>Allow Secure Stash to access your device&apos;s accelerometer</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Give Secure Stash periences permission to save photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -95,6 +95,17 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+	</array>
+	<key>LSApplicationQueriesSchemes </key>
+	<array>
+		<string>message</string>
+		<string>readdle-spark</string>
+		<string>airmail</string>
+		<string>ms-outlook</string>
+		<string>googlegmail</string>
+		<string>inbox-gmail</string>
+		<string>ymail</string>
+		<string>superhuman</string>
 	</array>
 </dict>
 </plist>

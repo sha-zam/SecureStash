@@ -45,4 +45,14 @@ target 'securestash' do
   use_native_modules!
   pod 'RNKeychain', :path => '../node_modules/react-native-keychain'
   
+  pod 'react-native-rsa-native', :path => '../node_modules/react-native-rsa-native'
+
+  pod 'RNSmtpMailer', :path => '../node_modules/react-native-smtp-mailer'
+
+  pod 'mailcore2-ios'
+
+  pod 'react-native-mail', :path => '../node_modules/react-native-mail'
+
+  pod 'react-native-simple-crypto', :path => '../node_modules/react-native-simple-crypto'
+
 end

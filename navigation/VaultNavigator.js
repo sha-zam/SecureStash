@@ -23,6 +23,7 @@ import SignupScreen from '../screens/SignupScreen.js';
 import LoginScreen from '../screens/LoginScreen.js';
 import EditPasswordDetailScreen from '../screens/vault/EditPasswordDetailScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen.js';
+import AutoLogoutSettingsScreen from '../screens/user/AutoLogoutSettingsScreen.js';
 
 //components import 
 import HeaderButton from '../components/HeaderButton.js';
@@ -34,6 +35,7 @@ import PasswordDetailScreen from '../screens/vault/PasswordDetailScreen.js';
 import UserAccountScreen from '../screens/user/UserAccountScreen.js';
 import SecuritySettingsScreen from '../screens/user/SecuritySettingsScreen.js';
 import StartupScreen from '../screens/StartupScreen.js';
+import SupportScreen from '../screens/user/SupportScreen.js';
 
 
 //some default navigation options
@@ -139,7 +141,9 @@ const SettingsNavigator = createStackNavigator({
 
     Settings : SettingsScreen,
     UserAccount : UserAccountScreen,
-    Security : SecuritySettingsScreen
+    Security : SecuritySettingsScreen,
+    AutoLogout : AutoLogoutSettingsScreen,
+    Support : SupportScreen
     
 },
 {

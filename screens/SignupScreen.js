@@ -91,53 +91,6 @@ const SignupScreen = props => {
 
   }, [error]);
 
-  // const sendEmail = async (to, subject, body, options = {}) =>
-  // {
-  //   const { cc, bcc } = options;
-
-  //   let url = `mailto:${to}`;
-
-  //   // Create email link query
-  //   const query = qs.stringify ({
-
-  //       subject: subject,
-  //       body: body,
-  //       cc: cc,
-  //       bcc: bcc
-
-  //   });
-
-  //   if (query.length) 
-  //   {
-  //       url += `?${query}`;
-  //   }
-
-  //   // check if we can use this link
-  //   const canOpen = await Linking.canOpenURL(url);
-
-  //   if (!canOpen) 
-  //   {
-  //       throw new Error('Provided URL can not be handled');
-  //   }
-
-  //   return Linking.openURL(url);
-
-  // }
-
-  // const verifyEmail = () =>
-  // {
-  //     var user = firebase.auth().currentUser;
-  
-  //     user.sendEmailVerification().then(() => {
-  //       // Email sent.
-  
-  //     }).catch(function (error) {
-  //       // An error happened.
-  //     });
-  
-    
-  // }
-
   const authHandler = async () => {
 
     let action;
@@ -150,28 +103,12 @@ const SignupScreen = props => {
     try 
     {
       await dispatch(action);
-      //fetchUserAccounts();
 
-      // if(isSignup)
-      // {
-
-        //await dispatch(authActions.verifyEmail());
-
-      Alert.alert('Sign up successful!', 'Please log in with your new account to continue', [{ text: 'Okay' }]);
+      Alert.alert('Sign up successful!', 'Please check your email to verify your new account before you can use it!', [{ text: 'Okay' }]);
         
-        //verifyEmail();
-
-        // sendEmail(formState.inputValues.email, 'Confirmation Email', 'Welcome to SecureStash, Your Registration was succesful!', {})
-        // .then(() => {
-        //   console.log('Email sent successfully')
-        // });
-
       setIsLoading(false);
-      // }
-      // else
-      // {
+
       props.navigation.navigate('Tab');
-      //}
      
     } catch (err) 
     {

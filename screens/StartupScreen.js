@@ -4,7 +4,8 @@ import {
     View,
     ActivityIndicator,
     StyleSheet,
-    Alert
+    Alert,
+    AsyncStorage
 
 } from 'react-native';
 
@@ -63,48 +64,47 @@ const StartupScreen = props =>
         {   
             try
             {
-                // Retrieve the credentials
-                let credentials = await Keychain.getGenericPassword();
-                
-                if (credentials) 
+                const bioData = await AsyncStorage.getItem('biometrics');
+
+                if(bioData)
                 {
+                    const parseData = JSON.parse(bioData);
+                    const { biometrics } = parseData;
 
-                    console.log(
-                        'Credentials successfully loaded for user ' + credentials.username
-                    );
-
-                    const compatible = await LocalAuthentication.hasHardwareAsync();
-
-                    if (compatible)
+                    if(biometrics)
                     {
-                        let result = await LocalAuthentication.authenticateAsync(AuthOptions);
+                         // Retrieve the credentials
+                         let credentials = await Keychain.getGenericPassword();
+                        
+                         if (credentials) 
+                         {
+ 
+                            console.log(
+                                'Credentials successfully loaded for user ' + credentials.username
+                            );
 
-                        if (result.success)
-                        {
-                            dispatch(credentials.email, credentials.password)
-                            props.navigation.navigate('Tab')
-                        } 
-                        else
-                        {
-                            console.log("biometric fail")
-                            props.navigation.navigate('Auth');
-                            return;
-                        }
+                            const compatible = await LocalAuthentication.hasHardwareAsync();
+
+                            if (compatible)
+                            {
+                                let result = await LocalAuthentication.authenticateAsync(AuthOptions);
+
+                                if (result.success)
+                                {
+                                    dispatch(authActions.login(credentials.email, credentials.password));
+                                    props.navigation.navigate('Tab');
+                                } 
+                            
+                            }
+ 
+                         } 
                     
                     }
-                    else
-                    {
-                        props.navigation.navigate('Auth');
-                        return;
-                    }
-
-                } 
-                else 
-                {
-                    console.log('No credentials stored');
-                    props.navigation.navigate('Auth');
-                    return;
+                    
                 }
+
+                props.navigation.navigate('Auth');
+                return;
             }
             catch(err)
             {

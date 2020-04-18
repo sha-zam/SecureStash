@@ -4,6 +4,7 @@ import { HeaderBackButton } from 'react-navigation-stack';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActivityIndicator } from 'react-native-paper';
+import { SearchBar } from 'react-native-elements';
 
 //components import
 import HeaderButton from '../../components/HeaderButton.js';
@@ -20,30 +21,12 @@ const UserPasswordScreen = props =>
 {
   //states 
   const [isLoading, setIsLoading] = useState(true);
-
-   //grid item function
-   const renderGridItem = (itemData) =>
-   {
- 
-     return (
-
-        <CategoryGridTile 
-         title = {itemData.item.title}
- 
-         onSelect={() => {props.navigation.navigate('PasswordDetail', {accountID : itemData.item.id})}}
- 
-         color = {Colors.accent}
-        />
+  const [value, setIsValue] = useState();
   
-       //props.navigation.navigate('PasswordDetail', {accountID : itemData.item.id})
-     );
- 
-   };
-   
-  //useSelector to view stored passwords
-  const userAccounts = useSelector(state => state.storedAccounts.userAccounts);
-  
+  //const [userAccounts, setUserAccounts] = useState();
+
   const dispatch = useDispatch();
+  let userAccounts;
 
   useEffect(() => 
   {
@@ -53,7 +36,70 @@ const UserPasswordScreen = props =>
     {
       setIsLoading(false);
     });
+
+    //useSelector to view stored passwords
+    //setUserAccounts(useSelector(state => state.storedAccounts.userAccounts));
+    
+
   }, [dispatch]);
+  userAccounts = useSelector(state => state.storedAccounts.userAccounts);
+
+  const [data, setData] = useState(userAccounts);
+
+
+  //grid item function
+  const renderGridItem = (itemData) =>
+  {
+
+    return (
+
+      <CategoryGridTile 
+        title = {itemData.item.title}
+
+        onSelect={() => {props.navigation.navigate('PasswordDetail', {accountID : itemData.item.id})}}
+
+        color = {Colors.accent}
+      />
+
+    );
+
+  };
+
+  const searchFilterFunction = text => 
+  {
+    setIsValue(text);
+
+    const newData = userAccounts.filter(item => 
+    {
+      const itemData = `${item.title.toUpperCase()}`;
+      const textData = text.toUpperCase();
+
+      return itemData.indexOf(textData) > -1;
+
+    });
+
+    setData(newData);
+    console.log(data);
+
+  };
+
+  const renderHeader = () => 
+  {
+
+    return (
+
+      <SearchBar
+        placeholder="Type Here..."
+        lightTheme
+        round
+        onChangeText={text => searchFilterFunction(text)}
+        autoCorrect={false}
+        value={value}
+      />
+
+    );
+
+  };
 
   if (isLoading) 
   {
@@ -81,11 +127,12 @@ const UserPasswordScreen = props =>
   {
 
     return (
-
+      
       <FlatList
-        data = {userAccounts}
+        data = {data}
         keyExtractor = {(item) => item.id}
         renderItem = {renderGridItem}
+        ListHeaderComponent={renderHeader}
       />
 
     );

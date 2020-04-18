@@ -64,11 +64,17 @@ const SettingsScreen = props =>
           chevron
           onPress = {securityHandler}
         />
+        <ListItem
+          title='Support'
+          leftIcon={{name : 'lock-outline'}}
+          bottomDivider
+          chevron
+          onPress = {() => {props.navigation.navigate('Support')}}
+        />
       </View>
       <View style={{marginTop : 20}}>
         <ListItem
           title='Log Out'
-          // leftIcon={{name : 'lock-outline'}}
           bottomDivider
           chevron
           onPress = {logoutHandler}
