@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer, useCallback } from 'react';
 import {
+
   ScrollView,
   View,
   KeyboardAvoidingView,
@@ -8,11 +9,11 @@ import {
   ActivityIndicator,
   Alert,
   Text
+  
 } from 'react-native';
-import qs from 'qs';
+
 import { LinearGradient } from 'expo-linear-gradient';
 import { useDispatch } from 'react-redux';
-import firebase from 'firebase';
 
 import Input from '../components/Input';
 import Card from '../components/Card';
@@ -108,7 +109,7 @@ const SignupScreen = props => {
         
       setIsLoading(false);
 
-      props.navigation.navigate('Tab');
+      props.navigation.navigate('Login');
      
     } catch (err) 
     {
@@ -158,9 +159,9 @@ const SignupScreen = props => {
               keyboardType="default"
               secureTextEntry
               required
-              minLength={12}
+              minLength={10}
               autoCapitalize="none"
-              errorText="Please enter a valid password."
+              errorText="Please enter a valid password with at least 10 characters in length"
               onInputChange={inputChangeHandler}
               initialValue=""
             />

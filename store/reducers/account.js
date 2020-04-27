@@ -2,14 +2,15 @@ import {
     CREATE_ACCOUNT, 
     DELETE_ACCOUNT, 
     UPDATE_ACCOUNT,
-    SET_ACCOUNT
+    SET_ACCOUNT,
+    UPDATE_ACCOUNT_FAV
 } from '../actions/account.js';
 
 //models import
 import Account from '../../models/account.js';
 
 const initialState = {
-    userAccounts : []
+    userAccounts : [],
 };
 
 export default (state = initialState, action) => {
@@ -30,7 +31,9 @@ export default (state = initialState, action) => {
                 action.accountData.title, 
                 action.accountData.URL, 
                 action.accountData.username, 
-                action.accountData.password
+                action.accountData.password,
+                action.accountData.folder,
+                action.accountData.favorite,
             );
 
             return {
@@ -54,7 +57,9 @@ export default (state = initialState, action) => {
                 action.accountData.title, 
                 action.accountData.URL, 
                 action.accountData.username, 
-                action.accountData.password
+                action.accountData.password,
+                action.accountData.folder,
+                state.userAccounts[accountIndex].favorite
             )
 
             //replace
@@ -69,9 +74,26 @@ export default (state = initialState, action) => {
                 //add to user accounts
                 userAccounts : updatedUserAccounts
             };
-            
+
+        case UPDATE_ACCOUNT_FAV :
+            //find the account index in the existing state
+            const accIndex = state.userAccounts.findIndex(acc => acc.id === action.aid);
+
+            //update the account's favorite value
+            const updatedUserAccs = [...state.userAccounts];
+            updatedUserAccs[accIndex].favorite = action.accountData.favorite;
+
+            return {
+
+                //copy existing state
+                ...state, 
+
+                //add to user accounts
+                userAccounts : updatedUserAccs
+            };
+
         //delete accounts
-        case DELETE_ACCOUNT :
+        case DELETE_ACCOUNT:
             return {
 
                 //copy existing state

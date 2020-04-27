@@ -117,74 +117,28 @@ const LoginScreen = props => {
   
   const authHandler = async () => 
   {
-    //check device's biometrics capability
-    //let compatible = await LocalAuthentication.hasHardwareAsync();
+    let action;
 
-    // try {
-    //   // Retrieve the credentials
-    //   const credentials = await Keychain.getGenericPassword();
-    //   if (credentials) {
-    //     console.log(
-    //       'Credentials successfully loaded for user ' + credentials.username
-    //     );
-    //   } else {
-    //     console.log('No credentials stored');
-    //   }
-    // } catch (error) {
-    //   console.log("Keychain couldn't be accessed!", error);
-    // }
+    action = authActions.login(
+      formState.inputValues.email,
+      formState.inputValues.password
+    );
     
-    // const credentials = await Keychain.getGenericPassword();
+    setError(null);
+    setIsLoading(true);
 
-    // if (credentials)
-    // {
-    //   console.log(
-    //           'Credentials successfully loaded for user ' + credentials.username
-    //         );
-    //   if (compatible)
-    //   {
-    //       let result = await LocalAuthentication.authenticateAsync(AuthOptions);
+    try 
+    {
+        await dispatch(action);
 
-    //       if (result.success)
-    //       {
-    //         props.navigation.navigate('Tab')
-    //       } 
-    //       else
-    //       {
-    //         Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
-    //       }
-      
-    //   }
-    // }
-    // else //fallback to password
-    // {
-      let action;
-
-      action = authActions.login(
-        formState.inputValues.email,
-        formState.inputValues.password
-      );
-      
-      setError(null);
-      setIsLoading(true);
-
-      try 
-      {
-          await dispatch(action);
-          //const test = await LocalAuthentication.supportedAuthenticationTypesAsync();
-
-          //console.log(test);
-
-          props.navigation.navigate('Tab');  
-      
-      } 
-      catch (err) 
-      {
-          setError(err.message);
-          setIsLoading(false);
-      }
-    //}
-
+        props.navigation.navigate('Tab');  
+    
+    } 
+    catch (err) 
+    {
+        setError(err.message);
+        setIsLoading(false);
+    }
   };
 
   const inputChangeHandler = useCallback(

@@ -4,6 +4,7 @@ import Account from '../../models/account.js';
 export const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
 export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
 export const UPDATE_ACCOUNT = 'UPDATE_ACCOUNT';
+export const UPDATE_ACCOUNT_FAV = 'UPDATE_ACCOUNT_FAV';
 export const SET_ACCOUNT = 'SET_ACCOUNT';
 
 //read
@@ -39,7 +40,9 @@ export const fetchAccounts = () =>
                         resData[key].title, 
                         resData[key].URL, 
                         resData[key].username, 
-                        resData[key].password
+                        resData[key].password,
+                        resData[key].folder,
+                        resData[key].favorite
                     )
                 );
             }
@@ -60,7 +63,7 @@ export const fetchAccounts = () =>
 };
 
 //create 
-export const createAccounts = (title, URL, username, password) => 
+export const createAccounts = (title, URL, username, password, folder, favorite) => 
 {
     return async (dispatch, getState) => { 
 
@@ -84,7 +87,9 @@ export const createAccounts = (title, URL, username, password) =>
                     URL, 
                     username, 
                     password,
-                    userID
+                    userID,
+                    folder,
+                    favorite
                 })
             }
 
@@ -101,14 +106,16 @@ export const createAccounts = (title, URL, username, password) =>
                 title, 
                 URL, 
                 username, 
-                password,      
+                password, 
+                folder,
+                favorite     
             }
         });
     };
 };
 
 //update
-export const updateAccounts = (id, title, URL, username, password) => 
+export const updateAccounts = (id, title, URL, username, password, folder) => 
 {
 
     return async (dispatch, getState) => {
@@ -130,7 +137,8 @@ export const updateAccounts = (id, title, URL, username, password) =>
                 title,
                 URL,
                 username,
-                password
+                password,
+                folder
             })
         }
 
@@ -150,6 +158,50 @@ export const updateAccounts = (id, title, URL, username, password) =>
           URL,
           username,
           password
+        }
+
+      });
+
+    };
+};
+
+//update favorites
+export const updateAccountFav = (id, favorite) => 
+{
+
+    return async (dispatch, getState) => {
+
+      const token = getState().auth.token;
+
+      const response = await fetch(
+
+        `https://fyp-s3curest4sh.firebaseio.com/Passwords/${id}.json?auth=${token}`,
+        {
+            method: 'PATCH',
+
+            headers: 
+            {
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify({
+                favorite
+            })
+        }
+
+      );
+  
+      if (!response.ok) 
+      {
+        throw new Error('Something went wrong!');
+      }
+  
+      dispatch({
+        type: UPDATE_ACCOUNT_FAV,
+        aid: id,
+
+        accountData: {
+          favorite
         }
 
       });

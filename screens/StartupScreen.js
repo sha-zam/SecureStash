@@ -30,92 +30,68 @@ const StartupScreen = props =>
 {
     const dispatch = useDispatch();
 
-    useEffect(() => {
+    useEffect(() => 
+    {
 
-        const checkCredentials = async () =>
-        {
-            try 
-            {
-                // Retrieve the credentials
-                let credentials = await Keychain.getGenericPassword();
-                return credentials;
-            } 
-            catch (error) 
-            {
-                console.log("Keychain couldn't be accessed!", error);
-            }
-        }
-
-
-        const biometricLogin = async () =>
-        {
-            const compatible = await LocalAuthentication.hasHardwareAsync();
-
-            if (compatible)
-            {
-                let result = await LocalAuthentication.authenticateAsync(AuthOptions);
-
-                return result;
-            
-            }
-        }
-        
         const tryLogin = async () =>
-        {   
-            try
-            {
-                const bioData = await AsyncStorage.getItem('biometrics');
+        {
+            // disabled for testing, enable again after testing
+            // try
+            // {
+            //     const bioData = await AsyncStorage.getItem('biometrics');
 
-                if(bioData)
-                {
-                    const parseData = JSON.parse(bioData);
-                    const { biometrics } = parseData;
+            //     if(bioData)
+            //     {
+            //         const parseData = JSON.parse(bioData);
+            //         const { biometrics } = parseData;
 
-                    if(biometrics)
-                    {
-                         // Retrieve the credentials
-                         let credentials = await Keychain.getGenericPassword();
+            //         if(biometrics)
+            //         {
+            //              // Retrieve the credentials
+            //              let credentials = await Keychain.getGenericPassword();
                         
-                         if (credentials) 
-                         {
+            //              if (credentials) 
+            //              {
  
-                            console.log(
-                                'Credentials successfully loaded for user ' + credentials.username
-                            );
+            //                 console.log(
+            //                     'Credentials successfully loaded for user ' + credentials.username
+            //                 );
 
-                            const compatible = await LocalAuthentication.hasHardwareAsync();
+            //                 const compatible = await LocalAuthentication.hasHardwareAsync();
 
-                            if (compatible)
-                            {
-                                let result = await LocalAuthentication.authenticateAsync(AuthOptions);
+            //                 if (compatible)
+            //                 {
+            //                     let result = await LocalAuthentication.authenticateAsync(AuthOptions);
 
-                                if (result.success)
-                                {
-                                    dispatch(authActions.login(credentials.email, credentials.password));
-                                    props.navigation.navigate('Tab');
-                                } 
+            //                     if (result.success)
+            //                     {
+            //                         dispatch(authActions.login(credentials.email, credentials.password));
+            //                         props.navigation.navigate('Tab');
+            //                     } 
                             
-                            }
+            //                 }
  
-                         } 
+            //              } 
                     
-                    }
+            //         }
                     
-                }
+            //     }
 
-                props.navigation.navigate('Auth');
-                return;
-            }
-            catch(err)
-            {
-                console.log(err)
-            }
+            //     props.navigation.navigate('Auth');
+            //     return;
+            // }
+            // catch(err)
+            // {
+            //     console.log(err)
+            // }
+
+            props.navigation.navigate('Auth');
             
         }
         
         tryLogin();
 
-    }, []);
+    }, [dispatch]);
 
     return (
 

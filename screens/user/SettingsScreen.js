@@ -66,7 +66,7 @@ const SettingsScreen = props =>
         />
         <ListItem
           title='Support'
-          leftIcon={{name : 'lock-outline'}}
+          leftIcon={{name : 'accessibility'}}
           bottomDivider
           chevron
           onPress = {() => {props.navigation.navigate('Support')}}

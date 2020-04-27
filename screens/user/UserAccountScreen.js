@@ -16,52 +16,17 @@ import * as LocalAuthentication from 'expo-local-authentication';
 
 import * as userActions from '../../store/actions/user.js';
 
+const AuthOptions = 
+{
+
+    promptMessage : 'Scan Biometrics',
+    fallbackLabel : 'Please enter your passcode'
+
+}
+
 const UserAccountScreen = props =>
 {
-    const dispatch = useDispatch();
-
-    const pwdChangeHandler = async() => 
-    {
-        //check device biometrics
-        const compatible = await LocalAuthentication.hasHardwareAsync();
-        
-        //if device has biometric capabilities
-        if (compatible)
-        {
-            //test 
-            let result = await LocalAuthentication.authenticateAsync(AuthOptions);
-
-            if (result.success)
-            {
-                //send password change email
-            } 
-        
-        }
-
-    };
-
-    const deleteAccountHandler = () =>
-    {
-        Alert.alert(
-            "Delete Account",
-            "Are you sure you want to delete your account",
-            [
-
-                {
-                    text: "No",
-                    onPress: () => console.log("Cancel Pressed"),
-                    style: "cancel"
-                },
-                { 
-                    text: "Yes", 
-                    onPress: () => console.log("OK Pressed") 
-                }
-            ],
-
-            // { cancelable: false }
-          );
-    }
-
+    
     //useSelector to view stored user email
     const userEmail = useSelector(state => state.auth.email);
 
@@ -70,7 +35,7 @@ const UserAccountScreen = props =>
         <View>
             <View>
                 <ListItem
-                    onPress={pwdChangeHandler}
+                    onPress={() => {props.navigation.navigate('ChangePassword')}}
                     title='Change Master Password'
                     titleStyle={{color : '#45B0FF'}}
                     bottomDivider
@@ -79,7 +44,7 @@ const UserAccountScreen = props =>
             </View>
             <View>
                 <ListItem
-                    onPress={deleteAccountHandler}
+                    onPress={() => {props.navigation.navigate('DeleteAcc')}}
                     title='Delete Account'
                     titleStyle={{color : '#45B0FF'}}
                     bottomDivider

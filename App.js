@@ -17,18 +17,23 @@ import { Provider, useDispatch } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 
 //navigator import
-import VaultNavigator from './navigation/VaultNavigator.js';
 import NavigationContainer from './navigation/NavigationContainer.js';
 
 //reducers
 import authReducer from './store/reducers/auth.js';
 import accountReducer from './store/reducers/account.js';
+import noteReducer from './store/reducers/notes.js';
+import cardReducer from './store/reducers/card.js';
+import bankReducer from './store/reducers/bank.js';
 
 enableScreens();
 
 const rootReducer = combineReducers({
   auth : authReducer,
-  storedAccounts : accountReducer
+  storedNotes : noteReducer,
+  storedAccounts : accountReducer,
+  storedCards : cardReducer,
+  storedBanks : bankReducer
 });
 
 

@@ -97,6 +97,7 @@ const Input = props => {
         value={inputState.value}
         onChangeText={textChangeHandler}
         onBlur={lostFocusHandler}
+        onFocus={props.onFocus}
       />
 
       {!inputState.isValid && inputState.touched && (
