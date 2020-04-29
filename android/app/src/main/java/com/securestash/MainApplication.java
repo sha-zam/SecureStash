@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.rnfs.RNFSPackage;
 import com.pedrouid.crypto.RCTCryptoPackage;
 import com.chirag.RNMail.RNMail;
 import com.reactlibrary.RNSmtpMailerPackage;

@@ -36,6 +36,7 @@ const NoteDetailScreen = props => {
     const toggleFavoriteHandler = useCallback(() => 
     {
         let newFavstate = !selectedNote.favorite;
+        setFavState(newFavstate);
 
         dispatch(noteActions.updateNoteFav(noteID, newFavstate));
     }, [dispatch, noteID]);
@@ -49,7 +50,7 @@ const NoteDetailScreen = props => {
     useEffect(() => 
     {
         props.navigation.setParams({ isFav: favState });
-    }, [toggleFavoriteHandler]);
+    }, [favState]);
 
     const editHandler = id =>
     {

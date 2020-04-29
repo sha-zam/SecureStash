@@ -40,6 +40,7 @@ const CardDetailScreen = props => {
     const toggleFavoriteHandler = useCallback(() => 
     {
         let newFavstate = !selectedCard.favorite;
+        setFavState(newFavstate);
 
         dispatch(cardActions.updateCardFav(cardID, newFavstate));
     }, [dispatch, cardID]);
@@ -53,7 +54,7 @@ const CardDetailScreen = props => {
     useEffect(() => 
     {
         props.navigation.setParams({ isFav: favState });
-    }, [toggleFavoriteHandler]);
+    }, [favState]);
 
     const copyHandler = async (value) => 
     {

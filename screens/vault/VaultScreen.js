@@ -17,17 +17,21 @@ import * as cardActions from '../../store/actions/card.js';
 
 import { useSelector, useDispatch } from 'react-redux';
 
+
 //constants import 
 import Colors from '../../constants/Colors.js';
-import { getLightEstimationEnabled } from 'expo/build/AR';
 
 const VaultScreen = props =>
 {
   const [error, setError] = useState();
   const dispatch = useDispatch();
 
+  //var RNFS = require('react-native-fs');
+
   useEffect(() => 
   {
+
+    //console.log(RNFS.DocumentDirectoryPath);
 
     dispatch(accountsActions.fetchAccounts());
     dispatch(noteActions.fetchNotes());  

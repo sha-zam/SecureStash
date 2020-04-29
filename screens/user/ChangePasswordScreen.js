@@ -69,6 +69,8 @@ const ChangePasswordScreen = props =>
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState();
     const dispatch = useDispatch();
+
+    const token = useSelector(state => state.auth.token);
  
     const [formState, dispatchFormState] = useReducer(formReducer, 
     {
@@ -95,6 +97,48 @@ const ChangePasswordScreen = props =>
 
     }, [error]);
 
+    const changePwdHandler = async() => 
+    {
+
+        if(formState.inputValues.password1 === formState.inputValues.password2)
+        {
+
+            let action;
+
+            action = userActions.changePwd(formState.inputValues.password1, token);
+
+            setError(null);
+            setIsLoading(true);
+
+            try 
+            {
+
+                dispatch(action);
+
+                Alert.alert(
+                'Master Password Changed', 
+                'Your master password has been successfully changed', 
+                [{ text: 'Okay' }]
+                );
+    
+                props.navigation.goBack();
+                
+            } 
+            catch (err) 
+            {
+                setError(err.message);
+                setIsLoading(false);
+            }
+
+        }
+        else
+        {
+            setError('Passwords do not match!')
+        }
+        
+     
+    };
+
     const showAlert = () =>
     {
       Alert.alert(
@@ -115,91 +159,69 @@ const ChangePasswordScreen = props =>
       )
     }
 
-
-    const changePwdHandler = async () => 
+    const inputChangeHandler = useCallback((inputIdentifier, inputValue, inputValidity) => 
     {
+        dispatchFormState({
+                type: FORM_INPUT_UPDATE,
+                value: inputValue,
+                isValid: inputValidity,
+                input: inputIdentifier
+            });
 
-        try 
-        {
-            //retrieve keychain
-            const credentials = await Keychain.getGenericPassword();
+    }, [dispatchFormState]);
 
-            //reset keychain
-            await Keychain.resetGenericPassword();
+    return (
 
-            //input new password to keychain
-            await Keychain.setGenericPassword(credentials.username, formState.inputValues.password);
-
-            await dispatch(userActions.changePwd(formState.inputValues.password));
-
-            Alert.alert(
-              'Master Password Changed', 
-              'Your master password has been successfully changed', 
-              [{ text: 'Okay' }]
-            );
-  
-            props.navigation.goBack();
-            
-        } 
-        catch (err) 
-        {
-            setError(err.message);
-            setIsLoading(false);
-        }
-     
-  };
-
-  const inputChangeHandler = useCallback((inputIdentifier, inputValue, inputValidity) => 
-  {
-      dispatchFormState({
-            type: FORM_INPUT_UPDATE,
-            value: inputValue,
-            isValid: inputValidity,
-            input: inputIdentifier
-        });
-
-  }, [dispatchFormState]);
-
-  return (
-
-      <KeyboardAvoidingView
-          behavior="padding"
-          keyboardVerticalOffset={50}
-          style={styles.screen}
-      >
-        <LinearGradient colors={[Colors.primary, Colors.accent]} style={styles.gradient}>
-          <Card style={styles.authContainer}>
-            <ScrollView>
-                <Input
-                    id="password"
-                    label="Please enter your New Master Password"
-                    keyboardType="default"
-                    secureTextEntry
-                    required
-                    minLength={10}
-                    autoCapitalize="none"
-                    errorText="Please enter a valid password with at least 10 characters in length"
-                    onInputChange={inputChangeHandler}
-                    initialValue=""
-                />
-                <View style={styles.buttonContainer}>
-                {isLoading ? 
-                (
-                    <ActivityIndicator size="small" color={Colors.primary} />
-                ) : 
-                (
-                    <Button
-                        title='Change Password'
-                        color={Colors.primary}
-                        onPress={showAlert}
+        <KeyboardAvoidingView
+            behavior="padding"
+            keyboardVerticalOffset={50}
+            style={styles.screen}
+        >
+            <LinearGradient colors={[Colors.primary, Colors.accent]} style={styles.gradient}>
+            <Card style={styles.authContainer}>
+                <ScrollView>
+                    <Input
+                        id="password1"
+                        label="Please enter your New Master Password"
+                        keyboardType="default"
+                        secureTextEntry
+                        required
+                        minLength={10}
+                        autoCapitalize="none"
+                        errorText="Please enter a valid password with at least 10 characters in length"
+                        onInputChange={inputChangeHandler}
+                        initialValue=""
                     />
-                )}
-                </View>
-                
-            </ScrollView>
-          </Card>
-        </LinearGradient>
-      </KeyboardAvoidingView>
+                    <Input
+                        id="password2"
+                        label="Please re-enter your New Master Password"
+                        keyboardType="default"
+                        secureTextEntry
+                        required
+                        minLength={10}
+                        autoCapitalize="none"
+                        errorText="Please enter a valid password with at least 10 characters in length"
+                        onInputChange={inputChangeHandler}
+                        initialValue=""
+                    />
+                    <View style={styles.buttonContainer}>
+                    {isLoading ? 
+                    (
+                        <ActivityIndicator size="small" color={Colors.primary} />
+                    ) : 
+                    (
+                        <Button
+                            title='Change Password'
+                            color={Colors.primary}
+                            onPress={showAlert}
+                        />
+                    )}
+                    </View>
+                    
+                </ScrollView>
+            </Card>
+            </LinearGradient>
+        </KeyboardAvoidingView>
 
     );
 };

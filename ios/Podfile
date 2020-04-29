@@ -59,4 +59,6 @@ target 'securestash' do
 
   pod 'react-native-date-picker', :path => '../node_modules/react-native-date-picker'
   
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
 end

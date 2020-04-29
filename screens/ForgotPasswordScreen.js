@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer, useCallback } from 'react';
 import {
+
   ScrollView,
   View,
   KeyboardAvoidingView,
@@ -7,14 +8,11 @@ import {
   Button,
   ActivityIndicator,
   Alert,
-  Linking,
-  Text
+  
 } from 'react-native';
 
-import qs from 'qs';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useDispatch } from 'react-redux';
-import firebase from 'firebase';
 
 import Input from '../components/Input';
 import Card from '../components/Card';

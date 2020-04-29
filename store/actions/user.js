@@ -1,4 +1,6 @@
-import { useSelector } from 'react-redux';
+//cryptography
+import * as Crypto from 'expo-crypto'; //SHA256
+import * as Keychain from 'react-native-keychain'
 
 export const sendPwdReset = (email) =>
 {
@@ -45,13 +47,17 @@ export const sendPwdReset = (email) =>
     }
 }
 
-export const changePwd = (newPwd) =>
+export const changePwd = (newPwd, token) =>
 {
 
-    return async(getState) =>
+    return async() =>
     {
         //get token
-        const token = getState().auth.token;
+        //const token = getState().auth.token;
+
+        //hash the encryption
+        //var pwdDigest = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, newPwd);
+        //console.log("pwd digest : " + pwdDigest);
 
         const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyDQrqU62NsHJbA5vVcSf-UCPPwtIH6Fwr4',
         {
@@ -91,6 +97,15 @@ export const changePwd = (newPwd) =>
   
             throw new Error(message);
         }
+
+        //retrieve keychain
+        const credentials = await Keychain.getGenericPassword();
+
+        //reset keychain
+        await Keychain.resetGenericPassword();
+
+        //input new password to keychain
+        await Keychain.setGenericPassword(credentials.username, newPwd);
 
         const resData = await response.json();
         console.log("resData : " + resData.email)

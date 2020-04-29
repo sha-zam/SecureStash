@@ -37,6 +37,7 @@ const PasswordDetailScreen = props => {
     const toggleFavoriteHandler = useCallback(() => 
     {
         let newFavstate = !selectedAccount.favorite;
+        setFavState(newFavstate);
 
         dispatch(accountActions.updateAccountFav(accID, newFavstate));
     }, [dispatch, accID]);
@@ -50,7 +51,7 @@ const PasswordDetailScreen = props => {
     useEffect(() => 
     {
         props.navigation.setParams({ isFav: favState });
-    }, [toggleFavoriteHandler]);
+    }, [favState]);
 
     const copyHandler = async (value) => 
     {

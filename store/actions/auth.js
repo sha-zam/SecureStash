@@ -137,7 +137,7 @@ export const signup = (email, password) =>
 
       body: JSON.stringify({
         email: email,
-        password: pwdDigest,
+        password: password,
         returnSecureToken: true
       })
 
@@ -180,10 +180,6 @@ export const login = (email, password) =>
 
   return async dispatch => 
   {
-    
-    //hash the encryption
-    var pwdDigest = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, password);
-    console.log("pwd digest : " + pwdDigest);
 
     const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDQrqU62NsHJbA5vVcSf-UCPPwtIH6Fwr4',
     {
@@ -196,7 +192,7 @@ export const login = (email, password) =>
 
       body: JSON.stringify({
         email: email,
-        password: pwdDigest,
+        password: password,
         returnSecureToken: true
       })
 

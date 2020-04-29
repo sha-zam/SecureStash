@@ -39,8 +39,7 @@ const BankDetailScreen = props => {
     const toggleFavoriteHandler = useCallback(() => 
     {
         let newFavstate = !selectedBank.favorite;
-
-        console.log("dispatching");
+        setFavState(newFavstate);
 
         dispatch(bankActions.updateBankFav(bankID, newFavstate));
     }, [dispatch, bankID]);
@@ -54,7 +53,7 @@ const BankDetailScreen = props => {
     useEffect(() => 
     {
         props.navigation.setParams({ isFav: favState });
-    }, [toggleFavoriteHandler]);
+    }, [favState]);
 
     const copyHandler = async (value) => 
     {
