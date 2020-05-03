@@ -1,0 +1,24 @@
+{
+  "name": "react-native-simple-crypto",
+  "version": "0.2.8",
+  "summary": "A simpler React-Native crypto library",
+  "authors": {
+    "name": "Pedro Gomes",
+    "email": "pedro@pedrouid.com"
+  },
+  "license": "MIT",
+  "requires_arc": true,
+  "homepage": "https://github.com/pedrouid/react-native-simple-crypto",
+  "source": {
+    "git": "git+https://github.com/pedrouid/react-native-simple-crypto.git"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "ios/**/*.{h,m}",
+  "dependencies": {
+    "React": [
+
+    ]
+  }
+}

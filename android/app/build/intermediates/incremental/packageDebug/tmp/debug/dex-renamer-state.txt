@@ -1,0 +1,10 @@
+#Sat May 02 03:04:15 SGT 2020
+path.2=classes2.dex
+path.1=classes.dex
+path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+base.2=C\:\\Projects\\React_Native\\testRun\\SecureStash\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+base.1=C\:\\Projects\\React_Native\\testRun\\SecureStash\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+base.0=C\:\\Projects\\React_Native\\testRun\\SecureStash\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0

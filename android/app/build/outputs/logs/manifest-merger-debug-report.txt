@@ -1,0 +1,628 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:1:1-48:12
+INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:1:1-48:12
+INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:1:1-48:12
+INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:1:1-48:12
+MERGED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:1:1-48:12
+MERGED from [:react-native-fs] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-13:12
+MERGED from [:react-native-mail] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-mail\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-smtp-mailer] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:react-native-rsa-native] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-rsa-native\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-vector-icons] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-23:12
+MERGED from [:expo-permissions] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-screens] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-react-native-adapter] C:\Projects\React_Native\testRun\SecureStash\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-community_datetimepicker] C:\Projects\React_Native\testRun\SecureStash\node_modules\@react-native-community\datetimepicker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-13:12
+MERGED from [:react-native-community_masked-view] C:\Projects\React_Native\testRun\SecureStash\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-community_picker] C:\Projects\React_Native\testRun\SecureStash\node_modules\@react-native-community\picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-date-picker] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-date-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-email-link] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-email-link\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-gesture-handler] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-safe-area-context] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.61.5.aar\77bc56108c6c39a6d2f8f71f4bb1107b\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\material-1.1.0.aar\6166153d676b9c5b678223c8fac2b841\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0.aar\9295c5c19fb82da6f08df85509e2ed0b\AndroidManifest.xml:17:1-24:12
+MERGED from [:expo-app-loader-provider] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-constants] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-constants\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-crypto] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-crypto\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-error-recovery] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-error-recovery\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-30:12
+MERGED from [:expo-font] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-font\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-keep-awake] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-linear-gradient] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-local-authentication] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-local-authentication\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-13:12
+MERGED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-21:12
+MERGED from [:expo-sqlite] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-sqlite\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-web-browser] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-web-browser\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-barcode-scanner-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-camera-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-constants-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-face-detector-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-file-system-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-font-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-permissions-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-task-manager-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-core] C:\Projects\React_Native\testRun\SecureStash\node_modules\@unimodules\core\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-image-loader-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-sensors-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\6a88d5d98cecaec01ac6a331a3bbcd0b\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\0c40d66f88ddcd7e07e394778d5099fd\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\79b8fc012dec32a64dcfefa55bcb1109\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\8c0a370119d50000faa1a9b4276dfc5f\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-tasks-16.0.1.aar\b1a7750cf486be518bbb4694b82d33a5\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\d00a12178989975af91518d2aa15ba0b\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\9432e06e3722122867096acc70822781\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.biometric:biometric:1.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\biometric-1.0.1.aar\afefa4e3f8292fe01ea4636d6323ee03\AndroidManifest.xml:17:1-34:12
+MERGED from [com.facebook.conceal:conceal:1.1.3] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\conceal-1.1.3.aar\8a9192d1b2e16e65673f89f5296bfb9d\AndroidManifest.xml:7:1-16:12
+MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\fresco-2.0.0.aar\5e96d51c366198e1fd312c5b13ad3055\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-2.0.0.aar\c7249c80f308cb90dc3c7e8df678e2a3\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\drawee-2.0.0.aar\acc17abe5cb0a7f1c39a1d24828f0ba1\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\nativeimagefilters-2.0.0.aar\4e56d63f081894ca99c30297bbd56b5b\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\imagepipeline-2.0.0.aar\0e58e0118991e283ba8bf9b53739e2f9\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\nativeimagetranscoder-2.0.0.aar\f46128edf7250a2d74a3af7859c16bee\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-2.0.0.aar\888450ca99552dcd097d4f1919f2027a\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\5b8223df8042b744010181839d8a82ed\AndroidManifest.xml:2:1-13:12
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\3233a27e5a58741233ba52b6c741ea19\AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\cb568c0211ac91ed4820fb9c99c43063\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\browser-1.0.0.aar\ffdee875397c0ad7824bed99df696016\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\viewpager2-1.0.0.aar\665cb22a8e94b961ee9a136664872f2b\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\fragment-1.2.1.aar\7e5d7b5c041ab612309712affc2e075f\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\11d8ba7e12efc3d4ca9488b88b722174\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.1.0.aar\d18734a4b827c4cf4d4c56c743b81c6b\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\381ab723702b4099528e2ceffe373ab9\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\appcompat-resources-1.1.0.aar\7c689d26f97d9b3b1c8d1348d605d232\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\44e94a6e25a8921ecb17e1a6e7c0a931\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\02250b86fd612148ad1b650f8f7d7c60\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\d2dabffbf757cf65c33dcd5a56a7b48b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\129e3988b95bd25ff0d86d8701b573a6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\4c7e33868d753e9dd14a87152e49bc32\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\activity-1.1.0.aar\6d6e63fecab104172eddeac3353ceaa2\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\9bc974029911a38872e86469cebb51c6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\recyclerview-1.1.0.aar\0eda292df539047e3e01e089202df1b7\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\1a7c18df9843db6db3f662a8a49b5229\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\transition-1.2.0.aar\146ff3d3f0b53353d1da3c47af49a1e8\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.1.0.aar\99854475a03d1a15806e890a2b5a9934\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.1.0.aar\c1308c2c1ca7c2c2a01b7c1ce759a544\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\c53a0a41ec8197c5b005022913abf350\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\core-1.1.0.aar\ad39ba1544832b86a2a81a652037d5d9\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\491a325457aaed06d3812b13487ae80e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\2de32489835f4e9e075a9bb989d0957a\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0.aar\454ac8298b1eb84d562fcaba24910ae2\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-savedstate-2.2.0.aar\e6e02970aeae07994ab44a559256b92c\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.2.0.aar\45acd280b3a63b8d1da798deaf16bbc7\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\ba150097d7b4cbbc39692c55115d399b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\3394f7ef2d16d052ae5d7da92034a71f\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\35f3944f801390277af73e86620401ea\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\7bb03422aeb1f704b3a0985a60e37b24\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.2.0.aar\a502468418122456c2a1b98573a7e204\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\savedstate-1.0.0.aar\97dc638bc4a98360a395b9dfcd17caf8\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\a6b43f89d750353882741bd1d9f370c4\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.2.0.aar\995232f35f184c2c1789a1a2219d9a48\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\core-runtime-2.1.0.aar\7b9bad59981868c5b8c9d62d21340f50\AndroidManifest.xml:17:1-24:12
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:2:1-30:12
+MERGED from [com.henninghall.android:NumberPickerView:1.1.2] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\NumberPickerView-1.1.2.aar\a590847cdefb65847ee9103635b0ea75\AndroidManifest.xml:2:1-11:12
+MERGED from [net.time4j:time4j-android:4.2-2018i] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\time4j-android-4.2-2018i.aar\cdb932a5829583b9d0aba1a3c3e0a7c7\AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-fbcore-2.0.0.aar\0e72ab4195959231f5b4844bf8d9c2e8\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml:1:1-7:12
+	package
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:2:5-30
+		INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:2:5-30
+		INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:1:1-48:12
+		INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml:2:5-51
+	android:versionCode
+		INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:1:1-48:12
+		INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:4:5-67
+MERGED from [:react-native-smtp-mailer] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-67
+MERGED from [:react-native-smtp-mailer] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-67
+MERGED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-67
+MERGED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-67
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:5:5-77
+MERGED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:5:5-77
+MERGED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:5:5-77
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:5:22-75
+uses-permission#android.permission.MANAGE_DOCUMENTS
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:8:5-75
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:8:22-72
+uses-permission#android.permission.READ_INTERNAL_STORAGE
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:9:5-80
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:9:22-77
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:10:5-75
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:10:22-72
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:11:5-74
+MERGED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-74
+MERGED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-74
+MERGED from [:expo-local-authentication] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-local-authentication\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-74
+MERGED from [:expo-local-authentication] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-local-authentication\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-74
+MERGED from [androidx.biometric:biometric:1.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\biometric-1.0.1.aar\afefa4e3f8292fe01ea4636d6323ee03\AndroidManifest.xml:25:5-74
+MERGED from [androidx.biometric:biometric:1.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\biometric-1.0.1.aar\afefa4e3f8292fe01ea4636d6323ee03\AndroidManifest.xml:25:5-74
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:11:22-71
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:12:5-66
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:12:22-63
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:13:5-80
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:13:22-77
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:16:5-81
+MERGED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
+MERGED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:12:5-81
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:16:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:17:5-79
+MERGED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-79
+MERGED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-79
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:14:5-79
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:14:5-79
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:17:22-76
+uses-permission#android.permission.CAMERA
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:18:5-65
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:18:22-62
+uses-permission#android.permission.READ_CONTACTS
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:19:5-72
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:19:22-69
+uses-permission#android.permission.READ_CALENDAR
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:20:5-72
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:20:22-69
+uses-permission#android.permission.WRITE_CALENDAR
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:21:5-73
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:21:22-70
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:22:5-80
+MERGED from [:react-native-smtp-mailer] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-80
+MERGED from [:react-native-smtp-mailer] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-80
+MERGED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-80
+MERGED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-80
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:22:22-77
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:23:5-71
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:23:22-68
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:24:5-81
+MERGED from [:react-native-fs] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
+MERGED from [:react-native-fs] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
+MERGED from [:react-native-smtp-mailer] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
+MERGED from [:react-native-smtp-mailer] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-81
+MERGED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-81
+MERGED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-81
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:24:22-78
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:25:5-73
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:25:22-70
+application
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:28:5-46:19
+MERGED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:28:5-46:19
+MERGED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:28:5-46:19
+MERGED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-21:19
+MERGED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-21:19
+MERGED from [:react-native-community_datetimepicker] C:\Projects\React_Native\testRun\SecureStash\node_modules\@react-native-community\datetimepicker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-20
+MERGED from [:react-native-community_datetimepicker] C:\Projects\React_Native\testRun\SecureStash\node_modules\@react-native-community\datetimepicker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.61.5.aar\77bc56108c6c39a6d2f8f71f4bb1107b\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.61.5.aar\77bc56108c6c39a6d2f8f71f4bb1107b\AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\material-1.1.0.aar\6166153d676b9c5b678223c8fac2b841\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\material-1.1.0.aar\6166153d676b9c5b678223c8fac2b841\AndroidManifest.xml:22:5-20
+MERGED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:5-28:19
+MERGED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:5-28:19
+MERGED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
+MERGED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\0c40d66f88ddcd7e07e394778d5099fd\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\0c40d66f88ddcd7e07e394778d5099fd\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\79b8fc012dec32a64dcfefa55bcb1109\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\79b8fc012dec32a64dcfefa55bcb1109\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\8c0a370119d50000faa1a9b4276dfc5f\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\8c0a370119d50000faa1a9b4276dfc5f\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-tasks-16.0.1.aar\b1a7750cf486be518bbb4694b82d33a5\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-tasks-16.0.1.aar\b1a7750cf486be518bbb4694b82d33a5\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\d00a12178989975af91518d2aa15ba0b\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\d00a12178989975af91518d2aa15ba0b\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.biometric:biometric:1.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\biometric-1.0.1.aar\afefa4e3f8292fe01ea4636d6323ee03\AndroidManifest.xml:27:5-32:19
+MERGED from [androidx.biometric:biometric:1.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\biometric-1.0.1.aar\afefa4e3f8292fe01ea4636d6323ee03\AndroidManifest.xml:27:5-32:19
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\5b8223df8042b744010181839d8a82ed\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\5b8223df8042b744010181839d8a82ed\AndroidManifest.xml:11:5-20
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\3233a27e5a58741233ba52b6c741ea19\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\3233a27e5a58741233ba52b6c741ea19\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\cb568c0211ac91ed4820fb9c99c43063\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\cb568c0211ac91ed4820fb9c99c43063\AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\core-1.1.0.aar\ad39ba1544832b86a2a81a652037d5d9\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\core-1.1.0.aar\ad39ba1544832b86a2a81a652037d5d9\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0.aar\454ac8298b1eb84d562fcaba24910ae2\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0.aar\454ac8298b1eb84d562fcaba24910ae2\AndroidManifest.xml:24:5-25:19
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:18:5-28:19
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:18:5-28:19
+MERGED from [net.time4j:time4j-android:4.2-2018i] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\time4j-android-4.2-2018i.aar\cdb932a5829583b9d0aba1a3c3e0a7c7\AndroidManifest.xml:11:5-20
+MERGED from [net.time4j:time4j-android:4.2-2018i] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\time4j-android-4.2-2018i.aar\cdb932a5829583b9d0aba1a3c3e0a7c7\AndroidManifest.xml:11:5-20
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\core-1.1.0.aar\ad39ba1544832b86a2a81a652037d5d9\AndroidManifest.xml:24:18-86
+	android:label
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:30:7-39
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:30:7-39
+	tools:ignore
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml:6:75-114
+	android:roundIcon
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:32:7-52
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:32:7-52
+	tools:targetApi
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml:6:54-74
+	android:icon
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:31:7-41
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:31:7-41
+	android:allowBackup
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:33:7-34
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:33:7-34
+	android:theme
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:34:7-38
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:34:7-38
+	android:usesCleartextTraffic
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml:6:18-53
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:29:7-38
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:29:7-38
+activity#com.securestash.MainActivity
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:35:7-44:18
+	android:label
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:37:9-41
+	android:windowSoftInputMode
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:39:9-51
+	android:configChanges
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:38:9-79
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:36:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:40:9-43:25
+action#android.intent.action.MAIN
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:41:13-65
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:41:21-62
+category#android.intent.category.LAUNCHER
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:42:13-73
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:42:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:45:7-84
+	android:name
+		ADDED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml:45:17-81
+uses-sdk
+INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml
+MERGED from [:react-native-fs] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-fs] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-fs\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-mail] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-mail\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-mail] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-mail\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-smtp-mailer] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-smtp-mailer] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-smtp-mailer\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-rsa-native] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-rsa-native\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-rsa-native] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-rsa-native\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-permissions] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-permissions] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-react-native-adapter] C:\Projects\React_Native\testRun\SecureStash\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-react-native-adapter] C:\Projects\React_Native\testRun\SecureStash\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-community_datetimepicker] C:\Projects\React_Native\testRun\SecureStash\node_modules\@react-native-community\datetimepicker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-community_datetimepicker] C:\Projects\React_Native\testRun\SecureStash\node_modules\@react-native-community\datetimepicker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-community_masked-view] C:\Projects\React_Native\testRun\SecureStash\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_masked-view] C:\Projects\React_Native\testRun\SecureStash\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_picker] C:\Projects\React_Native\testRun\SecureStash\node_modules\@react-native-community\picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-community_picker] C:\Projects\React_Native\testRun\SecureStash\node_modules\@react-native-community\picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-date-picker] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-date-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-date-picker] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-date-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-email-link] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-email-link\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-email-link] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-email-link\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-safe-area-context] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-safe-area-context] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.61.5.aar\77bc56108c6c39a6d2f8f71f4bb1107b\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.61.5.aar\77bc56108c6c39a6d2f8f71f4bb1107b\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\material-1.1.0.aar\6166153d676b9c5b678223c8fac2b841\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\material-1.1.0.aar\6166153d676b9c5b678223c8fac2b841\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0.aar\9295c5c19fb82da6f08df85509e2ed0b\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0.aar\9295c5c19fb82da6f08df85509e2ed0b\AndroidManifest.xml:20:5-22:41
+MERGED from [:expo-app-loader-provider] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-app-loader-provider] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-constants] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-constants\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-constants] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-constants\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-crypto] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-crypto\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-crypto] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-crypto\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-error-recovery] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-error-recovery\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-error-recovery] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-error-recovery\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
+MERGED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
+MERGED from [:expo-font] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-font\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-font] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-font\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-keep-awake] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-keep-awake] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-linear-gradient] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-linear-gradient] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-local-authentication] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-local-authentication\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-local-authentication] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-local-authentication\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-sqlite] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-sqlite\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-sqlite] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-sqlite\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-web-browser] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-web-browser\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-web-browser] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-web-browser\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-barcode-scanner-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-barcode-scanner-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-camera-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-camera-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-constants-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-constants-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-face-detector-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-face-detector-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-file-system-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-file-system-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-font-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-font-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-permissions-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-permissions-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-task-manager-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-task-manager-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-core] C:\Projects\React_Native\testRun\SecureStash\node_modules\@unimodules\core\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-core] C:\Projects\React_Native\testRun\SecureStash\node_modules\@unimodules\core\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-image-loader-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-image-loader-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-sensors-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-sensors-interface] C:\Projects\React_Native\testRun\SecureStash\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\6a88d5d98cecaec01ac6a331a3bbcd0b\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\6a88d5d98cecaec01ac6a331a3bbcd0b\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\0c40d66f88ddcd7e07e394778d5099fd\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\0c40d66f88ddcd7e07e394778d5099fd\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\79b8fc012dec32a64dcfefa55bcb1109\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\79b8fc012dec32a64dcfefa55bcb1109\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\8c0a370119d50000faa1a9b4276dfc5f\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\8c0a370119d50000faa1a9b4276dfc5f\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-tasks-16.0.1.aar\b1a7750cf486be518bbb4694b82d33a5\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-tasks-16.0.1.aar\b1a7750cf486be518bbb4694b82d33a5\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\d00a12178989975af91518d2aa15ba0b\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\d00a12178989975af91518d2aa15ba0b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\9432e06e3722122867096acc70822781\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\9432e06e3722122867096acc70822781\AndroidManifest.xml:20:5-44
+MERGED from [androidx.biometric:biometric:1.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\biometric-1.0.1.aar\afefa4e3f8292fe01ea4636d6323ee03\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.biometric:biometric:1.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\biometric-1.0.1.aar\afefa4e3f8292fe01ea4636d6323ee03\AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.conceal:conceal:1.1.3] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\conceal-1.1.3.aar\8a9192d1b2e16e65673f89f5296bfb9d\AndroidManifest.xml:12:5-14:41
+MERGED from [com.facebook.conceal:conceal:1.1.3] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\conceal-1.1.3.aar\8a9192d1b2e16e65673f89f5296bfb9d\AndroidManifest.xml:12:5-14:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\fresco-2.0.0.aar\5e96d51c366198e1fd312c5b13ad3055\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\fresco-2.0.0.aar\5e96d51c366198e1fd312c5b13ad3055\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-2.0.0.aar\c7249c80f308cb90dc3c7e8df678e2a3\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-2.0.0.aar\c7249c80f308cb90dc3c7e8df678e2a3\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\drawee-2.0.0.aar\acc17abe5cb0a7f1c39a1d24828f0ba1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\drawee-2.0.0.aar\acc17abe5cb0a7f1c39a1d24828f0ba1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\nativeimagefilters-2.0.0.aar\4e56d63f081894ca99c30297bbd56b5b\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\nativeimagefilters-2.0.0.aar\4e56d63f081894ca99c30297bbd56b5b\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\imagepipeline-2.0.0.aar\0e58e0118991e283ba8bf9b53739e2f9\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\imagepipeline-2.0.0.aar\0e58e0118991e283ba8bf9b53739e2f9\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\nativeimagetranscoder-2.0.0.aar\f46128edf7250a2d74a3af7859c16bee\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\nativeimagetranscoder-2.0.0.aar\f46128edf7250a2d74a3af7859c16bee\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-2.0.0.aar\888450ca99552dcd097d4f1919f2027a\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-2.0.0.aar\888450ca99552dcd097d4f1919f2027a\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\5b8223df8042b744010181839d8a82ed\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\5b8223df8042b744010181839d8a82ed\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\3233a27e5a58741233ba52b6c741ea19\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\3233a27e5a58741233ba52b6c741ea19\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\cb568c0211ac91ed4820fb9c99c43063\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\cb568c0211ac91ed4820fb9c99c43063\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\browser-1.0.0.aar\ffdee875397c0ad7824bed99df696016\AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\browser-1.0.0.aar\ffdee875397c0ad7824bed99df696016\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\viewpager2-1.0.0.aar\665cb22a8e94b961ee9a136664872f2b\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\viewpager2-1.0.0.aar\665cb22a8e94b961ee9a136664872f2b\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\fragment-1.2.1.aar\7e5d7b5c041ab612309712affc2e075f\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\fragment-1.2.1.aar\7e5d7b5c041ab612309712affc2e075f\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\11d8ba7e12efc3d4ca9488b88b722174\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\11d8ba7e12efc3d4ca9488b88b722174\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.1.0.aar\d18734a4b827c4cf4d4c56c743b81c6b\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.1.0.aar\d18734a4b827c4cf4d4c56c743b81c6b\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\381ab723702b4099528e2ceffe373ab9\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\381ab723702b4099528e2ceffe373ab9\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\appcompat-resources-1.1.0.aar\7c689d26f97d9b3b1c8d1348d605d232\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\appcompat-resources-1.1.0.aar\7c689d26f97d9b3b1c8d1348d605d232\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\44e94a6e25a8921ecb17e1a6e7c0a931\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\44e94a6e25a8921ecb17e1a6e7c0a931\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\02250b86fd612148ad1b650f8f7d7c60\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\02250b86fd612148ad1b650f8f7d7c60\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\d2dabffbf757cf65c33dcd5a56a7b48b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\d2dabffbf757cf65c33dcd5a56a7b48b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\129e3988b95bd25ff0d86d8701b573a6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\129e3988b95bd25ff0d86d8701b573a6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\4c7e33868d753e9dd14a87152e49bc32\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\4c7e33868d753e9dd14a87152e49bc32\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\activity-1.1.0.aar\6d6e63fecab104172eddeac3353ceaa2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\activity-1.1.0.aar\6d6e63fecab104172eddeac3353ceaa2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\9bc974029911a38872e86469cebb51c6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\9bc974029911a38872e86469cebb51c6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\recyclerview-1.1.0.aar\0eda292df539047e3e01e089202df1b7\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\recyclerview-1.1.0.aar\0eda292df539047e3e01e089202df1b7\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\1a7c18df9843db6db3f662a8a49b5229\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\1a7c18df9843db6db3f662a8a49b5229\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\transition-1.2.0.aar\146ff3d3f0b53353d1da3c47af49a1e8\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\transition-1.2.0.aar\146ff3d3f0b53353d1da3c47af49a1e8\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.1.0.aar\99854475a03d1a15806e890a2b5a9934\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.1.0.aar\99854475a03d1a15806e890a2b5a9934\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.1.0.aar\c1308c2c1ca7c2c2a01b7c1ce759a544\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.1.0.aar\c1308c2c1ca7c2c2a01b7c1ce759a544\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\c53a0a41ec8197c5b005022913abf350\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\c53a0a41ec8197c5b005022913abf350\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\core-1.1.0.aar\ad39ba1544832b86a2a81a652037d5d9\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\core-1.1.0.aar\ad39ba1544832b86a2a81a652037d5d9\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\491a325457aaed06d3812b13487ae80e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\491a325457aaed06d3812b13487ae80e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\2de32489835f4e9e075a9bb989d0957a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\2de32489835f4e9e075a9bb989d0957a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0.aar\454ac8298b1eb84d562fcaba24910ae2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0.aar\454ac8298b1eb84d562fcaba24910ae2\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-savedstate-2.2.0.aar\e6e02970aeae07994ab44a559256b92c\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-savedstate-2.2.0.aar\e6e02970aeae07994ab44a559256b92c\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.2.0.aar\45acd280b3a63b8d1da798deaf16bbc7\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.2.0.aar\45acd280b3a63b8d1da798deaf16bbc7\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\ba150097d7b4cbbc39692c55115d399b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\ba150097d7b4cbbc39692c55115d399b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\3394f7ef2d16d052ae5d7da92034a71f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\3394f7ef2d16d052ae5d7da92034a71f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\35f3944f801390277af73e86620401ea\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\35f3944f801390277af73e86620401ea\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\7bb03422aeb1f704b3a0985a60e37b24\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\7bb03422aeb1f704b3a0985a60e37b24\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.2.0.aar\a502468418122456c2a1b98573a7e204\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.2.0.aar\a502468418122456c2a1b98573a7e204\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\savedstate-1.0.0.aar\97dc638bc4a98360a395b9dfcd17caf8\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\savedstate-1.0.0.aar\97dc638bc4a98360a395b9dfcd17caf8\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\a6b43f89d750353882741bd1d9f370c4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\a6b43f89d750353882741bd1d9f370c4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.2.0.aar\995232f35f184c2c1789a1a2219d9a48\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.2.0.aar\995232f35f184c2c1789a1a2219d9a48\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\core-runtime-2.1.0.aar\7b9bad59981868c5b8c9d62d21340f50\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\core-runtime-2.1.0.aar\7b9bad59981868c5b8c9d62d21340f50\AndroidManifest.xml:20:5-22:41
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:8:5-10:41
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:8:5-10:41
+MERGED from [com.henninghall.android:NumberPickerView:1.1.2] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\NumberPickerView-1.1.2.aar\a590847cdefb65847ee9103635b0ea75\AndroidManifest.xml:7:5-9:41
+MERGED from [com.henninghall.android:NumberPickerView:1.1.2] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\NumberPickerView-1.1.2.aar\a590847cdefb65847ee9103635b0ea75\AndroidManifest.xml:7:5-9:41
+MERGED from [net.time4j:time4j-android:4.2-2018i] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\time4j-android-4.2-2018i.aar\cdb932a5829583b9d0aba1a3c3e0a7c7\AndroidManifest.xml:7:5-9:41
+MERGED from [net.time4j:time4j-android:4.2-2018i] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\time4j-android-4.2-2018i.aar\cdb932a5829583b9d0aba1a3c3e0a7c7\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-fbcore-2.0.0.aar\0e72ab4195959231f5b4844bf8d9c2e8\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-fbcore-2.0.0.aar\0e72ab4195959231f5b4844bf8d9c2e8\AndroidManifest.xml:5:5-7:41
+INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml
+INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Projects\React_Native\testRun\SecureStash\android\app\src\debug\AndroidManifest.xml
+uses-permission#android.permission.USE_BIOMETRIC
+ADDED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-72
+MERGED from [androidx.biometric:biometric:1.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\biometric-1.0.1.aar\afefa4e3f8292fe01ea4636d6323ee03\AndroidManifest.xml:24:5-72
+MERGED from [androidx.biometric:biometric:1.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\biometric-1.0.1.aar\afefa4e3f8292fe01ea4636d6323ee03\AndroidManifest.xml:24:5-72
+	android:name
+		ADDED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:22-69
+activity#androidx.biometric.DeviceCredentialHandlerActivity
+ADDED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-20:67
+MERGED from [androidx.biometric:biometric:1.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\biometric-1.0.1.aar\afefa4e3f8292fe01ea4636d6323ee03\AndroidManifest.xml:28:9-31:67
+MERGED from [androidx.biometric:biometric:1.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\biometric-1.0.1.aar\afefa4e3f8292fe01ea4636d6323ee03\AndroidManifest.xml:28:9-31:67
+	android:exported
+		ADDED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-36
+	android:theme
+		ADDED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-64
+	android:name
+		ADDED from [:react-native-keychain] C:\Projects\React_Native\testRun\SecureStash\node_modules\react-native-keychain\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-78
+uses-permission#android.permission.STORAGE
+ADDED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-66
+	android:name
+		ADDED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:22-63
+provider#expo.modules.filesystem.FileSystemFileProvider
+ADDED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:9-27:20
+	android:grantUriPermissions
+		ADDED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-47
+	android:authorities
+		ADDED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-74
+	android:exported
+		ADDED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-37
+	tools:replace
+		ADDED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-48
+	android:name
+		ADDED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-74
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-26:70
+	android:resource
+		ADDED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:26:17-67
+	android:name
+		ADDED from [:expo-file-system] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:17-67
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-77
+	android:name
+		ADDED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:22-74
+service#expo.modules.location.services.LocationTaskService
+ADDED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-18:40
+	android:exported
+		ADDED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
+	android:name
+		ADDED from [:expo-location] C:\Projects\React_Native\testRun\SecureStash\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-78
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\79b8fc012dec32a64dcfefa55bcb1109\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\79b8fc012dec32a64dcfefa55bcb1109\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\79b8fc012dec32a64dcfefa55bcb1109\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\79b8fc012dec32a64dcfefa55bcb1109\AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\d00a12178989975af91518d2aa15ba0b\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\d00a12178989975af91518d2aa15ba0b\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\d00a12178989975af91518d2aa15ba0b\AndroidManifest.xml:24:13-58
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:13:22-76
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:15:5-98
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:15:22-95
+uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:16:5-94
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:16:22-91
+service#io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:19:9-21:40
+	android:exported
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:21:13-37
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:20:13-132
+service#io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:22:9-24:40
+	android:exported
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:24:13-37
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:23:13-127
+service#io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:25:9-27:40
+	android:exported
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\ASUS\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\503a5c6406a12cf81bda22036e63460a\AndroidManifest.xml:26:13-120
