@@ -1,7 +1,8 @@
 platform :ios, '10.0'
 
-require_relative '../node_modules/react-native-unimodules/cocoapods'
+#require_relative '../node_modules/react-native-unimodules/cocoapods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+require_relative '../node_modules/react-native-unimodules/cocoapods'
 
 target 'securestash' do
   rnPrefix = "../node_modules/react-native"
@@ -43,19 +44,21 @@ target 'securestash' do
   # Automatically detect installed unimodules
   use_unimodules!
 
+  #use_unimodules!(modules_paths: ['../node_modules'])
+
   # react-native-cli autolinking
   use_native_modules!
   pod 'RNKeychain', :path => '../node_modules/react-native-keychain'
   
   pod 'react-native-rsa-native', :path => '../node_modules/react-native-rsa-native'
 
-  pod 'RNSmtpMailer', :path => '../node_modules/react-native-smtp-mailer'
+  #pod 'RNSmtpMailer', :path => '../node_modules/react-native-smtp-mailer'
 
   pod 'mailcore2-ios'
 
   pod 'react-native-mail', :path => '../node_modules/react-native-mail'
 
-  pod 'react-native-simple-crypto', :path => '../node_modules/react-native-simple-crypto'
+  #pod 'react-native-simple-crypto', :path => '../node_modules/react-native-simple-crypto'
 
   pod 'react-native-date-picker', :path => '../node_modules/react-native-date-picker'
   

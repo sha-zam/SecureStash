@@ -1,0 +1,28 @@
+{
+  "name": "RNSmtpMailer",
+  "version": "1.2.0",
+  "summary": "RNSmtpMailer",
+  "description": "RNSmtpMailer",
+  "homepage": "https://github.com/angelos3lex/react-native-smtp-mailer",
+  "license": "MIT",
+  "authors": {
+    "author": "angelos3lex"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source": {
+    "git": "https://github.com/angelos3lex/react-native-smtp-mailer.git",
+    "tag": "master"
+  },
+  "source_files": "*.{h,m}",
+  "requires_arc": true,
+  "dependencies": {
+    "React": [
+
+    ],
+    "mailcore2-ios": [
+
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+../../../../../node_modules/react-native-smtp-mailer/ios/RNSmtpMailer.h
