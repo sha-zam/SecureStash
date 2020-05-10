@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import { 
+
   StyleSheet, 
   Text, 
   View, 
-  FlatList 
+  FlatList,
+  KeyboardAvoidingView,
+  Button,
+  Clipboard,
+  Alert 
+
 } from 'react-native';
 
 import { HeaderBackButton } from 'react-navigation-stack';
@@ -15,6 +21,7 @@ import { SearchBar } from 'react-native-elements';
 //components import
 import HeaderButton from '../../../components/HeaderButton.js';
 import CategoryGridTile from '../../../components/CategoryGridTile.js';
+import BottomCard from '../../../components/BottomCard.js';
 
 //constants import
 import Colors from '../../../constants/Colors.js';
@@ -27,6 +34,10 @@ const UserNotesScreen = props =>
   //states 
   const [isLoading, setIsLoading] = useState(false);
   const [value, setIsValue] = useState();
+  const [bottomCardVisibility, setBottomCardVisibility] = useState(false);
+  const [id, setId] = useState('');
+  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState('');
   
   const dispatch = useDispatch();
   // let userAccounts;
@@ -48,6 +59,28 @@ const UserNotesScreen = props =>
   const userNotes = useSelector(state => state.storedNotes.userNotes.filter(note => note.folder === folderName));
   const [data, setData] = useState(userNotes);
 
+  const check = (itemData) => 
+  {
+    //selectedAcc = itemData.item;
+    console.log(itemData.item);
+    // setSelect(prevState => {
+    //   prevState.id= itemData.item.id;
+    //   prevState.title = itemData.item.title;
+    //   prevState.username = itemData.item.username;
+    //   prevState.password = itemData.item.password;
+    // });
+
+    setId(itemData.item.id);
+    setTitle(itemData.item.title);
+    setDescription(itemData.item.description);
+    
+    console.log('a : ' + id);
+    console.log('b : ' + title);
+    console.log('c : ' + description);
+
+    setBottomCardVisibility(true);
+  }
+
   //grid item function
   const renderGridItem = (itemData) =>
   {
@@ -57,7 +90,7 @@ const UserNotesScreen = props =>
       <CategoryGridTile 
         title = {itemData.item.title}
         icon = "notebook"
-        onSelect={() => {props.navigation.navigate('NoteDetail', {noteID : itemData.item.id})}}
+        onSelect={check.bind(this,itemData)}
         color = {Colors.accent}
       />
 
@@ -101,6 +134,41 @@ const UserNotesScreen = props =>
 
   };
 
+  const copyHandler = async (value) => 
+  {
+      await Clipboard.setString(value);
+      // Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
+  };
+
+  const deleteHandler = async (ID) =>
+  {
+      console.log(ID);
+
+      Alert.alert('Are you sure?', 'Do you really want to delete this note from your vault?', 
+      [
+          { text: 'No', style: 'default' },
+
+          {
+              text: 'Yes',
+              style: 'destructive',
+              onPress: () => 
+              {
+                  props.navigation.navigate('Vault');  
+                  try
+                  {
+                    dispatch(noteActions.deleteNotes(ID));
+                  }
+                  catch(err)
+                  {
+
+                  }
+                           
+              }
+          }
+
+      ]);
+  };
+
   if (isLoading) 
   {
 
@@ -127,15 +195,64 @@ const UserNotesScreen = props =>
   {
 
     return (
-      
-      <FlatList
-        numColumns = {2}
-        data = {data}
-        keyExtractor = {(item) => item.id}
-        renderItem = {renderGridItem}
-        ListHeaderComponent={renderHeader}
-      />
 
+      <KeyboardAvoidingView
+        style={{flex : 1}}
+        behavior="padding"
+        keyboardVerticalOffset={100}
+      >
+
+        <SearchBar
+          placeholder="Search"
+          lightTheme
+          round
+          onChangeText={text => searchFilterFunction(text)}
+          autoCorrect={false}
+          value={value}
+        />
+
+        <FlatList
+          numColumns = {2}
+          data = {data}
+          keyExtractor = {(item) => item.id}
+          renderItem = {renderGridItem}
+        />
+
+        <BottomCard   
+          show={bottomCardVisibility} 
+          onExit={() => setBottomCardVisibility(false)}
+        > 
+          <Text style={styles.titleText}>{title}</Text>
+          <View>
+              <Button
+                  color = {Colors.primary}
+                  title = "Copy Note"
+                  onPress = {() => {copyHandler(description);}}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "View"
+                  onPress = {() => {
+                    props.navigation.navigate('NoteDetail', {noteID : id})
+                  }}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "Edit"
+                  onPress = {() => {
+                    props.navigation.navigate('EditNoteDetail', {noteID : id})
+                  }}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "Delete"
+                  onPress = {deleteHandler.bind(this, id)} 
+              />
+          </View> 
+        </BottomCard> 
+
+      </KeyboardAvoidingView>
+      
     );
   }
 
@@ -170,7 +287,15 @@ const styles = StyleSheet.create({
     flex : 1,
     justifyContent: 'center',
     alignItems : 'center'
-  }
+  },
+
+  titleText : 
+  {
+      fontSize: 20,
+      color: '#888',
+      textAlign: 'center',
+      marginVertical: 20,
+  },
 
 });
 

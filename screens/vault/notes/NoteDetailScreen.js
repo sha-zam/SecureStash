@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { ListItem, Icon } from 'react-native-elements';
 
 //components import 
 import Card from '../../../components/Card.js';
@@ -52,34 +53,34 @@ const NoteDetailScreen = props => {
         props.navigation.setParams({ isFav: favState });
     }, [favState]);
 
-    const editHandler = id =>
-    {
-        props.navigation.navigate('EditNoteDetail', {noteID : id})
-    };
+    // const editHandler = id =>
+    // {
+    //     props.navigation.navigate('EditNoteDetail', {noteID : id})
+    // };
 
-    const deleteHandler = id =>
-    {
+    // const deleteHandler = id =>
+    // {
         
-        Alert.alert('Are you sure?', 'Do you really want to delete this note?', 
-        [
-            { 
-                text: 'No', 
-                style: 'default' 
-            },
+    //     Alert.alert('Are you sure?', 'Do you really want to delete this note?', 
+    //     [
+    //         { 
+    //             text: 'No', 
+    //             style: 'default' 
+    //         },
 
-            {
-                text: 'Yes',
-                style: 'destructive',
-                onPress: () => 
-                {
-                    props.navigation.goBack();
-                    dispatch(noteActions.deleteNotes(id));
+    //         {
+    //             text: 'Yes',
+    //             style: 'destructive',
+    //             onPress: () => 
+    //             {
+    //                 props.navigation.navigate('Vault');
+    //                 dispatch(noteActions.deleteNotes(id));
                     
-                }
-            }
+    //             }
+    //         }
 
-        ]);
-    };
+    //     ]);
+    // };
 
     if(selectedNote)
     {
@@ -87,7 +88,7 @@ const NoteDetailScreen = props => {
             <Card style={styles.accContainer}>
                 <Text style={styles.titleText}>{selectedNote.title}</Text>
                 <View>
-                    <Button
+                    {/* <Button
                         color = {Colors.primary}
                         title = "Edit"
                         onPress = {() => {editHandler(noteID);}}    
@@ -96,6 +97,25 @@ const NoteDetailScreen = props => {
                         color = {Colors.primary}
                         title = "Delete"
                         onPress = {deleteHandler.bind(this, noteID)}    
+                    /> */}
+
+                    <ListItem
+                        title='Folder'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedNote.folder}
+                        subtitleStyle={styles.listSub}
+                    />
+                    <ListItem
+                        title='Note'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedNote.description}
+                        subtitleStyle={styles.listSub}
                     />
                 </View>
             </Card>
@@ -145,6 +165,17 @@ const styles = StyleSheet.create({
         fontSize: 14,
         textAlign: 'center',
         marginHorizontal: 20
+    },
+
+    listTitle : 
+    {
+        fontSize : 15,
+        color : '#929390'
+    },
+
+    listSub :
+    {
+        fontSize : 15 , 
     }
 
 });

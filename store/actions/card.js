@@ -156,6 +156,8 @@ export const updateCards = (id, title, nameOnCard, type, number, cvv, expDate, f
       {
         throw new Error('Something went wrong!');
       }
+
+      console.log("dispatching to recuder");
   
       dispatch({
         type: UPDATE_CARD,
@@ -206,7 +208,7 @@ export const updateCardFav = (id, favorite) =>
       {
         throw new Error('Something went wrong!');
       }
-  
+
       dispatch({
         type: UPDATE_CARD_FAV,
         cid: id,

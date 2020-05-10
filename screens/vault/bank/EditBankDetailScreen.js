@@ -136,7 +136,7 @@ const EditBankDetailScreen = props =>
 
     if(error)
     {
-      Alert.alert('an error occured!', error, [{text : 'Okay'}]);
+      Alert.alert('an error occured!', error, [{text : 'OK'}]);
     }
 
   }, [error]);
@@ -147,7 +147,7 @@ const EditBankDetailScreen = props =>
     //check form validity
     if(!formState.formIsValid)
     {
-      Alert.alert('Invalid Inputs! Please check again!', [{text : 'Okay'}]);
+      Alert.alert('Invalid Inputs!', 'Please check again!');
 
       return;
     }
@@ -171,7 +171,6 @@ const EditBankDetailScreen = props =>
             formState.inputValues.branchAddr,
             formState.inputValues.branchPhone,
             formState.inputValues.folder,
-            isFav
           )
 
         );
@@ -197,7 +196,7 @@ const EditBankDetailScreen = props =>
       }
 
       //go back
-      props.navigation.goBack();
+      props.navigation.navigate('Vault');
 
     }
     catch(err)
@@ -265,6 +264,7 @@ const EditBankDetailScreen = props =>
               id="accType"
               label="Account Type"
               keyboardType="default"
+              required
               returnKeyType = "next"
               errorText="Please enter account type"
               onInputChange={inputChangeHandler}
@@ -286,9 +286,10 @@ const EditBankDetailScreen = props =>
               id="pin"
               label="PIN"
               keyboardType="decimal-pad"
+              required
               errorText="Please enter PIN"
               onInputChange={inputChangeHandler}
-              initialValue={editedBank ? editedBank.bank : ''}
+              initialValue={editedBank ? editedBank.pin : ''}
               initiallyValid={!!editedBank}
             />
             <Input
@@ -297,7 +298,7 @@ const EditBankDetailScreen = props =>
               keyboardType="default"
               errorText="Please enter the bank's branch address"
               onInputChange={inputChangeHandler}
-              initialValue={editedBank ? editedBank.bank : ''}
+              initialValue={editedBank ? editedBank.branchAddr : ''}
               initiallyValid={!!editedBank}
             />
             <Input
@@ -306,7 +307,7 @@ const EditBankDetailScreen = props =>
               keyboardType="decimal-pad"
               errorText="Please enter the bank's branch phone number"
               onInputChange={inputChangeHandler}
-              initialValue={editedBank ? editedBank.bank : ''}
+              initialValue={editedBank ? editedBank.branchPhone : ''}
               initiallyValid={!!editedBank}
             />
             <Input
@@ -319,17 +320,27 @@ const EditBankDetailScreen = props =>
               initialValue={editedBank ? editedBank.folder : ''}
               initiallyValid={!!editedBank}
             />
-            <View style={styles.switchContainer}>
-              <Text>Add to Favorites</Text>
-              <Switch
-                trackColor={{ false: Colors.accent, true: Colors.primary }}
-                thumbColor={Colors.accent}
-                onValueChange={(value) => {
-                  setIsFav(previousState => !previousState)
-                }}
-                value={isFav}
-              />
-            </View>
+
+            {editedBank ? 
+              (
+                <View style={styles.switchContainer}>
+                </View>
+              ) : 
+              (
+                <View style={styles.switchContainer}>
+                  <Text>Add to Favorites</Text>
+                  <Switch
+                    trackColor={{ false: Colors.accent, true: Colors.primary }}
+                    thumbColor={Colors.accent}
+                    onValueChange={(value) => {
+                      setIsFav(previousState => !previousState)
+                    }}
+                    value={isFav}
+                  />
+                </View>
+              )
+            }
+
             <Button
                 color = {Colors.primary}
                 title = "Save"

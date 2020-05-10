@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { 
+
   StyleSheet, 
   Text, 
   View, 
-  FlatList 
+  FlatList,
+  KeyboardAvoidingView
+  
 } from 'react-native';
 
 import { HeaderBackButton } from 'react-navigation-stack';
@@ -32,16 +35,16 @@ const PasswordFoldersScreen = props =>
   let userAccounts;
   //let folders;
 
-  // useEffect(() => 
-  // {
-  //   setIsLoading(true);
+  useEffect(() => 
+  {
+    setIsLoading(true);
 
-  //   dispatch(accountsActions.fetchAccounts()).then(() => 
-  //   {
-  //     setIsLoading(false);
-  //   });
+    dispatch(accountsActions.fetchAccounts()).then(() => 
+    {
+      setIsLoading(false);
+    });
 
-  // }, [dispatch]);
+  }, [dispatch]);
 
   //   //userAccounts = useSelector(state => state.storedAccounts.userAccounts);
   //   //folders = [...new Set(userAccounts.map(acc => acc.folder))]
@@ -135,14 +138,28 @@ const PasswordFoldersScreen = props =>
   {
 
     return (
-      
-      <FlatList
-        numColumns={2}
-        data = {data}
-        keyExtractor = {(item, index) => index.toString()}
-        renderItem = {renderGridItem}
-        ListHeaderComponent={renderHeader}
-      />
+
+      <KeyboardAvoidingView
+        style={{flex : 1}}
+        behavior="padding"
+        keyboardVerticalOffset={100}
+      >
+        <SearchBar
+          placeholder="Search"
+          lightTheme
+          round
+          onChangeText={text => searchFilterFunction(text)}
+          autoCorrect={false}
+          value={value}
+        />
+        <FlatList
+          numColumns={2}
+          data = {data}
+          keyExtractor = {(item, index) => index.toString()}
+          renderItem = {renderGridItem}
+          //ListHeaderComponent={renderHeader}
+        />
+      </KeyboardAvoidingView>
 
     );
   }

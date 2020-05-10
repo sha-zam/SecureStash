@@ -103,7 +103,7 @@ const EditNoteDetailScreen = props =>
 
     if(error)
     {
-      Alert.alert('an error occured!', error, [{text : 'Okay'}]);
+      Alert.alert('an error occured!', error, [{text : 'OK'}]);
     }
 
   }, [error]);
@@ -114,7 +114,7 @@ const EditNoteDetailScreen = props =>
     //check form validity
     if(!formState.formIsValid)
     {
-      Alert.alert('Invalid Inputs! Please check again!', [{text : 'Okay'}]);
+      Alert.alert('Invalid Inputs!', 'Please check again!');
 
       return;
     }
@@ -156,7 +156,7 @@ const EditNoteDetailScreen = props =>
       }
 
       //go back
-      props.navigation.goBack();
+      props.navigation.navigate('Vault');
 
     }
     catch(err)
@@ -241,17 +241,27 @@ const EditNoteDetailScreen = props =>
               initialValue={editedNote ? editedNote.folder : ''}
               initiallyValid={!!editedNote}
             />
-            <View style={styles.switchContainer}>
-              <Text>Add to Favorites</Text>
-              <Switch
-                trackColor={{ false: Colors.accent, true: Colors.primary }}
-                thumbColor={Colors.accent}
-                onValueChange={(value) => {
-                  setIsFav(previousState => !previousState)
-                }}
-                value={isFav}
-              />
-            </View>
+
+            {editedNote ? 
+              (
+                <View style={styles.switchContainer}>
+                </View>
+              ) : 
+              (
+                <View style={styles.switchContainer}>
+                  <Text>Add to Favorites</Text>
+                  <Switch
+                    trackColor={{ false: Colors.accent, true: Colors.primary }}
+                    thumbColor={Colors.accent}
+                    onValueChange={(value) => {
+                      setIsFav(previousState => !previousState)
+                    }}
+                    value={isFav}
+                  />
+                </View>
+              )
+            }
+
             <Button
                 color = {Colors.primary}
                 title = "Save"

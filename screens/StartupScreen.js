@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 
     View,
@@ -29,63 +29,115 @@ const AuthOptions =
 const StartupScreen = props =>
 {
     const dispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState();
 
     useEffect(() => 
     {
 
         const tryLogin = async () =>
         {
-            // disabled for testing, enable again after testing
-            // try
-            // {
-            //     const bioData = await AsyncStorage.getItem('biometrics');
+            //disabled for testing, enable again after testing
+            try
+            {
+                const bioData = await AsyncStorage.getItem('biometrics');
 
-            //     if(bioData)
-            //     {
-            //         const parseData = JSON.parse(bioData);
-            //         const { biometrics } = parseData;
+                console.log(bioData);
 
-            //         if(biometrics)
-            //         {
-            //              // Retrieve the credentials
-            //              let credentials = await Keychain.getGenericPassword();
-                        
-            //              if (credentials) 
-            //              {
+                if(bioData)
+                {
+                    const parseData = JSON.parse(bioData);
+                    const { biometrics } = parseData;
+
+                    console.log(biometrics);
+
+                    if(biometrics)
+                    {
+                        // Retrieve the credentials
+                        let credentials = await Keychain.getGenericPassword();
+                    
+                        if (credentials) 
+                        {
  
-            //                 console.log(
-            //                     'Credentials successfully loaded for user ' + credentials.username
-            //                 );
+                            console.log(
+                                'Credentials successfully loaded for user ' + credentials.username
+                            );
 
-            //                 const compatible = await LocalAuthentication.hasHardwareAsync();
-
-            //                 if (compatible)
-            //                 {
-            //                     let result = await LocalAuthentication.authenticateAsync(AuthOptions);
-
-            //                     if (result.success)
-            //                     {
-            //                         dispatch(authActions.login(credentials.email, credentials.password));
-            //                         props.navigation.navigate('Tab');
-            //                     } 
+                            const compatible = await LocalAuthentication.hasHardwareAsync();
                             
-            //                 }
+                            console.log(compatible);
+
+                            if (compatible)
+                            {
+                                let result = await LocalAuthentication.authenticateAsync(AuthOptions);
+
+                                if (result.success)
+                                {
+                                    //setError(null);
+                                    //setIsLoading(true);
+
+                                    console.log('success');
+
+                                    try 
+                                    {
+                                        await dispatch(authActions.login(credentials.username, credentials.password));
+
+                                        console.log('navigating to tab');
+                                        props.navigation.navigate('Tab');  
+                                    
+                                    } 
+                                    catch (err) 
+                                    {
+                                        //setError(err.message);
+                                        //setIsLoading(false);
+                                    }
+
+                                    // dispatch(authActions.login(credentials.email, credentials.password));
+                                    // props.navigation.navigate('Tab');
+                                }
+                                else
+                                {
+                                    props.navigation.navigate('Auth');
+                                    return;
+                                }
+                            
+                            }
+                            else
+                            {
+                                props.navigation.navigate('Auth');
+                                return;
+                            }
  
-            //              } 
+                        }
+                        else
+                        {
+                            props.navigation.navigate('Auth');
+                            return;
+                        }
                     
-            //         }
+                    }
+                    else
+                    {
+                        props.navigation.navigate('Auth');
+                        return;
+                    }
                     
-            //     }
+                }
+                else
+                {
+                    props.navigation.navigate('Auth');
+                    return;
+                }
 
-            //     props.navigation.navigate('Auth');
-            //     return;
-            // }
-            // catch(err)
-            // {
-            //     console.log(err)
-            // }
+                // props.navigation.navigate('Auth');
+                // return;
+            }
+            catch(err)
+            {
+                console.log(err)
+            }
 
-            props.navigation.navigate('Auth');
+            //props.navigation.navigate('Auth');
             
         }
         

@@ -75,7 +75,7 @@ export const createAccounts = (title, URL, username, password, folder, favorite)
         //await response
         const response = await fetch(
 
-            `https://fyp-s3curest4sh.firebaseio.com/Passwords.json?auth=${token}`,
+            `https://fyp-s3curest4sh.firebaseio.com/Users.json/${userID}/Passwords.json?auth=${token}`,
             {
                 method : 'POST',
                 headers : 
@@ -157,7 +157,8 @@ export const updateAccounts = (id, title, URL, username, password, folder) =>
           title,
           URL,
           username,
-          password
+          password,
+          folder
         }
 
       });

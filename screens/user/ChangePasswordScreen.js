@@ -76,12 +76,14 @@ const ChangePasswordScreen = props =>
     {
         inputValues: 
         {
-            password: ''
+            password1: '',
+            password2: '',
         },
 
         inputValidities: 
         {
-            password: false
+            password1: false,
+            password2: false
         },
 
         formIsValid: false
@@ -141,6 +143,15 @@ const ChangePasswordScreen = props =>
 
     const showAlert = () =>
     {
+
+      //check form validity
+      if(!formState.formIsValid)
+      {
+        Alert.alert('Invalid Inputs!', 'Please check again!');
+
+        return;
+      }
+
       Alert.alert(
         'Change Master Password',
         'Are you sure you want to change your master password? (This action is irreversible)',
@@ -186,6 +197,7 @@ const ChangePasswordScreen = props =>
                         keyboardType="default"
                         secureTextEntry
                         required
+                        password
                         minLength={10}
                         autoCapitalize="none"
                         errorText="Please enter a valid password with at least 10 characters in length"
@@ -198,6 +210,7 @@ const ChangePasswordScreen = props =>
                         keyboardType="default"
                         secureTextEntry
                         required
+                        password
                         minLength={10}
                         autoCapitalize="none"
                         errorText="Please enter a valid password with at least 10 characters in length"

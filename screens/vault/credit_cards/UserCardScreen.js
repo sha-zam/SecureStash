@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import { 
+  
   StyleSheet, 
   Text, 
   View, 
-  FlatList 
+  FlatList,
+  KeyboardAvoidingView,
+  Button,
+  Clipboard,
+  Alert 
+
 } from 'react-native';
 
 import { HeaderBackButton } from 'react-navigation-stack';
@@ -15,6 +21,7 @@ import { SearchBar } from 'react-native-elements';
 //components import
 import HeaderButton from '../../../components/HeaderButton.js';
 import CategoryGridTile from '../../../components/CategoryGridTile.js';
+import BottomCard from '../../../components/BottomCard.js';
 
 //constants import
 import Colors from '../../../constants/Colors.js';
@@ -27,6 +34,13 @@ const UserCardScreen = props =>
   //states 
   const [isLoading, setIsLoading] = useState(false);
   const [value, setIsValue] = useState();
+  const [bottomCardVisibility, setBottomCardVisibility] = useState(false);
+  const [id, setId] = useState('');
+  const [title, setTitle] = useState('');
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const [expDate, setExpDate] = useState('');
+  const [cvv, setCvv] = useState('');
   
   const dispatch = useDispatch();
   // let userCards;
@@ -48,6 +62,27 @@ const UserCardScreen = props =>
   const userCards = useSelector(state => state.storedCards.userCards.filter(card => card.folder === folderName));
   const [data, setData] = useState(userCards);
 
+  const check = (itemData) => 
+  {
+    //selectedAcc = itemData.item;
+    console.log(itemData.item);
+    // setSelect(prevState => {
+    //   prevState.id= itemData.item.id;
+    //   prevState.title = itemData.item.title;
+    //   prevState.username = itemData.item.username;
+    //   prevState.password = itemData.item.password;
+    // });
+
+    setId(itemData.item.id);
+    setTitle(itemData.item.title);
+    setName(itemData.item.nameOnCard);
+    setNumber(itemData.item.number);
+    setExpDate(itemData.item.expDate);
+    setCvv(itemData.item.cvv);
+    
+    setBottomCardVisibility(true);
+  }
+
   //grid item function
   const renderGridItem = (itemData) =>
   {
@@ -57,9 +92,7 @@ const UserCardScreen = props =>
       <CategoryGridTile 
         title = {itemData.item.title}
         icon="credit-card"
-
-        onSelect={() => {props.navigation.navigate('CardDetail', {cardID : itemData.item.id})}}
-
+        onSelect={check.bind(this,itemData)}
         color = {Colors.accent}
       />
 
@@ -103,6 +136,41 @@ const UserCardScreen = props =>
 
   };
 
+  const copyHandler = async (value) => 
+  {
+      await Clipboard.setString(value);
+      // Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
+  };
+
+  const deleteHandler = async (ID) =>
+  {
+      console.log(ID);
+
+      Alert.alert('Are you sure?', 'Do you really want to delete this card from your vault?', 
+      [
+          { text: 'No', style: 'default' },
+
+          {
+              text: 'Yes',
+              style: 'destructive',
+              onPress: () => 
+              {
+                  props.navigation.navigate('Vault');  
+                  try
+                  {
+                    dispatch(cardActions.deleteCards(ID));
+                  }
+                  catch(err)
+                  {
+
+                  }
+                           
+              }
+          }
+
+      ]);
+  };
+
   if (isLoading) 
   {
 
@@ -129,13 +197,79 @@ const UserCardScreen = props =>
   {
 
     return (
+
+      <KeyboardAvoidingView
+        style={{flex : 1}}
+        behavior="padding"
+        keyboardVerticalOffset={100}
+      >
+
+        <SearchBar
+          placeholder="Search"
+          lightTheme
+          round
+          onChangeText={text => searchFilterFunction(text)}
+          autoCorrect={false}
+          value={value}
+        />
+
+        <FlatList
+          data = {data}
+          keyExtractor = {(item) => item.id}
+          renderItem = {renderGridItem}
+        />
+
+        <BottomCard 
+          show={bottomCardVisibility} 
+          onExit={() => setBottomCardVisibility(false)}
+        > 
+          <Text style={styles.titleText}>{title}</Text>
+          <View>
+              <Button
+                  color = {Colors.primary}
+                  title = "Copy Name On Card"
+                  onPress = {() => {copyHandler(name);}}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "Copy Card Number"
+                  onPress = {() => {copyHandler(number);}}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "Copy Card Expiry Date"
+                  onPress = {() => {copyHandler(expDate);}}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "Copy Card Security Code"
+                  onPress = {() => {copyHandler(cvv);}}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "View"
+                  onPress = {() => {
+                    props.navigation.navigate('CardDetail', {cardID : id})
+                  }}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "Edit"
+                  onPress = {() => {
+                    props.navigation.navigate('EditCardDetail', {cardID : id})
+                  }}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "Delete"
+                  onPress = {deleteHandler.bind(this, id)} 
+              />
+          </View> 
+        </BottomCard> 
+
+      </KeyboardAvoidingView>
       
-      <FlatList
-        data = {data}
-        keyExtractor = {(item) => item.id}
-        renderItem = {renderGridItem}
-        ListHeaderComponent={renderHeader}
-      />
+     
 
     );
   }
@@ -171,7 +305,15 @@ const styles = StyleSheet.create({
     flex : 1,
     justifyContent: 'center',
     alignItems : 'center'
-  }
+  },
+
+  titleText : 
+  {
+      fontSize: 20,
+      color: '#888',
+      textAlign: 'center',
+      marginVertical: 20,
+  },
 
 });
 

@@ -51,17 +51,26 @@ const AutoLogoutSettingsScreen = props =>
     {
         try
         {
-            await AsyncStorage.setItem(
-                'autologout',
-                JSON.stringify({
-                    autologout : time
-                })
-            );
+            if(time != 'Never')
+            {
+                await AsyncStorage.setItem(
+                    'autologout',
+                    JSON.stringify({
+                        autologout : time
+                    })
+                );
+                
+                const timer = parseInt(time) * 60000;
+                console.log(timer);
+    
+                await dispatch(authActions.setLogoutTimer(timer));
+            }
+            else
+            {
+                console.log('never');
+                await dispatch(authActions.clearLogoutTimer());
+            }
             
-            const timer = parseInt(time) * 60000;
-            console.log(timer);
-
-            await dispatch(authActions.setLogoutTimer(timer));
 
             // const timer = await AsyncStorage.getItem('autologout');
 

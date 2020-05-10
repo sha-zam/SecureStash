@@ -50,7 +50,7 @@ const VaultScreen = props =>
 
         onSelect={() =>
         {
-          let route = 'UserPassword';
+          let route;
 
           if(itemData.item.title === 'Passwords')
           {

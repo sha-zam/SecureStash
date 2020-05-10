@@ -158,6 +158,24 @@ export const signup = (email, password) =>
     }
 
     const resData = await response.json();
+    const userID = resData.localId
+
+    // //write to database side
+    // const response2 = await fetch(
+
+    //     `https://fyp-s3curest4sh.firebaseio.com/Users.json?auth=${resData.idToken}`,
+    //     {
+    //         method : 'POST',
+    //         headers : 
+    //         {
+    //             'Content-Type' : 'application/json'
+    //         },
+    //         body : JSON.stringify({
+    //           userID
+    //         })
+    //     }
+
+    // );
 
     //Send verification email
     sendEmailVerification(resData.idToken);
@@ -263,7 +281,7 @@ export const logout = () =>
 {
   //clear timer set by the user
   clearLogoutTimer();
-
+  
   //then, logout
   return {
     type : LOGOUT
@@ -271,7 +289,7 @@ export const logout = () =>
   
 };
 
-const clearLogoutTimer = () =>
+export const clearLogoutTimer = () =>
 {
 
   if(timer)

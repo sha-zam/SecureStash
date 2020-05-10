@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { 
+  
   StyleSheet, 
   Text, 
   View, 
-  FlatList 
+  FlatList,
+  KeyboardAvoidingView
+
 } from 'react-native';
 
 import { HeaderBackButton } from 'react-navigation-stack';
@@ -32,16 +35,16 @@ const BankFoldersScreen = props =>
   let userBanks;
   //let folders;
 
-  // useEffect(() => 
-  // {
-  //   setIsLoading(true);
+  useEffect(() => 
+  {
+    setIsLoading(true);
 
-  //   dispatch(banksActions.fetchBanks()).then(() => 
-  //   {
-  //     setIsLoading(false);
-  //   });
+    dispatch(banksActions.fetchBanks()).then(() => 
+    {
+      setIsLoading(false);
+    });
 
-  // }, [dispatch]);
+  }, [dispatch]);
 
   //   //userBanks = useSelector(state => state.storedBanks.userBanks);
   //   //folders = [...new Set(userBanks.map(bank => bank.folder))]
@@ -136,13 +139,27 @@ const BankFoldersScreen = props =>
 
     return (
       
-      <FlatList
-        numColumns={2}
-        data = {data}
-        keyExtractor = {(item, index) => index.toString()}
-        renderItem = {renderGridItem}
-        ListHeaderComponent={renderHeader}
-      />
+      <KeyboardAvoidingView
+        style={{flex : 1}}
+        behavior="padding"
+        keyboardVerticalOffset={100}
+      >
+        <SearchBar
+          placeholder="Search"
+          lightTheme
+          round
+          onChangeText={text => searchFilterFunction(text)}
+          autoCorrect={false}
+          value={value}
+        />
+        <FlatList
+          numColumns={2}
+          data = {data}
+          keyExtractor = {(item, index) => index.toString()}
+          renderItem = {renderGridItem}
+          //ListHeaderComponent={renderHeader}
+        />
+      </KeyboardAvoidingView>
 
     );
   }

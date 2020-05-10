@@ -46,8 +46,12 @@ const Input = props => {
     }
   }, [inputState, onInputChange, id]);
 
-  const textChangeHandler = text => {
+  const textChangeHandler = text => 
+  {
+
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const pwdRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{10,40}$/;
+    const expDateRegex = /^(\d{2})\/(\d{4})$/;
 
     let isValid = true;
 
@@ -57,6 +61,16 @@ const Input = props => {
     }
 
     if (props.email && !emailRegex.test(text.toLowerCase())) 
+    {
+      isValid = false;
+    }
+
+    if(props.password && !pwdRegex.test(text))
+    {
+      isValid = false;
+    }
+
+    if(props.expDate && !text.match(expDateRegex))
     {
       isValid = false;
     }
@@ -98,6 +112,7 @@ const Input = props => {
         onChangeText={textChangeHandler}
         onBlur={lostFocusHandler}
         onFocus={props.onFocus}
+        color='black'
       />
 
       {!inputState.isValid && inputState.touched && (
@@ -122,7 +137,8 @@ const styles = StyleSheet.create({
   label: 
   {
     //fontFamily: 'open-sans-bold',
-    marginVertical: 8
+    marginVertical: 8,
+    fontWeight : "bold"
   },
 
   input: 

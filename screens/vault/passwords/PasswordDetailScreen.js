@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { ListItem, Icon } from 'react-native-elements';
 
 //components import 
 import Card from '../../../components/Card.js';
@@ -22,20 +23,27 @@ import Colors from '../../../constants/Colors.js';
 //actions import
 import * as accountActions from '../../../store/actions/account.js';
 
-const PasswordDetailScreen = props => {
-
+const PasswordDetailScreen = props => 
+{
     const dispatch = useDispatch();
     
     //extract param for Account id 
     const accID = props.navigation.getParam('accountID');
 
     //the use useSelector to retrieve account                                                                                                                                                                 
-    const selectedAccount = useSelector(state => state.storedAccounts.userAccounts.find(acc => acc.id === accID));
+    let selectedAccount = useSelector(state => state.storedAccounts.userAccounts.find(acc => acc.id === accID)); 
 
     const [favState, setFavState] = useState(selectedAccount.favorite);
 
+    // useEffect (() => {
+
+    //     selectedAccount = useSelector(state => state.storedAccounts.userAccounts.find(acc => acc.id === accID));
+    //     setFavState(selectedAccount.favorite);
+    // }, [dispatch]);
+
     const toggleFavoriteHandler = useCallback(() => 
     {
+
         let newFavstate = !selectedAccount.favorite;
         setFavState(newFavstate);
 
@@ -43,47 +51,50 @@ const PasswordDetailScreen = props => {
     }, [dispatch, accID]);
     
     useEffect(() => 
-    {
-       
+    {    
+
         props.navigation.setParams({ toggleFav: toggleFavoriteHandler });
+
     }, [toggleFavoriteHandler]);
 
     useEffect(() => 
     {
+
         props.navigation.setParams({ isFav: favState });
+
     }, [favState]);
 
-    const copyHandler = async (value) => 
-    {
-        await Clipboard.setString(value);
-        // Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
-    };
+    // const copyHandler = async (value) => 
+    // {
+    //     await Clipboard.setString(value);
+    //     // Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
+    // };
 
-    const editHandler = id =>
-    {
-        props.navigation.navigate('EditPasswordDetail', {accountID : id})
-    };
+    // const editHandler = id =>
+    // {
+    //     props.navigation.navigate('EditPasswordDetail', {accountID : id})
+    // };
 
-    const deleteHandler = id =>
-    {
-        
-        Alert.alert('Are you sure?', 'Do you really want to delete this account?', 
-        [
-            { text: 'No', style: 'default' },
+    // const deleteHandler = id =>
+    // {
+    //     console.log(id);
 
-            {
-                text: 'Yes',
-                style: 'destructive',
-                onPress: () => 
-                {
-                    props.navigation.goBack();
-                    dispatch(accountActions.deleteAccounts(id));
-                    
-                }
-            }
+    //     Alert.alert('Are you sure?', 'Do you really want to delete this account?', 
+    //     [
+    //         { text: 'No', style: 'default' },
 
-        ]);
-    };
+    //         {
+    //             text: 'Yes',
+    //             style: 'destructive',
+    //             onPress: () => 
+    //             {
+    //                 props.navigation.navigate('Vault');  
+    //                 dispatch(accountActions.deleteAccounts(id));              
+    //             }
+    //         }
+
+    //     ]);
+    // };
 
     if(selectedAccount)
     {
@@ -91,7 +102,7 @@ const PasswordDetailScreen = props => {
             <Card style={styles.accContainer}>
                 <Text style={styles.titleText}>{selectedAccount.title}</Text>
                 <View>
-                    <Button
+                    {/* <Button
                         color = {Colors.primary}
                         title = "Copy Username"
                         onPress = {() => {copyHandler(selectedAccount.username);}}    
@@ -110,6 +121,47 @@ const PasswordDetailScreen = props => {
                         color = {Colors.primary}
                         title = "Delete"
                         onPress = {deleteHandler.bind(this, accID)}    
+                    /> */}
+
+                    {/* <Text style={styles.text}>Username : {selectedAccount.username}</Text>
+                    <Text style={styles.text}>Password : {selectedAccount.password}</Text>
+                    <Text style={styles.text}>URL : {selectedAccount.URL}</Text> */}
+
+                    <ListItem
+                        title='Folder'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedAccount.folder}
+                        subtitleStyle={styles.listSub}
+                    />
+                    <ListItem
+                        title='URL'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedAccount.URL}
+                        subtitleStyle={styles.listSub}
+                    />
+                    <ListItem
+                        title='Username'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedAccount.username}
+                        subtitleStyle={styles.listSub}
+                    />
+                    <ListItem
+                        title='Password'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedAccount.password}
+                        subtitleStyle={styles.listSub}
                     />
                 </View>
             </Card>
@@ -157,7 +209,19 @@ const styles = StyleSheet.create({
     {
         fontSize: 14,
         textAlign: 'center',
-        marginHorizontal: 20
+        marginHorizontal: 20,
+        marginVertical : 10
+    },
+
+    listTitle : 
+    {
+        fontSize : 15,
+        color : '#929390'
+    },
+
+    listSub :
+    {
+        fontSize : 15 , 
     }
 
 });

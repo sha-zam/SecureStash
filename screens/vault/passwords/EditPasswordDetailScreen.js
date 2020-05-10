@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useReducer, useEffect} from 'react';
+import React, { useRef, useState, useCallback, useReducer, useEffect} from 'react';
 import { 
 
   StyleSheet, 
@@ -8,7 +8,9 @@ import {
   ScrollView, 
   Alert,
   Button,
-  Switch
+  Switch,
+  Slider,
+  Clipboard
   
 } from 'react-native';
 
@@ -20,6 +22,7 @@ import { useSelector, useDispatch } from 'react-redux';
 //components import 
 import Input from '../../../components/Input.js';
 import HeaderButton from '../../../components/HeaderButton.js';
+import BottomCard from '../../../components/BottomCard.js';
 
 //constants import
 import Colors from '../../../constants/Colors.js';
@@ -74,6 +77,9 @@ const EditPasswordDetailScreen = props =>
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
   const [isFav, setIsFav] = useState(false);
+  const [bottomCardVisibility, setBottomCardVisibility] = useState(false);
+  const [genPwd, setGenPwd] = useState();
+  const [genLength, setGenLength] = useState();
 
   const dispatch = useDispatch();
 
@@ -110,7 +116,7 @@ const EditPasswordDetailScreen = props =>
 
     if(error)
     {
-      Alert.alert('an error occured!', error, [{text : 'Okay'}]);
+      Alert.alert('an error occured!', error, [{text : 'OK'}]);
     }
 
   }, [error]);
@@ -121,7 +127,7 @@ const EditPasswordDetailScreen = props =>
     //check form validity
     if(!formState.formIsValid)
     {
-      Alert.alert('Invalid Inputs! Please check again!', [{text : 'Okay'}]);
+      Alert.alert('Invalid Inputs!', 'Please check again!');
 
       return;
     }
@@ -143,7 +149,6 @@ const EditPasswordDetailScreen = props =>
             formState.inputValues.username,
             formState.inputValues.password,
             formState.inputValues.folder,
-            isFav
           )
 
         );
@@ -167,7 +172,7 @@ const EditPasswordDetailScreen = props =>
       }
 
       //go back
-      props.navigation.goBack();
+      props.navigation.navigate('Vault');
 
     }
     catch(err)
@@ -196,6 +201,32 @@ const EditPasswordDetailScreen = props =>
     });
 
   }, [dispatchFormState]);
+
+  const getRandomInt = (min, max) =>
+  {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  const generatePassword = () =>
+  {
+
+    let characterList = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@$%^&*()<>,.?/[]{}-=_+";
+
+    let password = "";
+
+    for (let i = 0; i < genLength; ++i) 
+    {
+      password += characterList[getRandomInt(0, characterList.length - 1)];
+    }
+
+    setGenPwd(password);
+  }
+
+  const copyHandler = async (value) => 
+  {
+      await Clipboard.setString(value);
+      // Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
+  };
 
   //check if is loading, display loading icon
   if(isLoading)
@@ -263,6 +294,13 @@ const EditPasswordDetailScreen = props =>
               initialValue={editedAcc ? editedAcc.password : ''}
               initiallyValid={!!editedAcc}
             />
+
+            <Button 
+              color={Colors.primary}
+              title="Generate Password" 
+              onPress={() => setBottomCardVisibility(true)} 
+            />
+            
             <Input
               id="folder"
               label="Folder"
@@ -273,25 +311,74 @@ const EditPasswordDetailScreen = props =>
               initialValue={editedAcc ? editedAcc.folder : ''}
               initiallyValid={!!editedAcc}
             />
-            <View style={styles.switchContainer}>
-              <Text>Add to Favorites</Text>
-              <Switch
-                trackColor={{ false: Colors.accent, true: Colors.primary }}
-                thumbColor={Colors.accent}
-                onValueChange={(value) => {
-                  setIsFav(previousState => !previousState)
-                }}
-                value={isFav}
-              />
-            </View>
+
+            {editedAcc ? 
+              (
+                <View style={styles.switchContainer}>
+                </View>
+              ) : 
+              (
+                <View style={styles.switchContainer}>
+                  <Text>Add to Favorites</Text>
+                  <Switch
+                    trackColor={{ false: Colors.accent, true: Colors.primary }}
+                    thumbColor={Colors.accent}
+                    onValueChange={(value) => {
+                      setIsFav(previousState => !previousState)
+                    }}
+                    value={isFav}
+                  />
+                </View>
+              )
+            }
+            
             <Button
                 color = {Colors.primary}
                 title = "Save"
                 onPress = {submitHandler}    
             />
-          </View>
+            
+          </View>   
 
         </ScrollView>
+
+        <BottomCard 
+          show={bottomCardVisibility} 
+          onExit={() => setBottomCardVisibility(false)}
+        > 
+
+          <View style={styles.cardView}>
+            <Slider
+              style={{width: 200, height: 40}}
+              minimumValue={10}
+              maximumValue={40}
+              minimumTrackTintColor={Colors.primary}
+              maximumTrackTintColor={Colors.accent}
+              onValueChange={(value) => setGenLength(value)}
+              step={1}
+            />
+
+
+            <Text style={{padding : 20}}>Length : {genLength}</Text>
+
+            <Text style={{padding : 20}}>{genPwd}</Text>
+
+            <Button
+              color = {Colors.primary}
+              title = "Generate Password"
+              onPress = {generatePassword}  
+              style={{padding : 20}}  
+            />
+            <Button
+              color = {Colors.primary}
+              title = "Copy Password"
+              onPress = {() => copyHandler(genPwd)}  
+              style={{padding : 20}}  
+            />
+ 
+          </View>
+
+        </BottomCard> 
 
       </KeyboardAvoidingView>
 
@@ -306,6 +393,7 @@ EditPasswordDetailScreen.navigationOptions = navData => {
 
     //check whether to display edit or add text
     headerTitle : navData.navigation.getParam('accountID') ? "Edit" : "Add",
+      
     // headerRight : () =>
 
     //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
@@ -341,6 +429,12 @@ const styles = StyleSheet.create({
     //alignItems: 'center',
     width: '80%',
     marginVertical: 20
+  },
+
+  cardView :
+  {
+    alignItems : 'center',
+    margin : 20
   }
 
 });

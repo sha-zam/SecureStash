@@ -112,7 +112,7 @@ const EditCardDetailScreen = props =>
 
     if(error)
     {
-      Alert.alert('an error occured!', error, [{text : 'Okay'}]);
+      Alert.alert('an error occured!', error, [{text : 'OK'}]);
     }
 
   }, [error]);
@@ -123,7 +123,7 @@ const EditCardDetailScreen = props =>
     //check form validity
     if(!formState.formIsValid)
     {
-      Alert.alert('Invalid Inputs! Please check again!', [{text : 'Okay'}]);
+      Alert.alert('Invalid Inputs!', 'Please check again!');
 
       return;
     }
@@ -147,7 +147,6 @@ const EditCardDetailScreen = props =>
             formState.inputValues.cvv,
             formState.inputValues.expDate,
             formState.inputValues.folder,
-            isFav
           )
 
         );
@@ -173,7 +172,7 @@ const EditCardDetailScreen = props =>
       }
 
       //go back
-      props.navigation.goBack();
+      props.navigation.navigate('Vault');
 
     }
     catch(err)
@@ -264,7 +263,7 @@ const EditCardDetailScreen = props =>
             <Input
                 id="number"
                 label="Card Number"
-                keyboardType="default"
+                keyboardType="decimal-pad"
                 required
                 errorText="Please enter a valid card number"
                 onInputChange={inputChangeHandler}
@@ -274,7 +273,7 @@ const EditCardDetailScreen = props =>
             <Input
                 id="cvv"
                 label="Security Code"
-                keyboardType="default"
+                keyboardType="decimal-pad"
                 required
                 errorText="Please enter a valid security code"
                 onInputChange={inputChangeHandler}
@@ -286,9 +285,10 @@ const EditCardDetailScreen = props =>
                 label="Expiration Date (MM/YYYY)"
                 keyboardType="default"
                 required
+                expDate
                 errorText="Please enter a valid expiration date"
                 onInputChange={inputChangeHandler}
-                initialValue={editedCard ? editedCard.cvv : ''}
+                initialValue={editedCard ? editedCard.expDate : ''}
                 initiallyValid={!!editedCard}
             />
             <Input
@@ -301,17 +301,27 @@ const EditCardDetailScreen = props =>
                 initialValue={editedCard ? editedCard.folder : ''}
                 initiallyValid={!!editedCard}
             />
-            <View style={styles.switchContainer}>
-              <Text>Add to Favorites</Text>
-              <Switch
-                trackColor={{ false: Colors.accent, true: Colors.primary }}
-                thumbColor={Colors.accent}
-                onValueChange={(value) => {
-                  setIsFav(previousState => !previousState)
-                }}
-                value={isFav}
-              />
-            </View>
+            
+            {editedCard ? 
+              (
+                <View style={styles.switchContainer}>
+                </View>
+              ) : 
+              (
+                <View style={styles.switchContainer}>
+                  <Text>Add to Favorites</Text>
+                  <Switch
+                    trackColor={{ false: Colors.accent, true: Colors.primary }}
+                    thumbColor={Colors.accent}
+                    onValueChange={(value) => {
+                      setIsFav(previousState => !previousState)
+                    }}
+                    value={isFav}
+                  />
+                </View>
+              )
+            }
+
             <Button
                 color = {Colors.primary}
                 title = "Save"

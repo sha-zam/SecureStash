@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import { 
+  
   StyleSheet, 
   Text, 
   View, 
-  FlatList 
+  FlatList,
+  KeyboardAvoidingView,
+  Button,
+  Clipboard,
+  Alert 
+
 } from 'react-native';
 
 import { HeaderBackButton } from 'react-navigation-stack';
@@ -15,6 +21,7 @@ import { SearchBar } from 'react-native-elements';
 //components import
 import HeaderButton from '../../../components/HeaderButton.js';
 import CategoryGridTile from '../../../components/CategoryGridTile.js';
+import BottomCard from '../../../components/BottomCard.js';
 
 //constants import
 import Colors from '../../../constants/Colors.js';
@@ -27,6 +34,13 @@ const UserBankScreen = props =>
   //states 
   const [isLoading, setIsLoading] = useState(false);
   const [value, setIsValue] = useState();
+  const [bottomCardVisibility, setBottomCardVisibility] = useState(false);
+  const [id, setId] = useState('');
+  const [bankName, setBankName] = useState('');
+  const [number, setNumber] = useState('');
+  const [pin, setPin] = useState('');
+  const [branchAddr, setBranchAddr] = useState('');
+  const [branchPhone, setBranchPhone] = useState('');
   
   const dispatch = useDispatch();
   // let userBanks;
@@ -48,6 +62,27 @@ const UserBankScreen = props =>
   const userBanks = useSelector(state => state.storedBanks.userBanks.filter(acc => acc.folder === folderName));
   const [data, setData] = useState(userBanks);
 
+  const check = (itemData) => 
+  {
+    //selectedAcc = itemData.item;
+    console.log(itemData.item);
+    // setSelect(prevState => {
+    //   prevState.id= itemData.item.id;
+    //   prevState.title = itemData.item.title;
+    //   prevState.username = itemData.item.username;
+    //   prevState.password = itemData.item.password;
+    // });
+
+    setId(itemData.item.id);
+    setBankName(itemData.item.bankName);
+    setNumber(itemData.item.accNum);
+    setPin(itemData.item.pin);
+    setBranchAddr(itemData.item.branchAddr);
+    setBranchPhone(itemData.item.branchPhone);
+    
+    setBottomCardVisibility(true);
+  }
+
   //grid item function
   const renderGridItem = (itemData) =>
   {
@@ -57,9 +92,7 @@ const UserBankScreen = props =>
       <CategoryGridTile 
         title = {itemData.item.bankName}
         icon = "bank"
-        onSelect={() => {
-          props.navigation.navigate('BankDetail', {bankID : itemData.item.id})
-        }}
+        onSelect={check.bind(this,itemData)}
         color = {Colors.accent}
       />
 
@@ -103,6 +136,41 @@ const UserBankScreen = props =>
 
   };
 
+  const copyHandler = async (value) => 
+  {
+      await Clipboard.setString(value);
+      // Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
+  };
+
+  const deleteHandler = async (ID) =>
+  {
+      console.log(ID);
+
+      Alert.alert('Are you sure?', 'Do you really want to delete this bank account from your vault?', 
+      [
+          { text: 'No', style: 'default' },
+
+          {
+              text: 'Yes',
+              style: 'destructive',
+              onPress: () => 
+              {
+                  props.navigation.navigate('Vault');  
+                  try
+                  {
+                    dispatch(bankActions.deleteBanks(ID));
+                  }
+                  catch(err)
+                  {
+
+                  }
+                           
+              }
+          }
+
+      ]);
+  };
+
   if (isLoading) 
   {
 
@@ -130,13 +198,77 @@ const UserBankScreen = props =>
 
     return (
       
-      <FlatList
-        numColumns={2}
-        data = {data}
-        keyExtractor = {(item) => item.id}
-        renderItem = {renderGridItem}
-        ListHeaderComponent={renderHeader}
-      />
+      <KeyboardAvoidingView
+        style={{flex : 1}}
+        behavior="padding"
+        keyboardVerticalOffset={100}
+      >
+
+        <SearchBar
+          placeholder="Search"
+          lightTheme
+          round
+          onChangeText={text => searchFilterFunction(text)}
+          autoCorrect={false}
+          value={value}
+        />
+
+        <FlatList
+          numColumns={2}
+          data = {data}
+          keyExtractor = {(item) => item.id}
+          renderItem = {renderGridItem}
+        />
+
+        <BottomCard 
+          show={bottomCardVisibility} 
+          onExit={() => setBottomCardVisibility(false)}
+        > 
+          <Text style={styles.titleText}>{bankName}</Text>
+          <View>
+              <Button
+                  color = {Colors.primary}
+                  title = "Copy Account Number"
+                  onPress = {() => {copyHandler(number);}}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "Copy PIN"
+                  onPress = {() => {copyHandler(pin);}}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "Copy Branch Phone Number"
+                  onPress = {() => {copyHandler(branchPhone);}}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "Copy Branch Address"
+                  onPress = {() => {copyHandler(branchAddr);}}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "View"
+                  onPress = {() => {
+                    props.navigation.navigate('BankDetail', {bankID : id})
+                  }}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "Edit"
+                  onPress = {() => {
+                    props.navigation.navigate('EditBankDetail', {bankID : id})
+                  }}    
+              />
+              <Button
+                  color = {Colors.primary}
+                  title = "Delete"
+                  onPress = {deleteHandler.bind(this, id)} 
+              />
+          </View> 
+        </BottomCard> 
+
+      </KeyboardAvoidingView>
 
     );
   }
@@ -172,7 +304,15 @@ const styles = StyleSheet.create({
     flex : 1,
     justifyContent: 'center',
     alignItems : 'center'
-  }
+  },
+
+  titleText : 
+  {
+      fontSize: 20,
+      color: '#888',
+      textAlign: 'center',
+      marginVertical: 20,
+  },
 
 });
 

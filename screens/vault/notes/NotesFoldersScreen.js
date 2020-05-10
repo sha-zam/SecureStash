@@ -1,9 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { 
+
   StyleSheet, 
   Text, 
   View, 
-  FlatList 
+  FlatList,
+  KeyboardAvoidingView
+  
 } from 'react-native';
 
 import { HeaderBackButton } from 'react-navigation-stack';
@@ -31,19 +34,19 @@ const NotesFoldersScreen = props =>
   const dispatch = useDispatch();
   let userNotes;
 
-  // useEffect(() => 
-  // {
-  //   setIsLoading(true);
+  useEffect(() => 
+  {
+    setIsLoading(true);
 
-  //   dispatch(noteActions.fetchNotes()).then(() => 
-  //   {
-  //     setIsLoading(false);
-  //   });
+    dispatch(noteActions.fetchNotes()).then(() => 
+    {
+      setIsLoading(false);
+    });
 
-  //   //userNotes = useSelector(state => state.storedAccounts.userNotes);
-  //   //folders = [...new Set(userNotes.map(acc => acc.folder))]
+    //userNotes = useSelector(state => state.storedAccounts.userNotes);
+    //folders = [...new Set(userNotes.map(acc => acc.folder))]
 
-  // }, [dispatch]);
+  }, [dispatch]);
 
   userNotes = useSelector(state => state.storedNotes.userNotes);
   console.log(userNotes);
@@ -133,13 +136,27 @@ const NotesFoldersScreen = props =>
 
     return (
       
-      <FlatList
-        numColumns={2}
-        data = {data}
-        keyExtractor = {(item, index) => index.toString()}
-        renderItem = {renderGridItem}
-        ListHeaderComponent={renderHeader}
-      />
+      <KeyboardAvoidingView
+        style={{flex : 1}}
+        behavior="padding"
+        keyboardVerticalOffset={100}
+      >
+        <SearchBar
+          placeholder="Search"
+          lightTheme
+          round
+          onChangeText={text => searchFilterFunction(text)}
+          autoCorrect={false}
+          value={value}
+        />
+        <FlatList
+          numColumns={2}
+          data = {data}
+          keyExtractor = {(item, index) => index.toString()}
+          renderItem = {renderGridItem}
+          //ListHeaderComponent={renderHeader}
+        />
+      </KeyboardAvoidingView>
 
     );
   }

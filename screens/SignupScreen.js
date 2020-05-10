@@ -94,6 +94,14 @@ const SignupScreen = props => {
 
   const authHandler = async () => {
 
+    //check form validity
+    if(!formState.formIsValid)
+    {
+      Alert.alert('Invalid Inputs!', 'Please check again!');
+
+      return;
+    }
+    
     let action;
 
     action = authActions.signup(formState.inputValues.email, formState.inputValues.password);
@@ -159,9 +167,10 @@ const SignupScreen = props => {
               keyboardType="default"
               secureTextEntry
               required
+              password
               minLength={10}
               autoCapitalize="none"
-              errorText="Please enter a valid password with at least 10 characters in length"
+              errorText="Please enter a valid password with at least 10 characters in length that contains uppercase, lowercase, numeric, and special characters"
               onInputChange={inputChangeHandler}
               initialValue=""
             />

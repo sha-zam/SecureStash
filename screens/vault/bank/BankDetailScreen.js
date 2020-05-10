@@ -11,10 +11,11 @@ import {
 } from 'react-native';
 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-import HeaderButton from '../../../components/HeaderButton.js';
+import { ListItem, Icon } from 'react-native-elements';
 
 //components import 
 import Card from '../../../components/Card.js';
+import HeaderButton  from '../../../components/HeaderButton.js';
 
 import { useSelector, useDispatch } from 'react-redux';
 import Colors from '../../../constants/Colors.js';
@@ -31,8 +32,6 @@ const BankDetailScreen = props => {
 
     //the use useSelector to retrieve bank`                                                                                                                                                                  
     const selectedBank = useSelector(state => state.storedBanks.userBanks.find(bank => bank.id === bankID));
-    
-    console.log(selectedBank);
 
     const [favState, setFavState] = useState(selectedBank.favorite);
 
@@ -55,36 +54,36 @@ const BankDetailScreen = props => {
         props.navigation.setParams({ isFav: favState });
     }, [favState]);
 
-    const copyHandler = async (value) => 
-    {
-        await Clipboard.setString(value);
-        // Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
-    };
+    // const copyHandler = async (value) => 
+    // {
+    //     await Clipboard.setString(value);
+    //     // Alert.alert('An Error Occurred!', 'Fail', [{ text: 'Okay' }]);
+    // };
 
-    const editHandler = id =>
-    {
-        props.navigation.navigate('EditBankDetail', {bankID : id})
-    };
+    // const editHandler = id =>
+    // {
+    //     props.navigation.navigate('EditBankDetail', {bankID : id})
+    // };
 
-    const deleteHandler = id =>
-    {
+    // const deleteHandler = id =>
+    // {
         
-        Alert.alert('Are you sure?', 'Do you really want to delete this bank account?', 
-        [
-            { text: 'No', style: 'default' },
+    //     Alert.alert('Are you sure?', 'Do you really want to delete this bank account?', 
+    //     [
+    //         { text: 'No', style: 'default' },
 
-            {
-                text: 'Yes',
-                style: 'destructive',
-                onPress: () => 
-                {
-                    props.navigation.goBack();
-                    dispatch(bankActions.deleteBanks(id));                   
-                }
-            }
+    //         {
+    //             text: 'Yes',
+    //             style: 'destructive',
+    //             onPress: () => 
+    //             {
+    //                 props.navigation.goBack();
+    //                 dispatch(bankActions.deleteBanks(id));                   
+    //             }
+    //         }
 
-        ]);
-    };
+    //     ]);
+    // };
 
     if(selectedBank)
     {
@@ -92,7 +91,7 @@ const BankDetailScreen = props => {
             <Card style={styles.bankContainer}>
                 <Text style={styles.titleText}>{selectedBank.bankName}</Text>
                 <View>
-                    <Button
+                    {/* <Button
                         color = {Colors.primary}
                         title = "Copy Account Number"
                         onPress = {() => {
@@ -129,6 +128,70 @@ const BankDetailScreen = props => {
                         color = {Colors.primary}
                         title = "Delete"
                         onPress = {deleteHandler.bind(this, bankID)}    
+                    /> */}
+
+                    <ListItem
+                        title='Folder'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedBank.folder}
+                        subtitleStyle={styles.listSub}
+                    />
+                    <ListItem
+                        title='Bank Name'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedBank.bankName}
+                        subtitleStyle={styles.listSub}
+                    />
+                    <ListItem
+                        title='Account Number'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedBank.accNum}
+                        subtitleStyle={styles.listSub}
+                    />
+                    <ListItem
+                        title='Account Type'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedBank.accType}
+                        subtitleStyle={styles.listSub}
+                    />
+                    <ListItem
+                        title='Account PIN'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedBank.pin}
+                        subtitleStyle={styles.listSub}
+                    />
+                    <ListItem
+                        title='Branch Address'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedBank.branchAddr}
+                        subtitleStyle={styles.listSub}
+                    />
+                    <ListItem
+                        title='Branch Phone Number'
+                        titleStyle={styles.listTitle}
+                        //leftIcon={{name : 'person-outline'}}
+                        bottomDivider
+                        //chevron
+                        subtitle={selectedBank.branchPhone}
+                        subtitleStyle={styles.listSub}
                     />
                 </View>
             </Card>
@@ -176,7 +239,19 @@ const styles = StyleSheet.create({
     {
         fontSize: 14,
         textAlign: 'center',
-        marginHorizontal: 20
+        marginHorizontal: 20,
+        marginVertical : 10
+    },
+
+    listTitle : 
+    {
+        fontSize : 15,
+        color : '#929390'
+    },
+
+    listSub :
+    {
+        fontSize : 15 , 
     }
 
 });

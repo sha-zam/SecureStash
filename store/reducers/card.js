@@ -54,7 +54,7 @@ export default (state = initialState, action) => {
 
             //create new Card
             const updatedCard = new Card (
-                action.aid, 
+                action.cid, 
                 state.userCards[cardIndex].userId, 
                 action.cardData.title, 
                 action.cardData.nameOnCard, 
@@ -84,7 +84,7 @@ export default (state = initialState, action) => {
             const cIndex = state.userCards.findIndex(card => card.id === action.cid);
 
             //update the account's favorite value
-            const updatedUserCs = [...state.userCard];
+            const updatedUserCs = [...state.userCards];
             updatedUserCs[cIndex].favorite = action.cardData.favorite;
 
             return {
