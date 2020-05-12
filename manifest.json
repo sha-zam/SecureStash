@@ -1,0 +1,28 @@
+{
+    "name" : "SecureStash",
+    "version" : "1.0",
+    "description" : "Secure Password Storage",
+    "manifest_version" : 2,
+    "browser_action":
+    {
+        "default_icon" : "icon.png",
+        "default_popup": "credentials.html"
+    },
+    "background": {
+      "page": "background.html"
+    },
+    "permissions" : 
+    [
+        "identity"
+    ],
+    "content_security_policy":"script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
+    "oauth2": {
+    "client_id": "1057222832226-4ffgg9j582cq0p4agorcp9bgrfrn8n8m.apps.googleusercontent.com",
+    "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email",
+        "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+    },
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyQeWr/FWkixjIImLcm2/RuYGzqGdL4hf14MlIscaNVn490/1+3EDhoaE5ubBLfKcDTEXi1Kr0/DciC/LjEOTh6kcdog77UOBfeRtcZ7ixzcVh9E+7ty9r4iSSOU2gm/AuhegF62Mxj56MvndcxUbowOEL+1qZuARUisQtDs8Mp4iHwOhHidH/aI/e5qp3PHd+b6CjoqqXA9RGnVB+/7VSgZwXn5DWuguDuGustCeuPq2I/7QKX+rA8lMFc3HtJbiVnIPsgG0NEAqnEKHDF7cNiaseqX57kNaog6IDGFbJAUM2MaSpEe6iX3Cy/OyBpFgRw/ZhGl6WwtaMyP7J/GJXQIDAQAB"
+
+}
